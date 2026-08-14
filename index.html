@@ -1,871 +1,547 @@
 <!DOCTYPE html>
 <html lang="zh-TW" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fru｜FOR YOU 客製所 - 你的創業專屬系統顧問</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        fru: {
-                            bg: '#F9F6F0',
-                            card: '#F2ECE1',
-                            cardLight: '#FFFFFF',
-                            primary: '#2B2623',
-                            secondary: '#6E635B',
-                            accent: '#A68A78',
-                            accentDark: '#8C6E5C',
-                            border: '#E3D8C8',
-                            badge: '#E8DFD1'
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['"Noto Sans TC"', 'sans-serif'],
-                        display: ['Outfit', '"Noto Sans TC"', 'sans-serif']
-                    }
-                }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fru｜FOR YOU 客製所 - 一人公司的外包數位與自動化團隊</title>
+  <meta name="description" content="讓一人公司，也能擁有專屬數位團隊。預約系統 × LINE@ 自動化 × 品牌形象網站 × 客製系統開發。">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Noto Sans TC & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#FAF8F5',
+              100: '#F3EFEA',
+              200: '#E6DFD5',
+              300: '#D5C8B8',
+              400: '#B8A48F',
+              500: '#9E8870',
+              600: '#7F6B55',
+              700: '#635342',
+              800: '#473B2F',
+              900: '#2C241D',
+            },
+            accent: {
+              warm: '#C28453',
+              dark: '#22201E',
             }
+          },
+          fontFamily: {
+            sans: ['"Noto Sans TC"', '"Plus Jakarta Sans"', 'sans-serif'],
+          }
         }
-    </script>
-    <style>
-        body {
-            background-color: #F9F6F0;
-            color: #2B2623;
-            font-family: 'Noto Sans TC', sans-serif;
-            overflow-x: hidden;
-        }
-        
-        .bg-soft-shadow {
-            box-shadow: 0 10px 30px -10px rgba(60, 50, 40, 0.08);
-        }
-
-        .custom-card-hover {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .custom-card-hover:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 16px 32px -8px rgba(60, 50, 40, 0.12);
-        }
-
-        /* Glassmorphism accent */
-        .glass-panel {
-            background: rgba(242, 236, 225, 0.7);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(227, 216, 200, 0.8);
-        }
-
-        /* Custom scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #F9F6F0;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #D5C8B5;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #A68A78;
-        }
-    </style>
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #FAF8F5;
+      color: #2C241D;
+    }
+    .hero-glow {
+      background: radial-gradient(circle at 50% 30%, rgba(213, 200, 184, 0.45) 0%, rgba(250, 248, 245, 0) 70%);
+    }
+  </style>
 </head>
-<body class="antialiased text-fru-primary selection:bg-fru-accent selection:text-white">
+<body class="font-sans antialiased selection:bg-brand-300 selection:text-brand-900">
 
-    <!-- 導覽列 Navigation -->
-    <nav class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 glass-panel border-b border-fru-border/50">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <!-- Brand Logo -->
-            <a href="#" class="flex items-center gap-3 group">
-                <div class="w-10 h-10 rounded-full bg-fru-primary text-fru-bg flex items-center justify-center font-display font-bold text-xl group-hover:bg-fru-accent transition-colors">
-                    F
-                </div>
-                <div>
-                    <span class="font-display font-bold text-2xl tracking-tight block leading-none">Fru</span>
-                    <span class="text-[10px] tracking-widest text-fru-secondary font-medium uppercase">FOR YOU 客製所</span>
-                </div>
-            </a>
+  <!-- Navigation -->
+  <header class="sticky top-0 z-50 backdrop-blur-md bg-brand-50/85 border-b border-brand-200/60 transition-all duration-200">
+    <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-3">
+        <span class="text-2xl font-bold tracking-tight text-accent-dark">Fru</span>
+        <span class="text-xs text-brand-500 font-normal border-l border-brand-300 pl-3 tracking-widest uppercase">FOR YOU 客製所</span>
+      </a>
+      
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-brand-700">
+        <a href="#services" class="hover:text-brand-900 transition-colors">服務核心</a>
+        <a href="#comparison" class="hover:text-brand-900 transition-colors">省時效益</a>
+        <a href="#solutions" class="hover:text-brand-900 transition-colors">適用產業</a>
+        <a href="#pricing" class="hover:text-brand-900 transition-colors">方案規劃</a>
+      </nav>
 
-            <!-- Desktop Links -->
-            <div class="hidden md:flex items-center gap-8 text-sm font-medium text-fru-secondary">
-                <a href="#services" class="hover:text-fru-primary transition-colors">服務項目</a>
-                <a href="#comparison" class="hover:text-fru-primary transition-colors">效益對比</a>
-                <a href="#calculator" class="hover:text-fru-primary transition-colors">省時試算</a>
-                <a href="#industries" class="hover:text-fru-primary transition-colors">適用產業</a>
-                <a href="#pricing" class="hover:text-fru-primary transition-colors">服務方案</a>
-                <a href="#process" class="hover:text-fru-primary transition-colors">合作流程</a>
-            </div>
+      <a href="#contact" class="inline-flex items-center justify-center px-5 py-2.5 rounded-full text-xs font-semibold tracking-wider text-white bg-accent-dark hover:bg-brand-800 transition-all shadow-sm">
+        免費預約諮詢
+      </a>
+    </div>
+  </header>
 
-            <!-- CTA Button -->
-            <div class="flex items-center gap-4">
-                <a href="#contact" class="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-fru-primary text-white text-sm font-medium hover:bg-fru-accent transition-all duration-300 shadow-sm">
-                    <i class="fa-regular font-normal fa-comments text-xs"></i>
-                    <span>免費預約諮詢</span>
-                </a>
-                
-                <!-- Mobile Menu Button -->
-                <button id="mobile-menu-btn" class="md:hidden p-2 text-fru-primary hover:text-fru-accent focus:outline-none">
-                    <i class="fa-solid fa-bars text-xl"></i>
-                </button>
-            </div>
+  <!-- Hero Section -->
+  <section class="relative pt-20 pb-28 md:pt-28 md:pb-36 overflow-hidden hero-glow">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-100/90 border border-brand-200 text-brand-700 text-xs font-medium mb-8">
+        <i data-lucide="sparkles" class="w-3.5 h-3.5 text-accent-warm"></i>
+        <span>一人公司 × 專屬外包數位團隊</span>
+      </div>
+      
+      <h1 class="text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight text-accent-dark leading-[1.2] mb-6">
+        把繁瑣的溝通交給系統<br>
+        <span class="text-brand-600 font-medium">把最珍貴的時間留給專業</span>
+      </h1>
+      
+      <p class="text-base sm:text-lg text-brand-700 max-w-2xl mx-auto mb-10 leading-relaxed font-light">
+        還在一個個回覆「有空嗎？」、手動確認檔期與提醒客戶？<br class="hidden sm:inline">
+        Fru 為美業、教練、講師與個人品牌打造 24H 不停歇的智能自動化與預約流程。
+      </p>
+
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="#contact" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full text-sm font-semibold text-white bg-accent-dark hover:bg-brand-800 transition-all shadow-md">
+          <span>告訴我們你的想法</span>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </a>
+        <a href="#calculator" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full text-sm font-medium text-brand-800 bg-brand-100 hover:bg-brand-200/70 border border-brand-200 transition-all">
+          <i data-lucide="calculator" class="w-4 h-4 text-brand-600"></i>
+          <span>試算每月可省下時數</span>
+        </a>
+      </div>
+
+      <div class="mt-14 flex items-center justify-center gap-6 text-xs text-brand-500">
+        <span class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-brand-600"></i> 免套版照需求做</span>
+        <span class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-brand-600"></i> 24H 零漏訊自動接單</span>
+        <span class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-brand-600"></i> 降低臨時爽約率</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Services -->
+  <section id="services" class="py-20 bg-white/70 border-y border-brand-200/50">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <p class="text-xs font-semibold uppercase tracking-widest text-accent-warm mb-2">Service Core</p>
+        <h2 class="text-2xl sm:text-3xl font-bold text-accent-dark">三大核心模組，串起完整數位營運</h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Card 1 -->
+        <div class="bg-brand-50 rounded-2xl p-8 border border-brand-200/80 shadow-sm hover:shadow-md transition-all">
+          <div class="w-12 h-12 rounded-xl bg-brand-100 flex items-center justify-center text-accent-dark mb-6">
+            <i data-lucide="calendar-check" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-xl font-bold text-accent-dark mb-3">線上預約系統</h3>
+          <p class="text-sm text-brand-600 mb-6 leading-relaxed">24 小時自動接單。客人自選可用時段，系統自動核銷檔期並於行前發送通知，大幅降低爽約率。</p>
+          <ul class="space-y-2.5 text-xs text-brand-700 font-medium">
+            <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-brand-500"></i> 客人自主預約選時段</li>
+            <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-brand-500"></i> 行事曆與後台實時同步</li>
+            <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-brand-500"></i> 預約日前自動發信/LINE 提醒</li>
+          </ul>
         </div>
 
-        <!-- Mobile Menu Drawer -->
-        <div id="mobile-menu" class="hidden md:hidden bg-fru-bg border-b border-fru-border px-6 py-6 space-y-4 shadow-xl">
-            <a href="#services" class="mobile-link block text-fru-secondary hover:text-fru-primary py-1 font-medium">服務項目</a>
-            <a href="#comparison" class="mobile-link block text-fru-secondary hover:text-fru-primary py-1 font-medium">效益對比</a>
-            <a href="#calculator" class="mobile-link block text-fru-secondary hover:text-fru-primary py-1 font-medium">省時試算</a>
-            <a href="#industries" class="mobile-link block text-fru-secondary hover:text-fru-primary py-1 font-medium">適用產業</a>
-            <a href="#pricing" class="mobile-link block text-fru-secondary hover:text-fru-primary py-1 font-medium">服務方案</a>
-            <a href="#process" class="mobile-link block text-fru-secondary hover:text-fru-primary py-1 font-medium">合作流程</a>
-            <a href="#contact" class="mobile-link block w-full text-center px-5 py-3 rounded-full bg-fru-primary text-white text-sm font-medium">免費預約諮詢</a>
+        <!-- Card 2 -->
+        <div class="bg-brand-50 rounded-2xl p-8 border border-brand-200/80 shadow-sm hover:shadow-md transition-all">
+          <div class="w-12 h-12 rounded-xl bg-brand-100 flex items-center justify-center text-accent-dark mb-6">
+            <i data-lucide="message-square-code" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-xl font-bold text-accent-dark mb-3">LINE@ 智能自動化</h3>
+          <p class="text-sm text-brand-600 mb-6 leading-relaxed">讓官方帳號成為你最得力的全職助理。常見問答立即秒回、自動貼標分群，經營舊客更精準省力。</p>
+          <ul class="space-y-2.5 text-xs text-brand-700 font-medium">
+            <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-brand-500"></i> 常見問題 0 秒即時回覆</li>
+            <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-brand-500"></i> 客戶行為自動標籤分類</li>
+            <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-brand-500"></i> 圖文選單與互動選單規劃</li>
+          </ul>
         </div>
-    </nav>
 
-    <!-- 主視覺區 Hero Section -->
-    <section class="pt-32 pb-20 md:pt-40 md:pb-28 px-6 overflow-hidden">
-        <div class="max-w-7xl mx-auto">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-                
-                <!-- Left Text Content -->
-                <div class="lg:col-span-7 space-y-8">
-                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-fru-badge text-fru-secondary text-xs md:text-sm font-medium tracking-wide">
-                        <span class="w-2 h-2 rounded-full bg-fru-accent animate-pulse"></span>
-                        <span>AI × Design × IT 專屬系統開發團隊</span>
-                    </div>
-
-                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight text-fru-primary">
-                        《讓一人公司，也能有自己的<span class="text-fru-accent underline decoration-fru-border underline-offset-8">數位團隊</span>》
-                    </h1>
-
-                    <p class="text-lg md:text-xl text-fru-secondary leading-relaxed max-w-2xl font-light">
-                        把你寶貴的時間，留給最重要的核心專業與客戶。<br class="hidden sm:inline">
-                        我們提供 <strong class="font-semibold text-fru-primary">預約系統 × LINE@自動化 × 品牌網站</strong>，為你的生意打造 24 小時不休息的自動接單大腦。
-                    </p>
-
-                    <!-- Feature Tags -->
-                    <div class="flex flex-wrap gap-3 text-sm text-fru-secondary pt-2">
-                        <span class="px-3.5 py-1.5 rounded-lg bg-fru-card border border-fru-border/80 flex items-center gap-2">
-                            <i class="fa-solid fa-check text-fru-accent text-xs"></i> 24H 自動接單
-                        </span>
-                        <span class="px-3.5 py-1.5 rounded-lg bg-fru-card border border-fru-border/80 flex items-center gap-2">
-                            <i class="fa-solid fa-check text-fru-accent text-xs"></i> 降低預約爽約率
-                        </span>
-                        <span class="px-3.5 py-1.5 rounded-lg bg-fru-card border border-fru-border/80 flex items-center gap-2">
-                            <i class="fa-solid fa-check text-fru-accent text-xs"></i> LINE 智慧自動回覆
-                        </span>
-                        <span class="px-3.5 py-1.5 rounded-lg bg-fru-card border border-fru-border/80 flex items-center gap-2">
-                            <i class="fa-solid fa-check text-fru-accent text-xs"></i> 品牌形象升級
-                        </span>
-                    </div>
-
-                    <!-- Action Buttons -->
-                    <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-4">
-                        <a href="#contact" class="px-8 py-4 rounded-full bg-fru-primary text-white text-base font-medium hover:bg-fru-accent text-center shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-3">
-                            <span>立即客製專屬方案</span>
-                            <i class="fa-solid fa-arrow-right text-sm"></i>
-                        </a>
-                        <a href="#calculator" class="px-8 py-4 rounded-full bg-fru-card text-fru-primary border border-fru-border text-base font-medium hover:bg-white text-center transition-all duration-300 flex items-center justify-center gap-2">
-                            <i class="fa-solid fa-calculator text-fru-accent"></i>
-                            <span>計算你能省下多少時間</span>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Right Mockup / Card Highlight -->
-                <div class="lg:col-span-5 relative">
-                    <!-- Background Glow Shapes -->
-                    <div class="absolute -top-10 -right-10 w-72 h-72 bg-fru-badge/60 rounded-full filter blur-3xl -z-10"></div>
-                    <div class="absolute -bottom-10 -left-10 w-64 h-64 bg-fru-accent/20 rounded-full filter blur-3xl -z-10"></div>
-
-                    <!-- Main Showcase Card -->
-                    <div class="bg-white rounded-3xl p-6 md:p-8 border border-fru-border bg-soft-shadow space-y-6 relative">
-                        <!-- Header badge inside card -->
-                        <div class="flex justify-between items-center border-b border-fru-border/60 pb-4">
-                            <div class="flex items-center gap-3">
-                                <div class="w-3 h-3 rounded-full bg-red-400"></div>
-                                <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
-                                <div class="w-3 h-3 rounded-full bg-green-400"></div>
-                            </div>
-                            <span class="text-xs font-mono text-fru-secondary bg-fru-bg px-3 py-1 rounded-full">Fru Automation Suite</span>
-                        </div>
-
-                        <!-- Card Mock Items -->
-                        <div class="space-y-4">
-                            <!-- Item 1: Auto Booking -->
-                            <div class="p-4 rounded-2xl bg-fru-bg border border-fru-border flex items-center gap-4">
-                                <div class="w-12 h-12 rounded-xl bg-fru-badge text-fru-accentDark flex items-center justify-center text-xl shrink-0">
-                                    <i class="fa-regular fa-calendar-check"></i>
-                                </div>
-                                <div class="flex-grow">
-                                    <div class="text-xs text-fru-secondary">客戶成功完成預約</div>
-                                    <div class="text-sm font-bold text-fru-primary">明日 14:00 健身課程 (已自動發送提醒)</div>
-                                </div>
-                                <span class="text-xs font-semibold text-emerald-700 bg-emerald-100 px-2.5 py-1 rounded-full">已成功</span>
-                            </div>
-
-                            <!-- Item 2: LINE Auto Reply -->
-                            <div class="p-4 rounded-2xl bg-fru-bg border border-fru-border flex items-center gap-4">
-                                <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center text-xl shrink-0">
-                                    <i class="fa-brands fa-line"></i>
-                                </div>
-                                <div class="flex-grow">
-                                    <div class="text-xs text-fru-secondary">LINE@ 智能客服回覆</div>
-                                    <div class="text-sm font-bold text-fru-primary">已自動回覆課程價目表與介紹</div>
-                                </div>
-                                <span class="text-xs font-semibold text-fru-secondary bg-fru-card px-2.5 py-1 rounded-full">0.5秒完成</span>
-                            </div>
-
-                            <!-- Item 3: Website Sync -->
-                            <div class="p-4 rounded-2xl bg-fru-bg border border-fru-border flex items-center gap-4">
-                                <div class="w-12 h-12 rounded-xl bg-amber-100 text-amber-800 flex items-center justify-center text-xl shrink-0">
-                                    <i class="fa-solid fa-globe"></i>
-                                </div>
-                                <div class="flex-grow">
-                                    <div class="text-xs text-fru-secondary">品牌官網數據同步</div>
-                                    <div class="text-sm font-bold text-fru-primary">今日累積 128 位潛在客戶瀏覽</div>
-                                </div>
-                                <span class="text-xs font-semibold text-amber-800 bg-amber-100 px-2.5 py-1 rounded-full">+35% 轉化</span>
-                            </div>
-                        </div>
-
-                        <!-- Card Footer stat -->
-                        <div class="pt-2 text-center bg-fru-card/50 rounded-xl p-3 border border-fru-border/50">
-                            <span class="text-xs text-fru-secondary">幫你省去每日高達 <strong class="text-fru-primary font-bold">2.5 小時</strong> 的重複訊息溝通時間</span>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
+        <!-- Card 3 -->
+        <div class="bg-brand-50 rounded-2xl p-8 border border-brand-200/80 shadow-sm hover:shadow-md transition-all">
+          <div class="w-12 h-12 rounded-xl bg-brand-100 flex items-center justify-center text-accent-dark mb-6">
+            <i data-lucide="layout-template" class="w-6 h-6"></i>
+          </div>
+          <h3 class="text-xl font-bold text-accent-dark mb-3">高質感品牌官網</h3>
+          <p class="text-sm text-brand-600 mb-6 leading-relaxed">好看，也要好用。融合日系雜誌風的高級視覺與高轉換架構，完美呈現作品集、價目表與品牌故事。</p>
+          <ul class="space-y-2.5 text-xs text-brand-700 font-medium">
+            <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-brand-500"></i> 手機與電腦極速自適應</li>
+            <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-brand-500"></i> 整合預約與服務報價流程</li>
+            <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-brand-500"></i> SEO 搜尋引擎友善架構</li>
+          </ul>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- 痛點比較區 Pain Points Comparison -->
-    <section id="comparison" class="py-20 bg-fru-card border-y border-fru-border px-6">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
-                <span class="text-xs uppercase tracking-widest text-fru-accent font-bold">PAIN POINTS vs AUTOMATION</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-fru-primary">還在一個一個回「請問這天有空嗎？」</h2>
-                <p class="text-fru-secondary text-base md:text-lg font-light">
-                    把重複瑣碎的事交給系統處理，讓您專注於真正重要的事業發展與服務體驗。
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
-                <!-- 傳統人工處理 (Traditional) -->
-                <div class="bg-white/80 rounded-3xl p-8 border border-red-200 space-y-6 relative">
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-100 text-red-700 text-xs font-bold">
-                        <i class="fa-solid fa-xmark"></i> 傳統人工處理
-                    </div>
-                    <h3 class="text-2xl font-bold text-fru-primary">耗時耗力，容易漏單</h3>
-
-                    <ul class="space-y-4 text-fru-secondary">
-                        <li class="flex items-start gap-3">
-                            <i class="fa-solid fa-circle-xmark text-red-400 text-lg mt-1 shrink-0"></i>
-                            <span><strong class="text-fru-primary">重複訊息回不停：</strong>隨時被訊息打斷工作，沒辦法專心教學或施作。</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <i class="fa-solid fa-circle-xmark text-red-400 text-lg mt-1 shrink-0"></i>
-                            <span><strong class="text-fru-primary">客戶等待時間長：</strong>忙碌時無法及時回覆，客戶轉頭向競爭對手諮詢。</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <i class="fa-solid fa-circle-xmark text-red-400 text-lg mt-1 shrink-0"></i>
-                            <span><strong class="text-fru-primary">爽約臨時取消：</strong>忘記課前提醒或重複人工確認，產生空班損失。</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <i class="fa-solid fa-circle-xmark text-red-400 text-lg mt-1 shrink-0"></i>
-                            <span><strong class="text-fru-primary">時間被行政佔滿：</strong>晚上下班還要整理預約名單、記錄顧客歷史需求。</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Fru 自動化系統 (Automation) -->
-                <div class="bg-white rounded-3xl p-8 border-2 border-fru-accent bg-soft-shadow space-y-6 relative">
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold">
-                        <i class="fa-solid fa-check"></i> Fru 自動化系統
-                    </div>
-                    <h3 class="text-2xl font-bold text-fru-primary">24 小時自動接單，省時又專業</h3>
-
-                    <ul class="space-y-4 text-fru-secondary">
-                        <li class="flex items-start gap-3">
-                            <i class="fa-solid fa-circle-check text-emerald-600 text-lg mt-1 shrink-0"></i>
-                            <span><strong class="text-fru-primary">客人自主點選預約：</strong>系統自動秀出可預約時段，24 小時隨時下單。</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <i class="fa-solid fa-circle-check text-emerald-600 text-lg mt-1 shrink-0"></i>
-                            <span><strong class="text-fru-primary">課前 / 預約自動提醒：</strong>系統發送提醒簡訊與 LINE 推播，降低 80% 爽約率。</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <i class="fa-solid fa-circle-check text-emerald-600 text-lg mt-1 shrink-0"></i>
-                            <span><strong class="text-fru-primary">LINE 常見問題秒回：</strong>價目表、交通指南、常見 Q&A 自動導流解答。</span>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <i class="fa-solid fa-circle-check text-emerald-600 text-lg mt-1 shrink-0"></i>
-                            <span><strong class="text-fru-primary">建立專屬品牌形象：</strong>質感畫面讓顧客感受專業，增加品牌信任感與黏著度。</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 服務項目 Core Services -->
-    <section id="services" class="py-24 px-6">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
-                <span class="text-xs uppercase tracking-widest text-fru-accent font-bold">CORE SERVICES</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-fru-primary">專為一人公司與店家打造的三大自動化利器</h2>
-                <p class="text-fru-secondary text-base md:text-lg font-light">
-                    從品牌第一眼印象，到全自動接單導流，為您構建完整的數位營運生態系。
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Service 1 -->
-                <div class="bg-white rounded-3xl p-8 border border-fru-border custom-card-hover flex flex-col justify-between space-y-6">
-                    <div class="space-y-4">
-                        <div class="w-14 h-14 rounded-2xl bg-fru-card text-fru-accentDark flex items-center justify-center text-2xl">
-                            <i class="fa-regular fa-calendar-alt"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold text-fru-primary">24H 預約系統</h3>
-                        <p class="text-sm text-fru-secondary leading-relaxed font-light">
-                            告別繁瑣的文字來回確認。讓顧客在手機上直接選擇日期與時間，自動整合行事曆與排班管理。
-                        </p>
-                        <hr class="border-fru-border/60">
-                        <ul class="space-y-2 text-xs text-fru-secondary">
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-angle-right text-fru-accent"></i> 客人自主選擇服務項目與時段</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-angle-right text-fru-accent"></i> 自動課前/前一日推播提醒</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-angle-right text-fru-accent"></i> 後台時段與名額彈性管控</li>
-                        </ul>
-                    </div>
-                    <a href="#contact" class="text-xs font-bold text-fru-accent hover:text-fru-primary inline-flex items-center gap-1">
-                        了解預約系統細節 <i class="fa-solid fa-arrow-right"></i>
-                    </a>
-                </div>
-
-                <!-- Service 2 -->
-                <div class="bg-white rounded-3xl p-8 border border-fru-border custom-card-hover flex flex-col justify-between space-y-6">
-                    <div class="space-y-4">
-                        <div class="w-14 h-14 rounded-2xl bg-fru-card text-fru-accentDark flex items-center justify-center text-2xl">
-                            <i class="fa-comments fa-regular"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold text-fru-primary">LINE@ 自動化</h3>
-                        <p class="text-sm text-fru-secondary leading-relaxed font-light">
-                            打造智慧 LINE 官方帳號！自動客服選單、標籤精準分類、常見問題即時回覆，客服不中斷。
-                        </p>
-                        <hr class="border-fru-border/60">
-                        <ul class="space-y-2 text-xs text-fru-secondary">
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-angle-right text-fru-accent"></i> 圖文選單視覺規劃與建置</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-angle-right text-fru-accent"></i> 關鍵字自動回覆與常見問答</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-angle-right text-fru-accent"></i> 顧客標籤分類與精準行銷</li>
-                        </ul>
-                    </div>
-                    <a href="#contact" class="text-xs font-bold text-fru-accent hover:text-fru-primary inline-flex items-center gap-1">
-                        了解 LINE 自動化 <i class="fa-solid fa-arrow-right"></i>
-                    </a>
-                </div>
-
-                <!-- Service 3 -->
-                <div class="bg-white rounded-3xl p-8 border border-fru-border custom-card-hover flex flex-col justify-between space-y-6">
-                    <div class="space-y-4">
-                        <div class="w-14 h-14 rounded-2xl bg-fru-card text-fru-accentDark flex items-center justify-center text-2xl">
-                            <i class="fa-solid fa-laptop-code"></i>
-                        </div>
-                        <h3 class="text-2xl font-bold text-fru-primary">品牌網站設計</h3>
-                        <p class="text-sm text-fru-secondary leading-relaxed font-light">
-                            「好看，也要好用。」專屬個人品牌或店家的高質感形象官網，展現專業度，提高顧客下單信任感。
-                        </p>
-                        <hr class="border-fru-border/60">
-                        <ul class="space-y-2 text-xs text-fru-secondary">
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-angle-right text-fru-accent"></i> 手機與電腦響應式美學設計</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-angle-right text-fru-accent"></i> 品牌作品集與服務項目展示</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-angle-right text-fru-accent"></i> 完美整合預約與 LINE@ 導流</li>
-                        </ul>
-                    </div>
-                    <a href="#contact" class="text-xs font-bold text-fru-accent hover:text-fru-primary inline-flex items-center gap-1">
-                        了解品牌網站建置 <i class="fa-solid fa-arrow-right"></i>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Full Customization Highlight -->
-            <div class="mt-12 bg-fru-card rounded-3xl p-8 border border-fru-border flex flex-col md:flex-row items-center justify-between gap-6">
-                <div class="space-y-2 text-center md:text-left">
-                    <span class="text-xs font-bold text-fru-accent uppercase tracking-widest">CUSTOMIZED SYSTEM</span>
-                    <h4 class="text-xl font-bold text-fru-primary">需要特殊的業務流程或全客製系統開發？</h4>
-                    <p class="text-sm text-fru-secondary font-light">我們的工程團隊具備 AI × Design × IT 背景，能依據您的特定生意模式量身開發。</p>
-                </div>
-                <a href="#contact" class="px-6 py-3 rounded-full bg-fru-primary text-white text-sm font-medium hover:bg-fru-accent transition-all shrink-0">
-                    聊聊您的特殊需求
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- 互動式省時效益試算器 Calculator Section -->
-    <section id="calculator" class="py-20 bg-fru-primary text-white px-6">
-        <div class="max-w-5xl mx-auto">
-            <div class="text-center max-w-2xl mx-auto mb-12 space-y-4">
-                <span class="text-xs uppercase tracking-widest text-fru-accent font-bold">ROI CALCULATOR</span>
-                <h2 class="text-3xl md:text-4xl font-bold">計算自動化能為您省下多少時間？</h2>
-                <p class="text-fru-badge text-sm md:text-base font-light">
-                    拉動下方滑桿，看看導入自動預約與 LINE 系統後，您每年能多出多少專注創作或休息的時間！
-                </p>
-            </div>
-
-            <div class="bg-white/10 backdrop-blur-lg rounded-3xl p-8 md:p-12 border border-white/20 space-y-8">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                    
-                    <!-- Inputs -->
-                    <div class="space-y-6">
-                        <!-- Slider 1 -->
-                        <div>
-                            <div class="flex justify-between items-center text-sm mb-2">
-                                <label class="font-medium text-fru-bg">每週預約 / 諮詢訊息數</label>
-                                <span id="msg-count-val" class="font-bold text-fru-accent text-lg">30 則</span>
-                            </div>
-                            <input type="range" id="msg-count" min="10" max="200" value="30" step="5" class="w-full h-2 bg-white/20 rounded-lg appearance-none cursor-pointer accent-fru-accent">
-                        </div>
-
-                        <!-- Slider 2 -->
-                        <div>
-                            <div class="flex justify-between items-center text-sm mb-2">
-                                <label class="font-medium text-fru-bg">每則訊息平均溝通時間</label>
-                                <span id="msg-time-val" class="font-bold text-fru-accent text-lg">8 分鐘</span>
-                            </div>
-                            <input type="range" id="msg-time" min="3" max="20" value="8" step="1" class="w-full h-2 bg-white/20 rounded-lg appearance-none cursor-pointer accent-fru-accent">
-                        </div>
-
-                        <!-- Slider 3 -->
-                        <div>
-                            <div class="flex justify-between items-center text-sm mb-2">
-                                <label class="font-medium text-fru-bg">您的時薪價值 (NTD)</label>
-                                <span id="hourly-rate-val" class="font-bold text-fru-accent text-lg">NT$ 800 / hr</span>
-                            </div>
-                            <input type="range" id="hourly-rate" min="300" max="3000" value="800" step="100" class="w-full h-2 bg-white/20 rounded-lg appearance-none cursor-pointer accent-fru-accent">
-                        </div>
-                    </div>
-
-                    <!-- Output Results Card -->
-                    <div class="bg-white text-fru-primary rounded-2xl p-6 md:p-8 space-y-6 text-center border border-white">
-                        <div class="space-y-1">
-                            <span class="text-xs text-fru-secondary font-medium">每月預計省下的溝通時間</span>
-                            <div id="result-hours" class="text-4xl md:text-5xl font-extrabold text-fru-primary">16 小時</div>
-                        </div>
-
-                        <hr class="border-fru-border">
-
-                        <div class="space-y-1">
-                            <span class="text-xs text-fru-secondary font-medium">換算每年多釋放的時間價值</span>
-                            <div id="result-money" class="text-3xl md:text-4xl font-extrabold text-fru-accentDark">NT$ 153,600</div>
-                        </div>
-
-                        <p class="text-xs text-fru-secondary font-light">
-                            *這些時間足以讓您多服務 15+ 位學生或顧客，或是好好的休假陪伴家人！
-                        </p>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 適用產業 Target Audience -->
-    <section id="industries" class="py-24 px-6 bg-fru-bg">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
-                <span class="text-xs uppercase tracking-widest text-fru-accent font-bold">TARGET AUDIENCE</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-fru-primary">你是哪一種創業者？你的產業也適合自動化！</h2>
-                <p class="text-fru-secondary text-base md:text-lg font-light">
-                    只要你的生意需要「預約、回覆、介紹、成交」，就有可以被系統化的地方。
-                </p>
-            </div>
-
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-6">
-                <!-- Industry Item 1 -->
-                <div class="bg-white rounded-2xl p-6 text-center border border-fru-border custom-card-hover space-y-3">
-                    <div class="w-12 h-12 mx-auto rounded-full bg-fru-card text-fru-accent flex items-center justify-center text-xl">
-                        <i class="fa-solid fa-hand-sparkles"></i>
-                    </div>
-                    <h4 class="font-bold text-fru-primary text-sm md:text-base">美業美甲 SPA</h4>
-                    <p class="text-xs text-fru-secondary font-light">作品展示、服務預約、自動提醒</p>
-                </div>
-
-                <!-- Industry Item 2 -->
-                <div class="bg-white rounded-2xl p-6 text-center border border-fru-border custom-card-hover space-y-3">
-                    <div class="w-12 h-12 mx-auto rounded-full bg-fru-card text-fru-accent flex items-center justify-center text-xl">
-                        <i class="fa-solid fa-dumbbell"></i>
-                    </div>
-                    <h4 class="font-bold text-fru-primary text-sm md:text-base">健身教練</h4>
-                    <p class="text-xs text-fru-secondary font-light">體驗課預約、學員時段管理</p>
-                </div>
-
-                <!-- Industry Item 3 -->
-                <div class="bg-white rounded-2xl p-6 text-center border border-fru-border custom-card-hover space-y-3">
-                    <div class="w-12 h-12 mx-auto rounded-full bg-fru-card text-fru-accent flex items-center justify-center text-xl">
-                        <i class="fa-solid fa-graduation-cap"></i>
-                    </div>
-                    <h4 class="font-bold text-fru-primary text-sm md:text-base">講師顧問</h4>
-                    <p class="text-xs text-fru-secondary font-light">1對1諮詢排程、自動發送連結</p>
-                </div>
-
-                <!-- Industry Item 4 -->
-                <div class="bg-white rounded-2xl p-6 text-center border border-fru-border custom-card-hover space-y-3">
-                    <div class="w-12 h-12 mx-auto rounded-full bg-fru-card text-fru-accent flex items-center justify-center text-xl">
-                        <i class="fa-solid fa-stethoscope"></i>
-                    </div>
-                    <h4 class="font-bold text-fru-primary text-sm md:text-base">診所服務</h4>
-                    <p class="text-xs text-fru-secondary font-light">掛號門診引導、衛教自動發送</p>
-                </div>
-
-                <!-- Industry Item 5 -->
-                <div class="bg-white rounded-2xl p-6 text-center border border-fru-border custom-card-hover space-y-3">
-                    <div class="w-12 h-12 mx-auto rounded-full bg-fru-card text-fru-accent flex items-center justify-center text-xl">
-                        <i class="fa-solid fa-camera"></i>
-                    </div>
-                    <h4 class="font-bold text-fru-primary text-sm md:text-base">攝影造型</h4>
-                    <p class="text-xs text-fru-secondary font-light">檔期查詢、風格問券、合約填寫</p>
-                </div>
-
-                <!-- Industry Item 6 -->
-                <div class="bg-white rounded-2xl p-6 text-center border border-fru-border custom-card-hover space-y-3">
-                    <div class="w-12 h-12 mx-auto rounded-full bg-fru-card text-fru-accent flex items-center justify-center text-xl">
-                        <i class="fa-solid fa-store"></i>
-                    </div>
-                    <h4 class="font-bold text-fru-primary text-sm md:text-base">個人品牌店家</h4>
-                    <p class="text-xs text-fru-secondary font-light">客製產品需求、訂購表單整合</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 服務方案 Flexible Plans -->
-    <section id="pricing" class="py-24 bg-fru-card border-y border-fru-border px-6">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
-                <span class="text-xs uppercase tracking-widest text-fru-accent font-bold">FLEXIBLE PLANS</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-fru-primary">多少錢可以開始？彈性方案符合不同階段的你</h2>
-                <p class="text-fru-secondary text-base md:text-lg font-light">
-                    依需求選擇，從單一服務開始也可以！沒有標準答案，只有最適合你的方案。
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Plan 1 -->
-                <div class="bg-white rounded-3xl p-8 border border-fru-border space-y-6 flex flex-col justify-between">
-                    <div class="space-y-6">
-                        <div class="space-y-2">
-                            <span class="text-xs font-bold text-fru-secondary bg-fru-bg px-3 py-1 rounded-full">剛起步推薦</span>
-                            <h3 class="text-2xl font-bold text-fru-primary pt-2">入門方案</h3>
-                            <p class="text-xs text-fru-secondary">從基礎開始，快速上線，解決最核心接單痛點。</p>
-                        </div>
-
-                        <hr class="border-fru-border/60">
-
-                        <ul class="space-y-3 text-sm text-fru-secondary">
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600"></i> 24H 線上預約系統建置</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600"></i> 自動行事曆與排班同步</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600"></i> 預約自動提醒通知 (防爽約)</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600"></i> 基本後台預約管理教學</li>
-                        </ul>
-                    </div>
-
-                    <a href="#contact" class="w-full py-3 rounded-full bg-fru-bg text-fru-primary font-medium border border-fru-border hover:bg-fru-primary hover:text-white text-center transition-colors block">
-                        私訊諮詢入門方案
-                    </a>
-                </div>
-
-                <!-- Plan 2 (Highlighted) -->
-                <div class="bg-white rounded-3xl p-8 border-2 border-fru-accent bg-soft-shadow space-y-6 flex flex-col justify-between relative">
-                    <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-fru-accent text-white text-xs font-bold px-4 py-1 rounded-full uppercase tracking-wider">
-                        人氣推薦 Popular
-                    </div>
-
-                    <div class="space-y-6 pt-2">
-                        <div class="space-y-2">
-                            <span class="text-xs font-bold text-fru-accent bg-fru-badge px-3 py-1 rounded-full">已有穩定客源</span>
-                            <h3 class="text-2xl font-bold text-fru-primary pt-2">進階自動化方案</h3>
-                            <p class="text-xs text-fru-secondary">整合溝通與管理，全面提升客戶預約與回購體驗。</p>
-                        </div>
-
-                        <hr class="border-fru-border/60">
-
-                        <ul class="space-y-3 text-sm text-fru-secondary">
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600"></i> <strong class="text-fru-primary">包含入門方案所有功能</strong></li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600"></i> LINE@ 官方帳號選單視覺設計</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600"></i> 智慧自動回覆與常見 Q&A 建置</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600"></i> 顧客標籤分類與顧客關係管理</li>
-                        </ul>
-                    </div>
-
-                    <a href="#contact" class="w-full py-3 rounded-full bg-fru-primary text-white font-medium hover:bg-fru-accent text-center transition-colors block shadow-md">
-                        洽詢進階熱門方案
-                    </a>
-                </div>
-
-                <!-- Plan 3 -->
-                <div class="bg-white rounded-3xl p-8 border border-fru-border space-y-6 flex flex-col justify-between">
-                    <div class="space-y-6">
-                        <div class="space-y-2">
-                            <span class="text-xs font-bold text-fru-secondary bg-fru-bg px-3 py-1 rounded-full">打造專屬品牌</span>
-                            <h3 class="text-2xl font-bold text-fru-primary pt-2">品牌旗艦方案</h3>
-                            <p class="text-xs text-fru-secondary">完整品牌官網 + 專屬系統客製，建立頂級專業形象。</p>
-                        </div>
-
-                        <hr class="border-fru-border/60">
-
-                        <ul class="space-y-3 text-sm text-fru-secondary">
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600"></i> 質感品牌形象官網設計</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600"></i> 預約系統與 LINE@ 深度串接</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600"></i> 特殊業務流程全客製開發</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-600"></i> 後續維護顧問與技術支援</li>
-                        </ul>
-                    </div>
-
-                    <a href="#contact" class="w-full py-3 rounded-full bg-fru-bg text-fru-primary font-medium border border-fru-border hover:bg-fru-primary hover:text-white text-center transition-colors block">
-                        預約旗艦客製諮詢
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 合作流程 Process Section -->
-    <section id="process" class="py-24 px-6 bg-fru-bg">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
-                <span class="text-xs uppercase tracking-widest text-fru-accent font-bold">WORKFLOW</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-fru-primary">四個步驟，輕鬆打造專屬自動化系統</h2>
-                <p class="text-fru-secondary text-base md:text-lg font-light">
-                    不需要懂任何複雜程式或技術，交給 Fru 團隊為您全權規劃建置。
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 relative">
-                <!-- Process Step 1 -->
-                <div class="bg-white rounded-3xl p-6 border border-fru-border relative space-y-4">
-                    <div class="w-10 h-10 rounded-full bg-fru-primary text-white font-bold flex items-center justify-center">1</div>
-                    <h3 class="text-lg font-bold text-fru-primary">需求訪談</h3>
-                    <p class="text-xs text-fru-secondary leading-relaxed font-light">
-                        深入了解您的生意模式、服務項目與目前遇到的接單痛點。
-                    </p>
-                </div>
-
-                <!-- Process Step 2 -->
-                <div class="bg-white rounded-3xl p-6 border border-fru-border relative space-y-4">
-                    <div class="w-10 h-10 rounded-full bg-fru-primary text-white font-bold flex items-center justify-center">2</div>
-                    <h3 class="text-lg font-bold text-fru-primary">規劃設計</h3>
-                    <p class="text-xs text-fru-secondary leading-relaxed font-light">
-                        提供最適合您的系統架構、視覺風格與自動化動線規劃。
-                    </p>
-                </div>
-
-                <!-- Process Step 3 -->
-                <div class="bg-white rounded-3xl p-6 border border-fru-border relative space-y-4">
-                    <div class="w-10 h-10 rounded-full bg-fru-primary text-white font-bold flex items-center justify-center">3</div>
-                    <h3 class="text-lg font-bold text-fru-primary">開發製作</h3>
-                    <p class="text-xs text-fru-secondary leading-relaxed font-light">
-                        工程與設計團隊進行系統開發、LINE@ 串接與測試驗證。
-                    </p>
-                </div>
-
-                <!-- Process Step 4 -->
-                <div class="bg-white rounded-3xl p-6 border border-fru-border relative space-y-4">
-                    <div class="w-10 h-10 rounded-full bg-fru-accent text-white font-bold flex items-center justify-center">4</div>
-                    <h3 class="text-lg font-bold text-fru-primary">測試陪伴上線</h3>
-                    <p class="text-xs text-fru-secondary leading-relaxed font-light">
-                        完整教學指導，陪您一起上線運行，隨時提供技術後援。
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 諮詢表單區 Contact Section -->
-    <section id="contact" class="py-24 px-6 bg-fru-card border-t border-fru-border">
-        <div class="max-w-4xl mx-auto bg-white rounded-3xl p-8 md:p-12 border border-fru-border bg-soft-shadow space-y-8">
-            <div class="text-center space-y-3">
-                <span class="text-xs uppercase tracking-widest text-fru-accent font-bold">GET IN TOUCH</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-fru-primary">告訴我們你的想法，讓我們幫你實現</h2>
-                <p class="text-fru-secondary text-sm md:text-base font-light">
-                    填寫下方表單，預約 30 分鐘免費線上諮詢，讓我們為您量身打造自動化解方！
-                </p>
-            </div>
-
-            <!-- Form -->
-            <form id="consult-form" class="space-y-6">
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    <div>
-                        <label class="block text-xs font-medium text-fru-primary mb-2">您的姓名 / 品牌名稱 *</label>
-                        <input type="text" required placeholder="例：林小姐 / 美感沙龍工作室" class="w-full px-4 py-3 rounded-xl border border-fru-border bg-fru-bg focus:outline-none focus:ring-2 focus:ring-fru-accent text-sm">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-medium text-fru-primary mb-2">聯絡方式 (LINE ID 或 電話) *</label>
-                        <input type="text" required placeholder="請輸入 LINE ID 或 手機號碼" class="w-full px-4 py-3 rounded-xl border border-fru-border bg-fru-bg focus:outline-none focus:ring-2 focus:ring-fru-accent text-sm">
-                    </div>
-                </div>
-
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    <div>
-                        <label class="block text-xs font-medium text-fru-primary mb-2">您的產業類別 *</label>
-                        <select required class="w-full px-4 py-3 rounded-xl border border-fru-border bg-fru-bg focus:outline-none focus:ring-2 focus:ring-fru-accent text-sm text-fru-primary">
-                            <option value="">請選擇產業類型</option>
-                            <option value="美業/美甲/SPA">美業 / 美甲 / 睫毛 SPA</option>
-                            <option value="健身教練/運動工作室">健身教練 / 運動工作室</option>
-                            <option value="講師/顧問服務">講師 / 顧問諮詢</option>
-                            <option value="診所/醫療服務">診所 / 專業服務</option>
-                            <option value="攝影/造型設計">攝影 / 造型設計</option>
-                            <option value="其他個人品牌">其他個人品牌 / 品牌店家</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="block text-xs font-medium text-fru-primary mb-2">主要有興趣的服務 (可多選)</label>
-                        <select class="w-full px-4 py-3 rounded-xl border border-fru-border bg-fru-bg focus:outline-none focus:ring-2 focus:ring-fru-accent text-sm text-fru-primary">
-                            <option value="24H線上預約系統">24H 線上預約系統</option>
-                            <option value="LINE@自動化與客服">LINE@ 自動化與客服</option>
-                            <option value="品牌官網設計建置">品牌官網設計建置</option>
-                            <option value="全客製系統開發">全客製系統開發</option>
-                            <option value="尚不確定，想先諮詢">尚不確定，想先線上聊天討論</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div>
-                    <label class="block text-xs font-medium text-fru-primary mb-2">您目前遇到最大的接單或管理痛點（選填）</label>
-                    <textarea rows="4" placeholder="例如：每天要花 2 小時確認預約時間，希望能自動化..." class="w-full px-4 py-3 rounded-xl border border-fru-border bg-fru-bg focus:outline-none focus:ring-2 focus:ring-fru-accent text-sm"></textarea>
-                </div>
-
-                <button type="submit" class="w-full py-4 rounded-full bg-fru-primary text-white font-bold hover:bg-fru-accent transition-all duration-300 shadow-lg text-base">
-                    免費送出諮詢申請
-                </button>
-            </form>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-fru-primary text-white py-12 px-6 border-t border-fru-border/20">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
-            <div class="space-y-2 text-center md:text-left">
-                <div class="flex items-center justify-center md:justify-start gap-3">
-                    <div class="w-8 h-8 rounded-full bg-fru-accent text-white flex items-center justify-center font-bold text-sm">F</div>
-                    <span class="font-display font-bold text-xl">Fru｜FOR YOU 客製所</span>
-                </div>
-                <p class="text-xs text-fru-badge font-light">讓一人公司，也能有自己的數位團隊。</p>
-            </div>
-
-            <div class="flex items-center gap-6 text-sm text-fru-badge">
-                <a href="https://www.instagram.com/fru.foryou/" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors flex items-center gap-2">
-                    <i class="fa-brands fa-instagram text-lg"></i>
-                    <span>@fru.foryou</span>
-                </a>
-            </div>
-
-            <div class="text-xs text-fru-badge/60">
-                © 2026 Fru｜FOR YOU 客製所. All Rights Reserved.
-            </div>
-        </div>
-    </footer>
-
-    <!-- Success Modal -->
-    <div id="success-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden flex items-center justify-center px-6">
-        <div class="bg-white rounded-3xl p-8 max-w-md w-full text-center space-y-6 border border-fru-border">
-            <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center text-3xl mx-auto">
-                <i class="fa-solid fa-check"></i>
-            </div>
-            <h3 class="text-2xl font-bold text-fru-primary">諮詢需求已成功送出！</h3>
-            <p class="text-sm text-fru-secondary leading-relaxed">
-                感謝您的留訊！Fru 客製所的團隊將於 24 小時內透過 LINE 或電話與您聯繫，為您進行免費諮詢與規劃。
-            </p>
-            <button id="close-modal-btn" class="w-full py-3 rounded-full bg-fru-primary text-white font-medium hover:bg-fru-accent transition-colors">
-                好的，瞭解！
-            </button>
-        </div>
+  <!-- Pain Point Comparison -->
+  <section id="comparison" class="py-20 max-w-5xl mx-auto px-6">
+    <div class="text-center max-w-2xl mx-auto mb-14">
+      <p class="text-xs font-semibold uppercase tracking-widest text-accent-warm mb-2">Before & After</p>
+      <h2 class="text-2xl sm:text-3xl font-bold text-accent-dark">還在一個一個回「有空嗎？」</h2>
     </div>
 
-    <!-- JavaScript for Interactivity -->
-    <script>
-        // Mobile Menu Toggle
-        const mobileBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const mobileLinks = document.querySelectorAll('.mobile-link');
+    <div class="grid md:grid-cols-2 gap-8">
+      <!-- Old Way -->
+      <div class="bg-brand-100/60 rounded-2xl p-8 border border-brand-200">
+        <div class="flex items-center gap-3 mb-6">
+          <span class="w-8 h-8 rounded-full bg-red-100 text-red-600 flex items-center justify-center text-sm font-bold">✕</span>
+          <h3 class="text-lg font-bold text-brand-900">傳統人工預約流程</h3>
+        </div>
+        <ul class="space-y-4 text-sm text-brand-700">
+          <li class="flex items-start gap-3">
+            <span class="text-red-500 font-bold mt-0.5">•</span>
+            <span>客人私訊等半天，忙碌中漏回直接流失訂單</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-red-500 font-bold mt-0.5">•</span>
+            <span>來回對焦「這天可以嗎？幾點行？」耗費 15 分鐘</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-red-500 font-bold mt-0.5">•</span>
+            <span>手動記行事曆容易重疊撞期、漏記預約</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-red-500 font-bold mt-0.5">•</span>
+            <span>客人臨時忘記或爽約，寶貴檔期直接開天窗</span>
+          </li>
+        </ul>
+      </div>
 
-        mobileBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
+      <!-- New Way -->
+      <div class="bg-white rounded-2xl p-8 border-2 border-brand-400 shadow-md">
+        <div class="flex items-center gap-3 mb-6">
+          <span class="w-8 h-8 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center text-sm font-bold">✓</span>
+          <h3 class="text-lg font-bold text-accent-dark">Fru 自動化系統串接</h3>
+        </div>
+        <ul class="space-y-4 text-sm text-brand-800 font-medium">
+          <li class="flex items-start gap-3">
+            <span class="text-emerald-600 font-bold mt-0.5">•</span>
+            <span>24H 自動化接單，客人隨時自己挑選合適檔期</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-emerald-600 font-bold mt-0.5">•</span>
+            <span>30 秒自助完成預約，自動同步行事曆與資料庫</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-emerald-600 font-bold mt-0.5">•</span>
+            <span>自動發送課前／預約提醒訊息，大幅降低爽約率</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-emerald-600 font-bold mt-0.5">•</span>
+            <span>把繁瑣事務交給系統，專注在專業服務與教學</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Calculator -->
+  <section id="calculator" class="py-20 bg-brand-100/50 border-t border-brand-200/60">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="text-center max-w-xl mx-auto mb-12">
+        <p class="text-xs font-semibold uppercase tracking-widest text-accent-warm mb-2">Efficiency Calculator</p>
+        <h2 class="text-2xl sm:text-3xl font-bold text-accent-dark">試算系統能為你省下多少時間？</h2>
+      </div>
+
+      <div class="bg-white rounded-2xl p-8 md:p-10 border border-brand-200 shadow-sm">
+        <div class="grid md:grid-cols-2 gap-8 items-center">
+          <div class="space-y-6">
+            <div>
+              <div class="flex justify-between text-sm font-medium mb-2">
+                <span class="text-brand-800">每週諮詢與預約私訊量</span>
+                <span id="msgCountText" class="font-bold text-accent-warm">30 則 / 週</span>
+              </div>
+              <input type="range" id="msgRange" min="10" max="150" value="30" step="5" class="w-full h-2 bg-brand-200 rounded-lg appearance-none cursor-pointer accent-accent-dark">
+            </div>
+
+            <div>
+              <div class="flex justify-between text-sm font-medium mb-2">
+                <span class="text-brand-800">平均每則溝通與安排時間</span>
+                <span id="timePerMsgText" class="font-bold text-accent-warm">8 分鐘</span>
+              </div>
+              <input type="range" id="timeRange" min="3" max="20" value="8" step="1" class="w-full h-2 bg-brand-200 rounded-lg appearance-none cursor-pointer accent-accent-dark">
+            </div>
+
+            <div>
+              <div class="flex justify-between text-sm font-medium mb-2">
+                <span class="text-brand-800">你的專業每小時價值 (時薪/收費)</span>
+                <span id="hourlyRateText" class="font-bold text-accent-warm">NT$ 1,000</span>
+              </div>
+              <input type="range" id="rateRange" min="500" max="5000" value="1000" step="100" class="w-full h-2 bg-brand-200 rounded-lg appearance-none cursor-pointer accent-accent-dark">
+            </div>
+          </div>
+
+          <div class="bg-brand-50 rounded-xl p-6 border border-brand-200 text-center space-y-6">
+            <div>
+              <span class="text-xs text-brand-500 uppercase tracking-wider font-semibold">每月為你省下</span>
+              <div class="text-4xl font-extrabold text-accent-dark mt-1">
+                <span id="savedHours">16</span> <span class="text-base font-normal text-brand-600">小時</span>
+              </div>
+              <p class="text-xs text-brand-500 mt-1">相當於每年多出整整 24 天全職工作時間！</p>
+            </div>
+
+            <div class="pt-4 border-t border-brand-200">
+              <span class="text-xs text-brand-500 uppercase tracking-wider font-semibold">每年釋放的時間經濟價值</span>
+              <div class="text-3xl font-extrabold text-accent-warm mt-1">
+                <span id="savedValue">NT$ 192,000</span>
+              </div>
+            </div>
+
+            <a href="#contact" class="inline-block w-full py-3 rounded-xl bg-accent-dark text-white text-xs font-semibold hover:bg-brand-800 transition-colors">
+              立即打造專屬自動化系統
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Target Audience / Industries -->
+  <section id="solutions" class="py-20 max-w-6xl mx-auto px-6">
+    <div class="text-center max-w-2xl mx-auto mb-14">
+      <p class="text-xs font-semibold uppercase tracking-widest text-accent-warm mb-2">Tailored For You</p>
+      <h2 class="text-2xl sm:text-3xl font-bold text-accent-dark">你是哪一種創業者？</h2>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+      <div class="bg-white p-6 rounded-2xl border border-brand-200 text-center hover:border-brand-400 transition-colors">
+        <div class="w-12 h-12 mx-auto rounded-full bg-brand-100 flex items-center justify-center text-brand-800 mb-4">
+          <i data-lucide="scissors" class="w-6 h-6"></i>
+        </div>
+        <h3 class="font-bold text-accent-dark mb-1">美業美甲 / SPA</h3>
+        <p class="text-xs text-brand-600">預約選檔期・自動發送施作注意事項</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-2xl border border-brand-200 text-center hover:border-brand-400 transition-colors">
+        <div class="w-12 h-12 mx-auto rounded-full bg-brand-100 flex items-center justify-center text-brand-800 mb-4">
+          <i data-lucide="dumbbell" class="w-6 h-6"></i>
+        </div>
+        <h3 class="font-bold text-accent-dark mb-1">健身教練 / 瑜珈</h3>
+        <p class="text-xs text-brand-600">學員課表預約・購課堂數扣點管理</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-2xl border border-brand-200 text-center hover:border-brand-400 transition-colors">
+        <div class="w-12 h-12 mx-auto rounded-full bg-brand-100 flex items-center justify-center text-brand-800 mb-4">
+          <i data-lucide="graduation-cap" class="w-6 h-6"></i>
+        </div>
+        <h3 class="font-bold text-accent-dark mb-1">講師 / 諮詢顧問</h3>
+        <p class="text-xs text-brand-600">一對一諮詢預約・金流自動開課</p>
+      </div>
+
+      <div class="bg-white p-6 rounded-2xl border border-brand-200 text-center hover:border-brand-400 transition-colors">
+        <div class="w-12 h-12 mx-auto rounded-full bg-brand-100 flex items-center justify-center text-brand-800 mb-4">
+          <i data-lucide="camera" class="w-6 h-6"></i>
+        </div>
+        <h3 class="font-bold text-accent-dark mb-1">攝影工作室 / 診所</h3>
+        <p class="text-xs text-brand-600">拍攝合約簽署・檔期預收訂金流程</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing & Roadmap -->
+  <section id="pricing" class="py-20 bg-brand-100/40 border-y border-brand-200">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <p class="text-xs font-semibold uppercase tracking-widest text-accent-warm mb-2">Flexible Plans</p>
+        <h2 class="text-2xl sm:text-3xl font-bold text-accent-dark">彈性方案，符合不同經營階段的你</h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Tier 1 -->
+        <div class="bg-white rounded-2xl p-8 border border-brand-200 flex flex-col justify-between">
+          <div>
+            <span class="text-xs font-semibold text-brand-500 tracking-wider uppercase">入門方案</span>
+            <h3 class="text-xl font-bold text-accent-dark mt-1 mb-3">線上預約系統</h3>
+            <p class="text-xs text-brand-600 mb-6">適合剛起步、想先把預約流程自動化的個人創業者。</p>
+            <ul class="space-y-3 text-xs text-brand-700 font-medium mb-8">
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-accent-warm"></i> 專屬線上預約介面</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-accent-warm"></i> 自動提醒通知（防爽約）</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-accent-warm"></i> 簡易後台檔期管理</li>
+            </ul>
+          </div>
+          <a href="#contact" class="w-full text-center py-3 rounded-xl bg-brand-100 text-brand-800 text-xs font-semibold hover:bg-brand-200 transition-colors">洽詢入門方案</a>
+        </div>
+
+        <!-- Tier 2 -->
+        <div class="bg-white rounded-2xl p-8 border-2 border-accent-warm flex flex-col justify-between shadow-lg relative">
+          <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-accent-warm text-white px-3 py-1 rounded-full text-[10px] font-bold tracking-widest uppercase">
+            人氣推薦
+          </div>
+          <div>
+            <span class="text-xs font-semibold text-accent-warm tracking-wider uppercase">進階方案</span>
+            <h3 class="text-xl font-bold text-accent-dark mt-1 mb-3">預約 ＋ LINE@ 自動化</h3>
+            <p class="text-xs text-brand-600 mb-6">適合已有穩定客源，想大幅提升溝通體驗與回客率。</p>
+            <ul class="space-y-3 text-xs text-brand-700 font-medium mb-8">
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-accent-warm"></i> 預約系統全套功能</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-accent-warm"></i> LINE@ 智能自動回覆</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-accent-warm"></i> 客戶標籤與分群管理</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-accent-warm"></i> 客製化圖文選單設計</li>
+            </ul>
+          </div>
+          <a href="#contact" class="w-full text-center py-3 rounded-xl bg-accent-dark text-white text-xs font-semibold hover:bg-brand-800 transition-colors">洽詢進階方案</a>
+        </div>
+
+        <!-- Tier 3 -->
+        <div class="bg-white rounded-2xl p-8 border border-brand-200 flex flex-col justify-between">
+          <div>
+            <span class="text-xs font-semibold text-brand-500 tracking-wider uppercase">旗艦客製</span>
+            <h3 class="text-xl font-bold text-accent-dark mt-1 mb-3">全方位品牌數位整合</h3>
+            <p class="text-xs text-brand-600 mb-6">從品牌形象官網、預約、LINE 到後端 AI 流程全客製開發。</p>
+            <ul class="space-y-3 text-xs text-brand-700 font-medium mb-8">
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-accent-warm"></i> 品牌專屬形象官網建置</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-accent-warm"></i> LINE 與官網數據雙向串接</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-accent-warm"></i> 獨家業務流程系統開發</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-accent-warm"></i> 一對一系統維運與諮詢</li>
+            </ul>
+          </div>
+          <a href="#contact" class="w-full text-center py-3 rounded-xl bg-brand-100 text-brand-800 text-xs font-semibold hover:bg-brand-200 transition-colors">洽詢客製方案</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Form Section (Connected to GAS) -->
+  <section id="contact" class="py-24 max-w-4xl mx-auto px-6">
+    <div class="bg-white rounded-3xl p-8 md:p-14 border border-brand-200 shadow-sm">
+      <div class="text-center max-w-xl mx-auto mb-10">
+        <p class="text-xs font-semibold uppercase tracking-widest text-accent-warm mb-2">Let's Connect</p>
+        <h2 class="text-2xl sm:text-3xl font-bold text-accent-dark mb-3">告訴我們你的想法</h2>
+        <p class="text-xs sm:text-sm text-brand-600">填寫下方表單，我們將由專人為你評估最適合你的自動化系統方案。</p>
+      </div>
+
+      <form id="contactForm" class="space-y-6">
+        <div class="grid sm:grid-cols-2 gap-6">
+          <div>
+            <label class="block text-xs font-semibold text-brand-700 mb-2" for="name">您的姓名 / 稱謂 *</label>
+            <input type="text" id="name" name="name" required placeholder="例如：王小姐 / Chen" class="w-full px-4 py-3 rounded-xl bg-brand-50 border border-brand-200 text-sm focus:outline-none focus:ring-2 focus:ring-brand-400">
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-brand-700 mb-2" for="contact">聯絡方式 (LINE ID 或電話) *</label>
+            <input type="text" id="contact" name="contact" required placeholder="例如：LINE ID 或 0912-345678" class="w-full px-4 py-3 rounded-xl bg-brand-50 border border-brand-200 text-sm focus:outline-none focus:ring-2 focus:ring-brand-400">
+          </div>
+        </div>
+
+        <div class="grid sm:grid-cols-2 gap-6">
+          <div>
+            <label class="block text-xs font-semibold text-brand-700 mb-2" for="industry">您的產業類型</label>
+            <select id="industry" name="industry" class="w-full px-4 py-3 rounded-xl bg-brand-50 border border-brand-200 text-sm focus:outline-none focus:ring-2 focus:ring-brand-400 text-brand-800">
+              <option value="美業 (美甲/美睫/美容/SPA)">美業 (美甲/美睫/美容/SPA)</option>
+              <option value="健身教練 / 瑜珈 / 運動">健身教練 / 瑜珈 / 運動</option>
+              <option value="講師 / 顧問 / 線上教學">講師 / 顧問 / 線上教學</option>
+              <option value="攝影造型 / 診所 / 實體店家">攝影造型 / 診所 / 實體店家</option>
+              <option value="個人品牌 / 獨立工作室">個人品牌 / 獨立工作室</option>
+              <option value="其他客製需求">其他客製需求</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-brand-700 mb-2" for="service">主要想諮詢的服務</label>
+            <select id="service" name="service" class="w-full px-4 py-3 rounded-xl bg-brand-50 border border-brand-200 text-sm focus:outline-none focus:ring-2 focus:ring-brand-400 text-brand-800">
+              <option value="預約系統建置">預約系統建置</option>
+              <option value="LINE@ 自動化與標籤">LINE@ 自動化與標籤</option>
+              <option value="品牌形象官網">品牌形象官網</option>
+              <option value="全方位客製系統開發">全方位客製系統開發</option>
+              <option value="尚未確定，想先聊聊評估">尚未確定，想先聊聊評估</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-semibold text-brand-700 mb-2" for="message">簡述目前的營運痛點或想要實現的功能</label>
+          <textarea id="message" name="message" rows="4" placeholder="例如：目前每天要花很多時間在 LINE 上對時間、想減少客人爽約..." class="w-full px-4 py-3 rounded-xl bg-brand-50 border border-brand-200 text-sm focus:outline-none focus:ring-2 focus:ring-brand-400"></textarea>
+        </div>
+
+        <button type="submit" id="submitBtn" class="w-full py-4 rounded-xl bg-accent-dark text-white font-semibold text-sm hover:bg-brand-800 transition-all shadow-md flex items-center justify-center gap-2">
+          <span>送出預約諮詢</span>
+          <i data-lucide="send" class="w-4 h-4"></i>
+        </button>
+
+        <p class="text-center text-[11px] text-brand-400">
+          提交後我們將於 24 小時內透過 LINE 或電話與您聯繫，資料僅供本次諮詢評估使用。
+        </p>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-12 bg-brand-100 border-t border-brand-200/80 text-center text-xs text-brand-600">
+    <div class="max-w-6xl mx-auto px-6 space-y-3">
+      <p class="font-bold text-accent-dark tracking-wider">Fru｜FOR YOU 客製所</p>
+      <p class="text-brand-500">讓一人公司，也能有自己的專屬數位團隊</p>
+      <p class="text-[11px] text-brand-400 pt-4">© 2026 Fru FOR YOU. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // 初始化 Lucide 圖示
+    lucide.createIcons();
+
+    // 效益試算器邏輯
+    const msgRange = document.getElementById('msgRange');
+    const timeRange = document.getElementById('timeRange');
+    const rateRange = document.getElementById('rateRange');
+    const msgCountText = document.getElementById('msgCountText');
+    const timePerMsgText = document.getElementById('timePerMsgText');
+    const hourlyRateText = document.getElementById('hourlyRateText');
+    const savedHours = document.getElementById('savedHours');
+    const savedValue = document.getElementById('savedValue');
+
+    function calculateROI() {
+      const msgs = parseInt(msgRange.value);
+      const mins = parseInt(timeRange.value);
+      const rate = parseInt(rateRange.value);
+
+      msgCountText.innerText = `${msgs} 則 / 週`;
+      timePerMsgText.innerText = `${mins} 分鐘`;
+      hourlyRateText.innerText = `NT$ ${rate.toLocaleString()}`;
+
+      // 每月省下的時數 (假設省下 80% 的手動對焦時間，1 個月算 4.33 週)
+      const totalHoursPerMonth = Math.round(((msgs * mins * 4.33) / 60) * 0.8);
+      const totalYearlyValue = Math.round(totalHoursPerMonth * 12 * rate);
+
+      savedHours.innerText = totalHoursPerMonth;
+      savedValue.innerText = `NT$ ${totalYearlyValue.toLocaleString()}`;
+    }
+
+    msgRange.addEventListener('input', calculateROI);
+    timeRange.addEventListener('input', calculateROI);
+    rateRange.addEventListener('input', calculateROI);
+    calculateROI();
+
+    // Google Apps Script (GAS) 表單送出處理
+    const GAS_URL = "https://script.google.com/macros/s/AKfycbywsdH97wSxWbcCleypximaKSxgtPvGs89qsTQ0qg6hNPQzwFkqQ7nJJksycRw9Wr6AyA/exec";
+    const contactForm = document.getElementById("contactForm");
+    const submitBtn = document.getElementById("submitBtn");
+
+    contactForm.addEventListener("submit", async function (e) {
+      e.preventDefault();
+
+      const originalBtnContent = submitBtn.innerHTML;
+      submitBtn.innerHTML = `<span>⏳ 資料送出中...</span>`;
+      submitBtn.disabled = true;
+
+      const payload = {
+        name: document.getElementById("name").value.trim(),
+        contact: document.getElementById("contact").value.trim(),
+        industry: document.getElementById("industry").value,
+        service: document.getElementById("service").value,
+        message: document.getElementById("message").value.trim()
+      };
+
+      try {
+        await fetch(GAS_URL, {
+          method: "POST",
+          mode: "no-cors",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(payload)
         });
 
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-            });
-        });
-
-        // Interactive ROI Calculator Logic
-        const msgCountInput = document.getElementById('msg-count');
-        const msgTimeInput = document.getElementById('msg-time');
-        const hourlyRateInput = document.getElementById('hourly-rate');
-
-        const msgCountVal = document.getElementById('msg-count-val');
-        const msgTimeVal = document.getElementById('msg-time-val');
-        const hourlyRateVal = document.getElementById('hourly-rate-val');
-
-        const resultHours = document.getElementById('result-hours');
-        const resultMoney = document.getElementById('result-money');
-
-        function calculateROI() {
-            const count = parseInt(msgCountInput.value);
-            const time = parseInt(msgTimeInput.value);
-            const rate = parseInt(hourlyRateInput.value);
-
-            // Update UI text
-            msgCountVal.textContent = `${count} 則`;
-            msgTimeVal.textContent = `${time} 分鐘`;
-            hourlyRateVal.textContent = `NT$ ${rate.toLocaleString()} / hr`;
-
-            // Calculate hours saved per month (assuming 4.33 weeks in a month, saving 80% time)
-            const weeklyMinutes = count * time;
-            const monthlyMinutesSaved = (weeklyMinutes * 4.33) * 0.8;
-            const monthlyHoursSaved = Math.round(monthlyMinutesSaved / 60);
-
-            // Yearly value saved
-            const yearlyMoneySaved = Math.round(monthlyHoursSaved * 12 * rate);
-
-            resultHours.textContent = `${monthlyHoursSaved} 小時`;
-            resultMoney.textContent = `NT$ ${yearlyMoneySaved.toLocaleString()}`;
-        }
-
-        msgCountInput.addEventListener('input', calculateROI);
-        msgTimeInput.addEventListener('input', calculateROI);
-        hourlyRateInput.addEventListener('input', calculateROI);
-
-        // Initial calculation
-        calculateROI();
-
-        // Form Submit Modal Logic
-        const form = document.getElementById('consult-form');
-        const modal = document.getElementById('success-modal');
-        const closeModalBtn = document.getElementById('close-modal-btn');
-
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            modal.classList.remove('hidden');
-            form.reset();
-        });
-
-        closeModalBtn.addEventListener('click', () => {
-            modal.classList.add('hidden');
-        });
-    </script>
+        alert("🎉 預約諮詢已成功送出！我們將盡快與您聯繫。");
+        contactForm.reset();
+      } catch (error) {
+        console.error("送出失敗：", error);
+        alert("❌ 送出失敗，請確認網路連線或直接與我們聯繫！");
+      } finally {
+        submitBtn.innerHTML = originalBtnContent;
+        submitBtn.disabled = false;
+        lucide.createIcons();
+      }
+    });
+  </script>
 </body>
 </html>
