@@ -91,6 +91,22 @@
     details > summary::-webkit-details-marker {
       display: none;
     }
+
+    /* 🌟 滾動漸進浮現動畫樣式 (Scroll Reveal) */
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .delay-100 { transition-delay: 0.1s; }
+    .delay-200 { transition-delay: 0.2s; }
+    .delay-300 { transition-delay: 0.3s; }
+    .delay-400 { transition-delay: 0.4s; }
   </style>
 </head>
 <body class="selection:bg-fur-accent selection:text-fur-bg min-h-screen flex flex-col justify-between antialiased text-base relative">
@@ -118,8 +134,8 @@
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="relative pt-16 pb-24 md:pt-32 md:pb-40 overflow-hidden warm-glow">
+  <!-- Hero Section (首頁直接淡入) -->
+  <section class="relative pt-16 pb-24 md:pt-32 md:pb-40 overflow-hidden warm-glow reveal">
     <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
       
       <div class="mb-10 sm:mb-12 inline-block">
@@ -157,11 +173,11 @@
     </div>
   </section>
 
-  <!-- 三大安心承諾標章 -->
+  <!-- 三大安心承諾標章 (Reveal 動態) -->
   <section class="py-14 sm:py-16 bg-fur-bg border-t border-fur-border/60">
     <div class="max-w-6xl mx-auto px-6">
       <div class="grid md:grid-cols-3 gap-6">
-        <div class="p-6 rounded-2xl bg-fur-surface/60 border border-fur-border flex items-start gap-4">
+        <div class="p-6 rounded-2xl bg-fur-surface/60 border border-fur-border flex items-start gap-4 reveal">
           <div class="w-12 h-12 rounded-xl bg-fur-bg border border-fur-border flex items-center justify-center text-fur-accent flex-shrink-0">
             <i data-lucide="shield-check" class="w-6 h-6"></i>
           </div>
@@ -171,7 +187,7 @@
           </div>
         </div>
 
-        <div class="p-6 rounded-2xl bg-fur-surface/60 border border-fur-border flex items-start gap-4">
+        <div class="p-6 rounded-2xl bg-fur-surface/60 border border-fur-border flex items-start gap-4 reveal delay-100">
           <div class="w-12 h-12 rounded-xl bg-fur-bg border border-fur-border flex items-center justify-center text-fur-accent flex-shrink-0">
             <i data-lucide="database" class="w-6 h-6"></i>
           </div>
@@ -181,7 +197,7 @@
           </div>
         </div>
 
-        <div class="p-6 rounded-2xl bg-fur-surface/60 border border-fur-border flex items-start gap-4">
+        <div class="p-6 rounded-2xl bg-fur-surface/60 border border-fur-border flex items-start gap-4 reveal delay-200">
           <div class="w-12 h-12 rounded-xl bg-fur-bg border border-fur-border flex items-center justify-center text-fur-accent flex-shrink-0">
             <i data-lucide="smartphone" class="w-6 h-6"></i>
           </div>
@@ -194,16 +210,16 @@
     </div>
   </section>
 
-  <!-- Core Services -->
+  <!-- Core Services (Reveal 依序出場) -->
   <section id="services" class="py-20 sm:py-24 bg-fur-surface/50 border-y border-fur-border/80">
     <div class="max-w-6xl mx-auto px-6">
-      <div class="text-center max-w-2xl mx-auto mb-14 sm:mb-16">
+      <div class="text-center max-w-2xl mx-auto mb-14 sm:mb-16 reveal">
         <p class="text-xs font-medium font-en en-tracking-widest uppercase text-fur-accent mb-2">Service Core</p>
         <h2 class="text-2xl sm:text-4xl font-semibold tracking-wider text-fur-textMain">三大核心模組，串起完整數位營運</h2>
       </div>
 
       <div class="grid md:grid-cols-3 gap-6 sm:gap-8">
-        <div class="card-warm rounded-3xl p-6 sm:p-8 flex flex-col justify-between">
+        <div class="card-warm rounded-3xl p-6 sm:p-8 flex flex-col justify-between reveal">
           <div>
             <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-fur-bg border border-fur-border flex items-center justify-center text-fur-accent mb-5 sm:mb-6 shadow-inner">
               <i data-lucide="calendar-check" class="w-5 h-5 sm:w-6 sm:h-6"></i>
@@ -218,7 +234,7 @@
           </ul>
         </div>
 
-        <div class="card-warm rounded-3xl p-6 sm:p-8 flex flex-col justify-between">
+        <div class="card-warm rounded-3xl p-6 sm:p-8 flex flex-col justify-between reveal delay-100">
           <div>
             <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-fur-bg border border-fur-border flex items-center justify-center text-fur-accent mb-5 sm:mb-6 shadow-inner">
               <i data-lucide="message-square-code" class="w-5 h-5 sm:w-6 sm:h-6"></i>
@@ -233,7 +249,7 @@
           </ul>
         </div>
 
-        <div class="card-warm rounded-3xl p-6 sm:p-8 flex flex-col justify-between">
+        <div class="card-warm rounded-3xl p-6 sm:p-8 flex flex-col justify-between reveal delay-200">
           <div>
             <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-fur-bg border border-fur-border flex items-center justify-center text-fur-accent mb-5 sm:mb-6 shadow-inner">
               <i data-lucide="layout-template" class="w-5 h-5 sm:w-6 sm:h-6"></i>
@@ -251,14 +267,14 @@
     </div>
   </section>
 
-  <!-- Featured Case Study -->
+  <!-- Featured Case Study (Reveal 動態) -->
   <section id="portfolio" class="py-20 sm:py-24 max-w-6xl mx-auto px-6">
-    <div class="text-center max-w-2xl mx-auto mb-14">
+    <div class="text-center max-w-2xl mx-auto mb-14 reveal">
       <p class="text-xs font-medium font-en en-tracking-widest uppercase text-fur-accent mb-2">Featured Case</p>
       <h2 class="text-2xl sm:text-4xl font-semibold tracking-wider text-fur-textMain">實戰代表案例 ｜ 為美業品牌賦能</h2>
     </div>
 
-    <div class="card-warm rounded-3xl p-6 sm:p-12">
+    <div class="card-warm rounded-3xl p-6 sm:p-12 reveal">
       <div class="grid lg:grid-cols-12 gap-8 items-center">
         <div class="lg:col-span-5 bg-fur-bg/95 rounded-2xl p-5 sm:p-6 border border-fur-border shadow-inner">
           <div class="flex items-center justify-between border-b border-fur-border pb-4 mb-4">
@@ -340,16 +356,16 @@
     </div>
   </section>
 
-  <!-- 真實客戶推薦 -->
+  <!-- 真實客戶推薦 (Reveal 左右錯落) -->
   <section class="py-16 sm:py-20 bg-fur-bg border-t border-fur-border/60">
     <div class="max-w-6xl mx-auto px-6">
-      <div class="text-center max-w-2xl mx-auto mb-12 sm:mb-14">
+      <div class="text-center max-w-2xl mx-auto mb-12 sm:mb-14 reveal">
         <p class="text-xs font-medium font-en en-tracking-widest uppercase text-fur-accent mb-2">Testimonials</p>
         <h2 class="text-2xl sm:text-4xl font-semibold tracking-wider text-fur-textMain">來自創業夥伴的真實回饋</h2>
       </div>
 
       <div class="grid md:grid-cols-2 gap-6 sm:gap-8">
-        <div class="card-warm rounded-3xl p-6 sm:p-8 space-y-4">
+        <div class="card-warm rounded-3xl p-6 sm:p-8 space-y-4 reveal">
           <div class="flex items-center gap-1 text-fur-accent">
             <i data-lucide="star" class="w-4 h-4 fill-current"></i>
             <i data-lucide="star" class="w-4 h-4 fill-current"></i>
@@ -366,7 +382,7 @@
           </div>
         </div>
 
-        <div class="card-warm rounded-3xl p-6 sm:p-8 space-y-4">
+        <div class="card-warm rounded-3xl p-6 sm:p-8 space-y-4 reveal delay-100">
           <div class="flex items-center gap-1 text-fur-accent">
             <i data-lucide="star" class="w-4 h-4 fill-current"></i>
             <i data-lucide="star" class="w-4 h-4 fill-current"></i>
@@ -386,15 +402,15 @@
     </div>
   </section>
 
-  <!-- Pain Point Comparison -->
+  <!-- Pain Point Comparison (Reveal 動態) -->
   <section id="comparison" class="py-16 sm:py-20 max-w-5xl mx-auto px-6">
-    <div class="text-center max-w-2xl mx-auto mb-12 sm:mb-14">
+    <div class="text-center max-w-2xl mx-auto mb-12 sm:mb-14 reveal">
       <p class="text-xs font-medium font-en en-tracking-widest uppercase text-fur-accent mb-2">Before & After</p>
       <h2 class="text-2xl sm:text-4xl font-semibold tracking-wider text-fur-textMain">還在一個一個回「有空嗎？」</h2>
     </div>
 
     <div class="grid md:grid-cols-2 gap-6 sm:gap-8">
-      <div class="bg-fur-surface/40 rounded-3xl p-6 sm:p-8 border border-fur-border">
+      <div class="bg-fur-surface/40 rounded-3xl p-6 sm:p-8 border border-fur-border reveal">
         <div class="flex items-center gap-3 mb-5 sm:mb-6">
           <span class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-red-950/60 text-red-400 border border-red-800/60 flex items-center justify-center text-xs font-bold">✕</span>
           <h3 class="text-base sm:text-lg font-semibold tracking-wide text-fur-textMain">傳統人工預約流程</h3>
@@ -419,7 +435,7 @@
         </ul>
       </div>
 
-      <div class="card-warm rounded-3xl p-6 sm:p-8 border border-fur-accent/50 shadow-md">
+      <div class="card-warm rounded-3xl p-6 sm:p-8 border border-fur-accent/50 shadow-md reveal delay-100">
         <div class="flex items-center gap-3 mb-5 sm:mb-6">
           <span class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-fur-accent/20 text-fur-accent border border-fur-accent/50 flex items-center justify-center text-xs font-bold">✓</span>
           <h3 class="text-base sm:text-lg font-semibold tracking-wide text-fur-textMain">fru 自動化系統串接</h3>
@@ -446,15 +462,15 @@
     </div>
   </section>
 
-  <!-- Interactive Calculator -->
+  <!-- Interactive Calculator (Reveal 動態) -->
   <section id="calculator" class="py-20 sm:py-24 bg-fur-surface/50 border-t border-fur-border/80">
     <div class="max-w-4xl mx-auto px-6">
-      <div class="text-center max-w-xl mx-auto mb-12">
+      <div class="text-center max-w-xl mx-auto mb-12 reveal">
         <p class="text-xs font-medium font-en en-tracking-widest uppercase text-fur-accent mb-2">Efficiency Calculator</p>
         <h2 class="text-2xl sm:text-4xl font-semibold tracking-wider text-fur-textMain">試算系統能為你省下多少時間？</h2>
       </div>
 
-      <div class="card-warm rounded-3xl p-6 sm:p-12 border border-fur-border">
+      <div class="card-warm rounded-3xl p-6 sm:p-12 border border-fur-border reveal">
         <div class="grid md:grid-cols-2 gap-8 items-center">
           <div class="space-y-6">
             <div>
@@ -507,8 +523,8 @@
     </div>
   </section>
 
-  <!-- 品牌初衷故事 -->
-  <section class="py-16 sm:py-20 max-w-4xl mx-auto px-6 text-center">
+  <!-- 品牌初衷故事 (Reveal 動態) -->
+  <section class="py-16 sm:py-20 max-w-4xl mx-auto px-6 text-center reveal">
     <div class="p-6 sm:p-12 rounded-3xl bg-fur-surface/30 border border-fur-border/80 space-y-4">
       <span class="text-xs font-medium font-en en-tracking-widest uppercase text-fur-accent">Our Philosophy</span>
       <h3 class="text-xl sm:text-3xl font-semibold text-fur-textMain">為獨立創業者打造的數位神隊友</h3>
@@ -520,15 +536,15 @@
     </div>
   </section>
 
-  <!-- Target Audience / Industries -->
+  <!-- Target Audience / Industries (Reveal 依序浮現) -->
   <section id="solutions" class="py-20 sm:py-24 max-w-6xl mx-auto px-6">
-    <div class="text-center max-w-2xl mx-auto mb-12 sm:mb-14">
+    <div class="text-center max-w-2xl mx-auto mb-12 sm:mb-14 reveal">
       <p class="text-xs font-medium font-en en-tracking-widest uppercase text-fur-accent mb-2">Tailored For You</p>
       <h2 class="text-2xl sm:text-4xl font-semibold tracking-wider text-fur-textMain">你是哪一種創業者？</h2>
     </div>
 
     <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
-      <div class="card-warm p-5 sm:p-6 rounded-3xl text-center">
+      <div class="card-warm p-5 sm:p-6 rounded-3xl text-center reveal">
         <div class="w-12 h-12 sm:w-14 sm:h-14 mx-auto rounded-2xl bg-fur-bg border border-fur-border flex items-center justify-center text-fur-accent mb-3 sm:mb-4 shadow-sm">
           <i data-lucide="scissors" class="w-5 h-5 sm:w-6 sm:h-6"></i>
         </div>
@@ -536,7 +552,7 @@
         <p class="text-[11px] sm:text-xs text-fur-textMuted font-light">預約選檔期・自動發送注意事項</p>
       </div>
 
-      <div class="card-warm p-5 sm:p-6 rounded-3xl text-center">
+      <div class="card-warm p-5 sm:p-6 rounded-3xl text-center reveal delay-100">
         <div class="w-12 h-12 sm:w-14 sm:h-14 mx-auto rounded-2xl bg-fur-bg border border-fur-border flex items-center justify-center text-fur-accent mb-3 sm:mb-4 shadow-sm">
           <i data-lucide="dumbbell" class="w-5 h-5 sm:w-6 sm:h-6"></i>
         </div>
@@ -544,7 +560,7 @@
         <p class="text-[11px] sm:text-xs text-fur-textMuted font-light">學員課表預約・堂數扣點管理</p>
       </div>
 
-      <div class="card-warm p-5 sm:p-6 rounded-3xl text-center">
+      <div class="card-warm p-5 sm:p-6 rounded-3xl text-center reveal delay-200">
         <div class="w-12 h-12 sm:w-14 sm:h-14 mx-auto rounded-2xl bg-fur-bg border border-fur-border flex items-center justify-center text-fur-accent mb-3 sm:mb-4 shadow-sm">
           <i data-lucide="graduation-cap" class="w-5 h-5 sm:w-6 sm:h-6"></i>
         </div>
@@ -552,7 +568,7 @@
         <p class="text-[11px] sm:text-xs text-fur-textMuted font-light">一對一諮詢預約・金流自動開課</p>
       </div>
 
-      <div class="card-warm p-5 sm:p-6 rounded-3xl text-center">
+      <div class="card-warm p-5 sm:p-6 rounded-3xl text-center reveal delay-300">
         <div class="w-12 h-12 sm:w-14 sm:h-14 mx-auto rounded-2xl bg-fur-bg border border-fur-border flex items-center justify-center text-fur-accent mb-3 sm:mb-4 shadow-sm">
           <i data-lucide="camera" class="w-5 h-5 sm:w-6 sm:h-6"></i>
         </div>
@@ -562,16 +578,16 @@
     </div>
   </section>
 
-  <!-- Pricing & Roadmap -->
+  <!-- Pricing & Roadmap (Reveal 依序浮現) -->
   <section id="pricing" class="py-20 sm:py-24 bg-fur-surface/50 border-y border-fur-border/80">
     <div class="max-w-6xl mx-auto px-6">
-      <div class="text-center max-w-2xl mx-auto mb-12 sm:mb-14">
+      <div class="text-center max-w-2xl mx-auto mb-12 sm:mb-14 reveal">
         <p class="text-xs font-medium font-en en-tracking-widest uppercase text-fur-accent mb-2">Flexible Plans</p>
         <h2 class="text-2xl sm:text-4xl font-semibold tracking-wider text-fur-textMain">彈性方案，符合不同經營階段的你</h2>
       </div>
 
       <div class="grid md:grid-cols-3 gap-6 sm:gap-8">
-        <div class="card-warm rounded-3xl p-6 sm:p-8 flex flex-col justify-between">
+        <div class="card-warm rounded-3xl p-6 sm:p-8 flex flex-col justify-between reveal">
           <div>
             <span class="text-xs font-medium text-fur-textSub tracking-[0.2em] uppercase">入門方案</span>
             <h3 class="text-lg sm:text-xl font-semibold text-fur-textMain mt-1.5 mb-3">線上預約系統</h3>
@@ -585,7 +601,7 @@
           <a href="#contact" class="w-full text-center py-3 rounded-xl bg-fur-bg border border-fur-border text-fur-textMain text-xs tracking-widest font-medium hover:bg-fur-surfaceLight transition-colors">洽詢入門方案</a>
         </div>
 
-        <div class="card-warm rounded-3xl p-6 sm:p-8 border-2 border-fur-accent flex flex-col justify-between shadow-xl relative">
+        <div class="card-warm rounded-3xl p-6 sm:p-8 border-2 border-fur-accent flex flex-col justify-between shadow-xl relative reveal delay-100">
           <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-fur-accent text-fur-bg px-4 py-1 rounded-full text-xs font-bold tracking-widest uppercase shadow-md">
             人氣推薦
           </div>
@@ -603,7 +619,7 @@
           <a href="#contact" class="w-full text-center py-3 rounded-xl bg-fur-textMain text-fur-bg text-xs font-semibold tracking-widest hover:bg-fur-accent transition-colors">洽詢進階方案</a>
         </div>
 
-        <div class="card-warm rounded-3xl p-6 sm:p-8 flex flex-col justify-between">
+        <div class="card-warm rounded-3xl p-6 sm:p-8 flex flex-col justify-between reveal delay-200">
           <div>
             <span class="text-xs font-medium text-fur-textSub tracking-[0.2em] uppercase">旗艦客製</span>
             <h3 class="text-lg sm:text-xl font-semibold text-fur-textMain mt-1.5 mb-3">全方位品牌數位整合</h3>
@@ -621,15 +637,15 @@
     </div>
   </section>
 
-  <!-- 常見問題 FAQ -->
+  <!-- 常見問題 FAQ (Reveal 動態) -->
   <section id="faq" class="py-20 sm:py-24 max-w-4xl mx-auto px-6">
-    <div class="text-center max-w-2xl mx-auto mb-12 sm:mb-14">
+    <div class="text-center max-w-2xl mx-auto mb-12 sm:mb-14 reveal">
       <p class="text-xs font-medium font-en en-tracking-widest uppercase text-fur-accent mb-2">FAQ</p>
       <h2 class="text-2xl sm:text-4xl font-semibold tracking-wider text-fur-textMain">常見問題與解答</h2>
     </div>
 
     <div class="space-y-4">
-      <details class="card-warm rounded-2xl p-5 sm:p-6 group cursor-pointer">
+      <details class="card-warm rounded-2xl p-5 sm:p-6 group cursor-pointer reveal">
         <summary class="flex justify-between items-center font-semibold text-sm sm:text-base text-fur-textMain">
           <span>Q1：我完全不懂寫程式或架伺服器，後續會很難維護嗎？</span>
           <i data-lucide="chevron-down" class="w-5 h-5 text-fur-accent transition-transform group-open:rotate-180 flex-shrink-0 ml-2"></i>
@@ -639,7 +655,7 @@
         </p>
       </details>
 
-      <details class="card-warm rounded-2xl p-5 sm:p-6 group cursor-pointer">
+      <details class="card-warm rounded-2xl p-5 sm:p-6 group cursor-pointer reveal delay-100">
         <summary class="flex justify-between items-center font-semibold text-sm sm:text-base text-fur-textMain">
           <span>Q2：從諮詢、規劃到系統實際上線，通常需要多久？</span>
           <i data-lucide="chevron-down" class="w-5 h-5 text-fur-accent transition-transform group-open:rotate-180 flex-shrink-0 ml-2"></i>
@@ -649,7 +665,7 @@
         </p>
       </details>
 
-      <details class="card-warm rounded-2xl p-5 sm:p-6 group cursor-pointer">
+      <details class="card-warm rounded-2xl p-5 sm:p-6 group cursor-pointer reveal delay-200">
         <summary class="flex justify-between items-center font-semibold text-sm sm:text-base text-fur-textMain">
           <span>Q3：後續每個月需要支付伺服器或平台維護費嗎？</span>
           <i data-lucide="chevron-down" class="w-5 h-5 text-fur-accent transition-transform group-open:rotate-180 flex-shrink-0 ml-2"></i>
@@ -659,7 +675,7 @@
         </p>
       </details>
 
-      <details class="card-warm rounded-2xl p-5 sm:p-6 group cursor-pointer">
+      <details class="card-warm rounded-2xl p-5 sm:p-6 group cursor-pointer reveal delay-300">
         <summary class="flex justify-between items-center font-semibold text-sm sm:text-base text-fur-textMain">
           <span>Q4：目前已經有在使用其他預約系統，能無痛轉移嗎？</span>
           <i data-lucide="chevron-down" class="w-5 h-5 text-fur-accent transition-transform group-open:rotate-180 flex-shrink-0 ml-2"></i>
@@ -671,9 +687,9 @@
     </div>
   </section>
 
-  <!-- Contact Form Section -->
+  <!-- Contact Form Section (Reveal 動態) -->
   <section id="contact" class="py-20 sm:py-24 max-w-4xl mx-auto px-6">
-    <div class="card-warm rounded-3xl p-6 sm:p-14 border border-fur-border shadow-2xl">
+    <div class="card-warm rounded-3xl p-6 sm:p-14 border border-fur-border shadow-2xl reveal">
       <div class="text-center max-w-xl mx-auto mb-8 sm:mb-10">
         <p class="text-xs font-medium font-en en-tracking-widest uppercase text-fur-accent mb-2">Let's Connect</p>
         <h2 class="text-2xl sm:text-4xl font-semibold tracking-wider text-fur-textMain mb-2 sm:mb-3">告訴我們你的想法</h2>
@@ -769,6 +785,24 @@
   <script>
     lucide.createIcons();
 
+    // 🌟 原生 Scroll Reveal 監聽邏輯 (IntersectionObserver)
+    const revealElements = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+          observer.unobserve(entry.target); // 出現後即取消監聽，保證極致流暢效能
+        }
+      });
+    }, {
+      root: null,
+      threshold: 0.12, // 當元素進入視窗 12% 時觸發
+      rootMargin: '0px 0px -40px 0px'
+    });
+
+    revealElements.forEach(el => revealObserver.observe(el));
+
+    // 效益試算器邏輯
     const msgRange = document.getElementById('msgRange');
     const timeRange = document.getElementById('timeRange');
     const rateRange = document.getElementById('rateRange');
@@ -799,6 +833,7 @@
     rateRange.addEventListener('input', calculateROI);
     calculateROI();
 
+    // 原生表單提交處理
     const contactForm = document.getElementById("contactForm");
     const submitBtn = document.getElementById("submitBtn");
     let submitted = false;
