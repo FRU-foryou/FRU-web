@@ -7,7 +7,7 @@
   <meta name="description" content="把你想說的，變成一份禮物。讓一人公司，也能擁有專屬數位團隊。預約系統 × LINE@ 自動化 × 品牌形象網站 × 客製系統開發。">
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Google Fonts: Comfortaa (圖片專屬字體), Noto Serif TC, Noto Sans TC -->
+  <!-- Google Fonts: Comfortaa, Noto Serif TC, Noto Sans TC -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;600;700&family=Noto+Serif+TC:wght@300;400;600&display=swap" rel="stylesheet">
@@ -75,9 +75,15 @@
     .input-warm::placeholder {
       color: #8C7E72;
     }
+    details > summary {
+      list-style: none;
+    }
+    details > summary::-webkit-details-marker {
+      display: none;
+    }
   </style>
 </head>
-<body class="selection:bg-fur-accent selection:text-fur-bg min-h-screen flex flex-col justify-between antialiased text-base">
+<body class="selection:bg-fur-accent selection:text-fur-bg min-h-screen flex flex-col justify-between antialiased text-base relative">
 
   <!-- Navigation -->
   <header class="sticky top-0 z-50 backdrop-blur-md bg-fur-bg/90 border-b border-fur-border/80 transition-all duration-200">
@@ -93,6 +99,7 @@
         <a href="#comparison" class="hover:text-fur-accent transition-colors">省時效益</a>
         <a href="#solutions" class="hover:text-fur-accent transition-colors">適用產業</a>
         <a href="#pricing" class="hover:text-fur-accent transition-colors">方案規劃</a>
+        <a href="#faq" class="hover:text-fur-accent transition-colors">常見問題</a>
       </nav>
 
       <a href="#contact" class="inline-flex items-center justify-center px-6 py-2.5 rounded-full text-xs font-medium tracking-widest text-fur-bg bg-fur-textMain hover:bg-fur-accent hover:scale-105 active:scale-95 transition-all duration-300 shadow-md">
@@ -101,7 +108,7 @@
     </div>
   </header>
 
-  <!-- Hero Section (圖片標準視覺) -->
+  <!-- Hero Section -->
   <section class="relative pt-20 pb-28 md:pt-32 md:pb-40 overflow-hidden warm-glow">
     <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
       
@@ -137,6 +144,43 @@
         <span class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-fur-accent"></i> 免套版照需求做</span>
         <span class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-fur-accent"></i> 24H 零漏訊自動接單</span>
         <span class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-fur-accent"></i> 降低臨時爽約率</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 🌟 模組 1：三大安心承諾標章 (Trust Badges) -->
+  <section class="py-16 bg-fur-bg border-t border-fur-border/60">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="p-6 rounded-2xl bg-fur-surface/60 border border-fur-border flex items-start gap-4">
+          <div class="w-12 h-12 rounded-xl bg-fur-bg border border-fur-border flex items-center justify-center text-fur-accent flex-shrink-0">
+            <i data-lucide="shield-check" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <h4 class="font-medium text-base text-fur-textMain mb-1">0 平台抽成 ｜ 0 伺服器月租</h4>
+            <p class="text-xs text-fur-textMuted font-light leading-relaxed">採用 Serverless 雲端技術，終身免去每月數千元的昂貴平台月費與維護開銷。</p>
+          </div>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-fur-surface/60 border border-fur-border flex items-start gap-4">
+          <div class="w-12 h-12 rounded-xl bg-fur-bg border border-fur-border flex items-center justify-center text-fur-accent flex-shrink-0">
+            <i data-lucide="database" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <h4 class="font-medium text-base text-fur-textMain mb-1">100% 顧客資料自主擁有</h4>
+            <p class="text-xs text-fur-textMuted font-light leading-relaxed">所有預約紀錄與客戶名單全部沉澱於您的 Google 試算表與官方 LINE，絕不被平台綁架。</p>
+          </div>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-fur-surface/60 border border-fur-border flex items-start gap-4">
+          <div class="w-12 h-12 rounded-xl bg-fur-bg border border-fur-border flex items-center justify-center text-fur-accent flex-shrink-0">
+            <i data-lucide="smartphone" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <h4 class="font-medium text-base text-fur-textMain mb-1">手機即後台 ｜ 零門檻維護</h4>
+            <p class="text-xs text-fur-textMuted font-light leading-relaxed">修改休假日、調整服務價格只要打開手機 Google Sheets 打字，3 秒自動前台同步。</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -293,6 +337,52 @@
     </div>
   </section>
 
+  <!-- 🌟 模組 2：真實客戶推薦 (Social Proof) -->
+  <section class="py-20 bg-fur-bg border-t border-fur-border/60">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <p class="text-xs font-medium uppercase tracking-[0.3em] text-fur-accent mb-2">Testimonials</p>
+        <h2 class="text-3xl sm:text-4xl font-normal tracking-wider text-fur-textMain">來自創業夥伴的真實回饋</h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="card-warm rounded-3xl p-8 space-y-4">
+          <div class="flex items-center gap-1 text-fur-accent">
+            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+          </div>
+          <p class="text-sm text-fur-textMain leading-relaxed font-light">
+            「以前每天半夜忙完，還要花一兩個小時在 LINE 上一個個對時間、算時長。自從換上 fur 的自動化防撞預約系統，客人自己選項目時段自動鎖定，每週替我多省下 15 小時以上，可以好好休息與精進手藝！」
+          </p>
+          <div class="pt-2 flex items-center justify-between border-t border-fur-border/60 text-xs">
+            <span class="font-medium text-fur-textMain">Yuki ｜ 美甲沙龍品牌總監</span>
+            <span class="text-fur-textSub">Blanc Studio</span>
+          </div>
+        </div>
+
+        <div class="card-warm rounded-3xl p-8 space-y-4">
+          <div class="flex items-center gap-1 text-fur-accent">
+            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+          </div>
+          <p class="text-sm text-fur-textMain leading-relaxed font-light">
+            「原本最困擾的是學員常常忘記上課或臨時爽約，系統上線後，行前自動透過 LINE 發送提醒，爽約率降低了 80%！而且介面非常優雅日系，學員都誇讚整體質感大幅提升。」
+          </p>
+          <div class="pt-2 flex items-center justify-between border-t border-fur-border/60 text-xs">
+            <span class="font-medium text-fur-textMain">Emily ｜ 自由體態教練 / 瑜珈講師</span>
+            <span class="text-fur-textSub">私人教學工作室</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Pain Point Comparison -->
   <section id="comparison" class="py-20 max-w-5xl mx-auto px-6">
     <div class="text-center max-w-2xl mx-auto mb-14">
@@ -416,6 +506,19 @@
     </div>
   </section>
 
+  <!-- 🌟 模組 3：品牌初衷故事 (Brand Story) -->
+  <section class="py-20 max-w-4xl mx-auto px-6 text-center">
+    <div class="p-8 sm:p-12 rounded-3xl bg-fur-surface/30 border border-fur-border/80 space-y-4">
+      <span class="text-xs font-medium uppercase tracking-[0.3em] text-fur-accent">Our Philosophy</span>
+      <h3 class="text-2xl sm:text-3xl font-serif text-fur-textMain">為獨立創業者打造的數位神隊友</h3>
+      <p class="text-sm sm:text-base text-fur-textMuted font-light leading-relaxed max-w-2xl mx-auto pt-2">
+        我們深知一人經營品牌的孤單與辛苦——白天全心投入專業服務，深夜還要面對堆積如山的私訊核對檔期。<br class="hidden sm:inline">
+        fur 誕生的初衷，就是為每位熱愛專業的創業者，打造一套 24 小時不知疲倦、默默守護營運的自動化系統。<br>
+        <span class="text-fur-accent pt-2 inline-block font-medium">把你想說的，變成一份精緻溫暖的禮物。</span>
+      </p>
+    </div>
+  </section>
+
   <!-- Target Audience / Industries -->
   <section id="solutions" class="py-24 max-w-6xl mx-auto px-6">
     <div class="text-center max-w-2xl mx-auto mb-14">
@@ -520,6 +623,56 @@
     </div>
   </section>
 
+  <!-- 🌟 模組 4：常見問題 FAQ (Accordion 手風琴) -->
+  <section id="faq" class="py-24 max-w-4xl mx-auto px-6">
+    <div class="text-center max-w-2xl mx-auto mb-14">
+      <p class="text-xs font-medium uppercase tracking-[0.3em] text-fur-accent mb-2">FAQ</p>
+      <h2 class="text-3xl sm:text-4xl font-normal tracking-wider text-fur-textMain">常見問題與解答</h2>
+    </div>
+
+    <div class="space-y-4">
+      <details class="card-warm rounded-2xl p-6 group cursor-pointer">
+        <summary class="flex justify-between items-center font-medium text-base text-fur-textMain">
+          <span>Q1：我完全不懂寫程式或架伺服器，後續會很難維護嗎？</span>
+          <i data-lucide="chevron-down" class="w-5 h-5 text-fur-accent transition-transform group-open:rotate-180"></i>
+        </summary>
+        <p class="text-sm text-fur-textMuted font-light mt-4 pt-4 border-t border-fur-border/60 leading-relaxed">
+          完全不會！所有後台排程、休假日與服務項目調整，只要像平常打開手機 Google 試算表打字一樣簡單，修改後前台預約系統會在 3 秒內自動同步，零學習門檻。
+        </p>
+      </details>
+
+      <details class="card-warm rounded-2xl p-6 group cursor-pointer">
+        <summary class="flex justify-between items-center font-medium text-base text-fur-textMain">
+          <span>Q2：從諮詢、規劃到系統實際上線，通常需要多久？</span>
+          <i data-lucide="chevron-down" class="w-5 h-5 text-fur-accent transition-transform group-open:rotate-180"></i>
+        </summary>
+        <p class="text-sm text-fur-textMuted font-light mt-4 pt-4 border-t border-fur-border/60 leading-relaxed">
+          需求確認並盤點好您的排程規則與視覺風格後，標準方案約 7~14 個工作天內即可完成壓力測試並正式上線交付。
+        </p>
+      </details>
+
+      <details class="card-warm rounded-2xl p-6 group cursor-pointer">
+        <summary class="flex justify-between items-center font-medium text-base text-fur-textMain">
+          <span>Q3：後續每個月需要支付伺服器或平台維護費嗎？</span>
+          <i data-lucide="chevron-down" class="w-5 h-5 text-fur-accent transition-transform group-open:rotate-180"></i>
+        </summary>
+        <p class="text-sm text-fur-textMuted font-light mt-4 pt-4 border-t border-fur-border/60 leading-relaxed">
+          不需要！我們採用 GitHub 與 Google Apps Script 無伺服器（Serverless）架構，在正常的商業用量下主機費與資料庫皆為 0 元，沒有任何隱藏月費。
+        </p>
+      </details>
+
+      <details class="card-warm rounded-2xl p-6 group cursor-pointer">
+        <summary class="flex justify-between items-center font-medium text-base text-fur-textMain">
+          <span>Q4：目前已經有在使用其他預約系統，能無痛轉移嗎？</span>
+          <i data-lucide="chevron-down" class="w-5 h-5 text-fur-accent transition-transform group-open:rotate-180"></i>
+        </summary>
+        <p class="text-sm text-fur-textMuted font-light mt-4 pt-4 border-t border-fur-border/60 leading-relaxed">
+          可以的！我們會協助您將現有的舊客名單、服務價目表與慣用排班規則完整轉移，並設定 LINE@ 導流連結，讓老客人能無縫體驗全新系統。
+        </p>
+      </details>
+    </div>
+  </section>
+
   <!-- Contact Form Section (高易讀性白底輸入框) -->
   <section id="contact" class="py-24 max-w-4xl mx-auto px-6">
     <div class="card-warm rounded-3xl p-8 md:p-14 border border-fur-border shadow-2xl">
@@ -589,6 +742,12 @@
       </form>
     </div>
   </section>
+
+  <!-- 🌟 模組 5：右下角 LINE 浮動快速諮詢按鈕 (Floating Action Button) -->
+  <a href="https://line.me/R/ti/p/@560ehozv" target="_blank" class="fixed bottom-6 right-6 z-50 px-5 py-3 rounded-full bg-[#06C755] text-white text-xs font-semibold hover:opacity-90 hover:scale-105 active:scale-95 transition-all shadow-2xl flex items-center gap-2 border border-white/20">
+    <i data-lucide="message-circle" class="w-4 h-4"></i>
+    <span class="tracking-wider">💬 加 LINE 聊聊需求</span>
+  </a>
 
   <!-- Footer -->
   <footer class="py-14 bg-fur-bg border-t border-fur-border/80 text-center text-sm text-fur-textSub font-light">
