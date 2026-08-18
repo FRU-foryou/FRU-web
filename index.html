@@ -10,7 +10,7 @@
   <!-- Google Fonts: Noto Sans TC & Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
   <script>
@@ -24,7 +24,7 @@
               200: '#E6DFD5',
               300: '#D5C8B8',
               400: '#B8A48F',
-              500: '#9E8870',
+              50: '#9E8870',
               600: '#7F6B55',
               700: '#635342',
               800: '#473B2F',
@@ -37,6 +37,20 @@
           },
           fontFamily: {
             sans: ['"Noto Sans TC"', '"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          animation: {
+            'float-slow': 'float 5s ease-in-out infinite',
+            'pulse-soft': 'pulseSoft 4s ease-in-out infinite',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-5px)' },
+            },
+            pulseSoft: {
+              '0%, 100%': { opacity: '0.4', transform: 'scale(1)' },
+              '50%': { opacity: '0.7', transform: 'scale(1.04)' },
+            }
           }
         }
       }
@@ -48,17 +62,30 @@
       color: #2C241D;
     }
     .hero-glow {
-      background: radial-gradient(circle at 50% 30%, rgba(213, 200, 184, 0.45) 0%, rgba(250, 248, 245, 0) 70%);
+      background: radial-gradient(circle at 50% 30%, rgba(213, 200, 184, 0.5) 0%, rgba(250, 248, 245, 0) 70%);
+    }
+    .hover-lift {
+      transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.28s ease;
+    }
+    .hover-lift:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 32px -12px rgba(71, 59, 47, 0.09);
+    }
+    .custom-range::-webkit-slider-thumb {
+      transition: transform 0.15s ease, background-color 0.15s ease;
+    }
+    .custom-range::-webkit-slider-thumb:hover {
+      transform: scale(1.2);
     }
   </style>
 </head>
 <body class="font-sans antialiased selection:bg-brand-300 selection:text-brand-900">
 
   <!-- Navigation -->
-  <header class="sticky top-0 z-50 backdrop-blur-md bg-brand-50/85 border-b border-brand-200/60 transition-all duration-200">
+  <header class="sticky top-0 z-50 backdrop-blur-md bg-brand-50/90 border-b border-brand-200/70 transition-all duration-200">
     <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
-      <a href="#" class="flex items-center gap-3">
-        <span class="text-2xl font-bold tracking-tight text-accent-dark">Fru</span>
+      <a href="#" class="flex items-center gap-3 group">
+        <span class="text-2xl font-bold tracking-tight text-accent-dark group-hover:text-accent-warm transition-colors">Fru</span>
         <span class="text-xs text-brand-500 font-normal border-l border-brand-300 pl-3 tracking-widest uppercase">FOR YOU 客製所</span>
       </a>
       
@@ -70,7 +97,7 @@
         <a href="#pricing" class="hover:text-brand-900 transition-colors">方案規劃</a>
       </nav>
 
-      <a href="#contact" class="inline-flex items-center justify-center px-5 py-2.5 rounded-full text-xs font-semibold tracking-wider text-white bg-accent-dark hover:bg-brand-800 transition-all shadow-sm">
+      <a href="#contact" class="inline-flex items-center justify-center px-5 py-2.5 rounded-full text-xs font-semibold tracking-wider text-white bg-accent-dark hover:bg-brand-800 hover:scale-105 active:scale-95 transition-all shadow-sm">
         免費預約諮詢
       </a>
     </div>
@@ -78,9 +105,9 @@
 
   <!-- Hero Section -->
   <section class="relative pt-20 pb-28 md:pt-28 md:pb-36 overflow-hidden hero-glow">
-    <div class="max-w-4xl mx-auto px-6 text-center">
-      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-100/90 border border-brand-200 text-brand-700 text-xs font-medium mb-8">
-        <i data-lucide="sparkles" class="w-3.5 h-3.5 text-accent-warm"></i>
+    <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-100/90 border border-brand-200 text-brand-700 text-xs font-medium mb-8 hover:bg-brand-200/80 transition-colors cursor-default">
+        <i data-lucide="sparkles" class="w-3.5 h-3.5 text-accent-warm animate-spin" style="animation-duration: 8s;"></i>
         <span>一人公司 × 專屬外包數位團隊</span>
       </div>
       
@@ -95,17 +122,17 @@
       </p>
 
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-        <a href="#contact" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full text-sm font-semibold text-white bg-accent-dark hover:bg-brand-800 transition-all shadow-md">
+        <a href="#contact" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full text-sm font-semibold text-white bg-accent-dark hover:bg-brand-800 hover:scale-105 active:scale-95 transition-all shadow-md">
           <span>告訴我們你的想法</span>
           <i data-lucide="arrow-right" class="w-4 h-4"></i>
         </a>
-        <a href="#calculator" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full text-sm font-medium text-brand-800 bg-brand-100 hover:bg-brand-200/70 border border-brand-200 transition-all">
+        <a href="#calculator" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full text-sm font-medium text-brand-800 bg-brand-100 hover:bg-brand-200/80 border border-brand-200 hover:scale-105 active:scale-95 transition-all">
           <i data-lucide="calculator" class="w-4 h-4 text-brand-600"></i>
           <span>試算每月可省下時數</span>
         </a>
       </div>
 
-      <div class="mt-14 flex items-center justify-center gap-6 text-xs text-brand-500">
+      <div class="mt-14 flex items-center justify-center gap-6 text-xs text-brand-500 flex-wrap">
         <span class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-brand-600"></i> 免套版照需求做</span>
         <span class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-brand-600"></i> 24H 零漏訊自動接單</span>
         <span class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-brand-600"></i> 降低臨時爽約率</span>
@@ -123,8 +150,8 @@
 
       <div class="grid md:grid-cols-3 gap-8">
         <!-- Card 1 -->
-        <div class="bg-brand-50 rounded-2xl p-8 border border-brand-200/80 shadow-sm hover:shadow-md transition-all">
-          <div class="w-12 h-12 rounded-xl bg-brand-100 flex items-center justify-center text-accent-dark mb-6">
+        <div class="bg-brand-50 rounded-2xl p-8 border border-brand-200/80 shadow-sm hover-lift group">
+          <div class="w-12 h-12 rounded-xl bg-brand-100 flex items-center justify-center text-accent-dark mb-6 group-hover:bg-accent-warm group-hover:text-white transition-colors">
             <i data-lucide="calendar-check" class="w-6 h-6"></i>
           </div>
           <h3 class="text-xl font-bold text-accent-dark mb-3">線上預約系統</h3>
@@ -137,8 +164,8 @@
         </div>
 
         <!-- Card 2 -->
-        <div class="bg-brand-50 rounded-2xl p-8 border border-brand-200/80 shadow-sm hover:shadow-md transition-all">
-          <div class="w-12 h-12 rounded-xl bg-brand-100 flex items-center justify-center text-accent-dark mb-6">
+        <div class="bg-brand-50 rounded-2xl p-8 border border-brand-200/80 shadow-sm hover-lift group">
+          <div class="w-12 h-12 rounded-xl bg-brand-100 flex items-center justify-center text-accent-dark mb-6 group-hover:bg-accent-warm group-hover:text-white transition-colors">
             <i data-lucide="message-square-code" class="w-6 h-6"></i>
           </div>
           <h3 class="text-xl font-bold text-accent-dark mb-3">LINE@ 智能自動化</h3>
@@ -151,8 +178,8 @@
         </div>
 
         <!-- Card 3 -->
-        <div class="bg-brand-50 rounded-2xl p-8 border border-brand-200/80 shadow-sm hover:shadow-md transition-all">
-          <div class="w-12 h-12 rounded-xl bg-brand-100 flex items-center justify-center text-accent-dark mb-6">
+        <div class="bg-brand-50 rounded-2xl p-8 border border-brand-200/80 shadow-sm hover-lift group">
+          <div class="w-12 h-12 rounded-xl bg-brand-100 flex items-center justify-center text-accent-dark mb-6 group-hover:bg-accent-warm group-hover:text-white transition-colors">
             <i data-lucide="layout-template" class="w-6 h-6"></i>
           </div>
           <h3 class="text-xl font-bold text-accent-dark mb-3">高質感品牌官網</h3>
@@ -174,10 +201,10 @@
       <h2 class="text-2xl sm:text-3xl font-bold text-accent-dark">實戰代表案例 ｜ 為美業品牌賦能</h2>
     </div>
 
-    <div class="bg-white rounded-3xl p-8 md:p-12 border border-brand-200 shadow-sm">
+    <div class="bg-white rounded-3xl p-8 md:p-12 border border-brand-200 shadow-sm hover-lift">
       <div class="grid lg:grid-cols-12 gap-8 items-center">
         <!-- 案例左側：視覺示意 -->
-        <div class="lg:col-span-5 bg-brand-50 rounded-2xl p-6 border border-brand-200/80">
+        <div class="lg:col-span-5 bg-brand-50 rounded-2xl p-6 border border-brand-200/80 group">
           <div class="flex items-center justify-between border-b border-brand-200 pb-4 mb-4">
             <div class="flex items-center gap-2.5">
               <div class="w-8 h-8 rounded-full bg-brand-200 text-brand-800 flex items-center justify-center font-bold text-xs">✦</div>
@@ -245,11 +272,11 @@
           </div>
 
           <div class="pt-4 flex flex-wrap items-center gap-4">
-            <a href="https://fru-foryou.github.io/blanc-studio/" target="_blank" class="inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs font-semibold text-white bg-accent-dark hover:bg-brand-800 transition-all shadow-sm">
+            <a href="https://fru-foryou.github.io/blanc-studio/" target="_blank" class="inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs font-semibold text-white bg-accent-dark hover:bg-brand-800 hover:scale-105 active:scale-95 transition-all shadow-sm">
               <span>線上體驗系統 Demo</span>
               <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
             </a>
-            <a href="#contact" class="inline-flex items-center gap-1.5 px-5 py-3 rounded-full text-xs font-medium text-brand-800 bg-brand-100 hover:bg-brand-200/80 border border-brand-200 transition-all">
+            <a href="#contact" class="inline-flex items-center gap-1.5 px-5 py-3 rounded-full text-xs font-medium text-brand-800 bg-brand-100 hover:bg-brand-200/80 hover:scale-105 active:scale-95 border border-brand-200 transition-all">
               <span>洽詢此方案規格</span>
             </a>
           </div>
@@ -267,7 +294,7 @@
 
     <div class="grid md:grid-cols-2 gap-8">
       <!-- Old Way -->
-      <div class="bg-brand-100/60 rounded-2xl p-8 border border-brand-200">
+      <div class="bg-brand-100/60 rounded-2xl p-8 border border-brand-200 hover-lift">
         <div class="flex items-center gap-3 mb-6">
           <span class="w-8 h-8 rounded-full bg-red-100 text-red-600 flex items-center justify-center text-sm font-bold">✕</span>
           <h3 class="text-lg font-bold text-brand-900">傳統人工預約流程</h3>
@@ -293,7 +320,7 @@
       </div>
 
       <!-- New Way -->
-      <div class="bg-white rounded-2xl p-8 border-2 border-brand-400 shadow-md">
+      <div class="bg-white rounded-2xl p-8 border-2 border-brand-400 shadow-md hover-lift">
         <div class="flex items-center gap-3 mb-6">
           <span class="w-8 h-8 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center text-sm font-bold">✓</span>
           <h3 class="text-lg font-bold text-accent-dark">Fru 自動化系統串接</h3>
@@ -328,7 +355,7 @@
         <h2 class="text-2xl sm:text-3xl font-bold text-accent-dark">試算系統能為你省下多少時間？</h2>
       </div>
 
-      <div class="bg-white rounded-2xl p-8 md:p-10 border border-brand-200 shadow-sm">
+      <div class="bg-white rounded-2xl p-8 md:p-10 border border-brand-200 shadow-sm hover-lift">
         <div class="grid md:grid-cols-2 gap-8 items-center">
           <div class="space-y-6">
             <div>
@@ -336,7 +363,7 @@
                 <span class="text-brand-800">每週諮詢與預約私訊量</span>
                 <span id="msgCountText" class="font-bold text-accent-warm">30 則 / 週</span>
               </div>
-              <input type="range" id="msgRange" min="10" max="150" value="30" step="5" class="w-full h-2 bg-brand-200 rounded-lg appearance-none cursor-pointer accent-accent-dark">
+              <input type="range" id="msgRange" min="10" max="150" value="30" step="5" class="custom-range w-full h-2 bg-brand-200 rounded-lg appearance-none cursor-pointer accent-accent-dark">
             </div>
 
             <div>
@@ -344,7 +371,7 @@
                 <span class="text-brand-800">平均每則溝通與安排時間</span>
                 <span id="timePerMsgText" class="font-bold text-accent-warm">8 分鐘</span>
               </div>
-              <input type="range" id="timeRange" min="3" max="20" value="8" step="1" class="w-full h-2 bg-brand-200 rounded-lg appearance-none cursor-pointer accent-accent-dark">
+              <input type="range" id="timeRange" min="3" max="20" value="8" step="1" class="custom-range w-full h-2 bg-brand-200 rounded-lg appearance-none cursor-pointer accent-accent-dark">
             </div>
 
             <div>
@@ -352,14 +379,14 @@
                 <span class="text-brand-800">你的專業每小時價值 (時薪/收費)</span>
                 <span id="hourlyRateText" class="font-bold text-accent-warm">NT$ 1,000</span>
               </div>
-              <input type="range" id="rateRange" min="500" max="5000" value="1000" step="100" class="w-full h-2 bg-brand-200 rounded-lg appearance-none cursor-pointer accent-accent-dark">
+              <input type="range" id="rateRange" min="500" max="5000" value="1000" step="100" class="custom-range w-full h-2 bg-brand-200 rounded-lg appearance-none cursor-pointer accent-accent-dark">
             </div>
           </div>
 
           <div class="bg-brand-50 rounded-xl p-6 border border-brand-200 text-center space-y-6">
             <div>
               <span class="text-xs text-brand-500 uppercase tracking-wider font-semibold">每月為你省下</span>
-              <div class="text-4xl font-extrabold text-accent-dark mt-1">
+              <div class="text-4xl font-extrabold text-accent-dark mt-1 transition-transform">
                 <span id="savedHours">16</span> <span class="text-base font-normal text-brand-600">小時</span>
               </div>
               <p class="text-xs text-brand-500 mt-1">相當於每年多出整整 24 天全職工作時間！</p>
@@ -367,12 +394,12 @@
 
             <div class="pt-4 border-t border-brand-200">
               <span class="text-xs text-brand-500 uppercase tracking-wider font-semibold">每年釋放的時間經濟價值</span>
-              <div class="text-3xl font-extrabold text-accent-warm mt-1">
+              <div class="text-3xl font-extrabold text-accent-warm mt-1 transition-transform">
                 <span id="savedValue">NT$ 192,000</span>
               </div>
             </div>
 
-            <a href="#contact" class="inline-block w-full py-3 rounded-xl bg-accent-dark text-white text-xs font-semibold hover:bg-brand-800 transition-colors">
+            <a href="#contact" class="inline-block w-full py-3 rounded-xl bg-accent-dark text-white text-xs font-semibold hover:bg-brand-800 hover:scale-105 active:scale-95 transition-all">
               立即打造專屬自動化系統
             </a>
           </div>
@@ -389,32 +416,32 @@
     </div>
 
     <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-      <div class="bg-white p-6 rounded-2xl border border-brand-200 text-center hover:border-brand-400 transition-colors">
-        <div class="w-12 h-12 mx-auto rounded-full bg-brand-100 flex items-center justify-center text-brand-800 mb-4">
+      <div class="bg-white p-6 rounded-2xl border border-brand-200 text-center hover-lift group">
+        <div class="w-12 h-12 mx-auto rounded-full bg-brand-100 flex items-center justify-center text-brand-800 mb-4 group-hover:bg-accent-warm group-hover:text-white transition-colors">
           <i data-lucide="scissors" class="w-6 h-6"></i>
         </div>
         <h3 class="font-bold text-accent-dark mb-1">美業美甲 / SPA</h3>
         <p class="text-xs text-brand-600">預約選檔期・自動發送施作注意事項</p>
       </div>
 
-      <div class="bg-white p-6 rounded-2xl border border-brand-200 text-center hover:border-brand-400 transition-colors">
-        <div class="w-12 h-12 mx-auto rounded-full bg-brand-100 flex items-center justify-center text-brand-800 mb-4">
+      <div class="bg-white p-6 rounded-2xl border border-brand-200 text-center hover-lift group">
+        <div class="w-12 h-12 mx-auto rounded-full bg-brand-100 flex items-center justify-center text-brand-800 mb-4 group-hover:bg-accent-warm group-hover:text-white transition-colors">
           <i data-lucide="dumbbell" class="w-6 h-6"></i>
         </div>
         <h3 class="font-bold text-accent-dark mb-1">健身教練 / 瑜珈</h3>
         <p class="text-xs text-brand-600">學員課表預約・購課堂數扣點管理</p>
       </div>
 
-      <div class="bg-white p-6 rounded-2xl border border-brand-200 text-center hover:border-brand-400 transition-colors">
-        <div class="w-12 h-12 mx-auto rounded-full bg-brand-100 flex items-center justify-center text-brand-800 mb-4">
+      <div class="bg-white p-6 rounded-2xl border border-brand-200 text-center hover-lift group">
+        <div class="w-12 h-12 mx-auto rounded-full bg-brand-100 flex items-center justify-center text-brand-800 mb-4 group-hover:bg-accent-warm group-hover:text-white transition-colors">
           <i data-lucide="graduation-cap" class="w-6 h-6"></i>
         </div>
         <h3 class="font-bold text-accent-dark mb-1">講師 / 顧問 / 線上教學</h3>
         <p class="text-xs text-brand-600">一對一諮詢預約・金流自動開課</p>
       </div>
 
-      <div class="bg-white p-6 rounded-2xl border border-brand-200 text-center hover:border-brand-400 transition-colors">
-        <div class="w-12 h-12 mx-auto rounded-full bg-brand-100 flex items-center justify-center text-brand-800 mb-4">
+      <div class="bg-white p-6 rounded-2xl border border-brand-200 text-center hover-lift group">
+        <div class="w-12 h-12 mx-auto rounded-full bg-brand-100 flex items-center justify-center text-brand-800 mb-4 group-hover:bg-accent-warm group-hover:text-white transition-colors">
           <i data-lucide="camera" class="w-6 h-6"></i>
         </div>
         <h3 class="font-bold text-accent-dark mb-1">攝影工作室 / 診所</h3>
@@ -433,7 +460,7 @@
 
       <div class="grid md:grid-cols-3 gap-8">
         <!-- Tier 1 -->
-        <div class="bg-white rounded-2xl p-8 border border-brand-200 flex flex-col justify-between">
+        <div class="bg-white rounded-2xl p-8 border border-brand-200 flex flex-col justify-between hover-lift">
           <div>
             <span class="text-xs font-semibold text-brand-500 tracking-wider uppercase">入門方案</span>
             <h3 class="text-xl font-bold text-accent-dark mt-1 mb-3">線上預約系統</h3>
@@ -448,8 +475,8 @@
         </div>
 
         <!-- Tier 2 -->
-        <div class="bg-white rounded-2xl p-8 border-2 border-accent-warm flex flex-col justify-between shadow-lg relative">
-          <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-accent-warm text-white px-3 py-1 rounded-full text-[10px] font-bold tracking-widest uppercase">
+        <div class="bg-white rounded-2xl p-8 border-2 border-accent-warm flex flex-col justify-between shadow-lg relative hover-lift">
+          <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-accent-warm text-white px-3.5 py-1 rounded-full text-[10px] font-bold tracking-widest uppercase shadow-sm">
             人氣推薦
           </div>
           <div>
@@ -467,7 +494,7 @@
         </div>
 
         <!-- Tier 3 -->
-        <div class="bg-white rounded-2xl p-8 border border-brand-200 flex flex-col justify-between">
+        <div class="bg-white rounded-2xl p-8 border border-brand-200 flex flex-col justify-between hover-lift">
           <div>
             <span class="text-xs font-semibold text-brand-500 tracking-wider uppercase">旗艦客製</span>
             <h3 class="text-xl font-bold text-accent-dark mt-1 mb-3">全方位品牌數位整合</h3>
@@ -487,7 +514,7 @@
 
   <!-- Contact Form Section (Connected to Updated GAS via Hidden Iframe) -->
   <section id="contact" class="py-24 max-w-4xl mx-auto px-6">
-    <div class="bg-white rounded-3xl p-8 md:p-14 border border-brand-200 shadow-sm">
+    <div class="bg-white rounded-3xl p-8 md:p-14 border border-brand-200 shadow-sm hover-lift">
       <div class="text-center max-w-xl mx-auto mb-10">
         <p class="text-xs font-semibold uppercase tracking-widest text-accent-warm mb-2">Let's Connect</p>
         <h2 class="text-2xl sm:text-3xl font-bold text-accent-dark mb-3">告訴我們你的想法</h2>
@@ -506,18 +533,18 @@
         <div class="grid sm:grid-cols-2 gap-6">
           <div>
             <label class="block text-xs font-semibold text-brand-700 mb-2" for="name">您的姓名 / 稱謂 *</label>
-            <input type="text" id="name" name="name" required placeholder="例如：王小姐 / Chen" class="w-full px-4 py-3 rounded-xl bg-brand-50 border border-brand-200 text-sm focus:outline-none focus:ring-2 focus:ring-brand-400">
+            <input type="text" id="name" name="name" required placeholder="例如：王小姐 / Chen" class="w-full px-4 py-3 rounded-xl bg-brand-50 border border-brand-200 text-sm focus:outline-none focus:ring-2 focus:ring-brand-400 transition-all">
           </div>
           <div>
             <label class="block text-xs font-semibold text-brand-700 mb-2" for="contact">聯絡方式 (LINE ID 或電話) *</label>
-            <input type="text" id="contact" name="contact" required placeholder="例如：LINE ID 或 0912-345678" class="w-full px-4 py-3 rounded-xl bg-brand-50 border border-brand-200 text-sm focus:outline-none focus:ring-2 focus:ring-brand-400">
+            <input type="text" id="contact" name="contact" required placeholder="例如：LINE ID 或 0912-345678" class="w-full px-4 py-3 rounded-xl bg-brand-50 border border-brand-200 text-sm focus:outline-none focus:ring-2 focus:ring-brand-400 transition-all">
           </div>
         </div>
 
         <div class="grid sm:grid-cols-2 gap-6">
           <div>
             <label class="block text-xs font-semibold text-brand-700 mb-2" for="industry">您的產業類型</label>
-            <select id="industry" name="industry" class="w-full px-4 py-3 rounded-xl bg-brand-50 border border-brand-200 text-sm focus:outline-none focus:ring-2 focus:ring-brand-400 text-brand-800">
+            <select id="industry" name="industry" class="w-full px-4 py-3 rounded-xl bg-brand-50 border border-brand-200 text-sm focus:outline-none focus:ring-2 focus:ring-brand-400 text-brand-800 transition-all">
               <option value="美業 (美甲/美睫/美容/SPA)">美業 (美甲/美睫/美容/SPA)</option>
               <option value="健身教練 / 瑜珈 / 運動">健身教練 / 瑜珈 / 運動</option>
               <option value="講師 / 顧問 / 線上教學">講師 / 顧問 / 線上教學</option>
@@ -528,7 +555,7 @@
           </div>
           <div>
             <label class="block text-xs font-semibold text-brand-700 mb-2" for="service">主要想諮詢的服務</label>
-            <select id="service" name="service" class="w-full px-4 py-3 rounded-xl bg-brand-50 border border-brand-200 text-sm focus:outline-none focus:ring-2 focus:ring-brand-400 text-brand-800">
+            <select id="service" name="service" class="w-full px-4 py-3 rounded-xl bg-brand-50 border border-brand-200 text-sm focus:outline-none focus:ring-2 focus:ring-brand-400 text-brand-800 transition-all">
               <option value="預約系統建置">預約系統建置</option>
               <option value="LINE@ 自動化與標籤">LINE@ 自動化與標籤</option>
               <option value="品牌形象官網">品牌形象官網</option>
@@ -540,10 +567,10 @@
 
         <div>
           <label class="block text-xs font-semibold text-brand-700 mb-2" for="message">簡述目前的營運痛點或想要實現的功能</label>
-          <textarea id="message" name="message" rows="4" placeholder="例如：目前每天要花很多時間在 LINE 上對時間、想減少客人爽約..." class="w-full px-4 py-3 rounded-xl bg-brand-50 border border-brand-200 text-sm focus:outline-none focus:ring-2 focus:ring-brand-400"></textarea>
+          <textarea id="message" name="message" rows="4" placeholder="例如：目前每天要花很多時間在 LINE 上對時間、想減少客人爽約..." class="w-full px-4 py-3 rounded-xl bg-brand-50 border border-brand-200 text-sm focus:outline-none focus:ring-2 focus:ring-brand-400 transition-all"></textarea>
         </div>
 
-        <button type="submit" id="submitBtn" class="w-full py-4 rounded-xl bg-accent-dark text-white font-semibold text-sm hover:bg-brand-800 transition-all shadow-md flex items-center justify-center gap-2">
+        <button type="submit" id="submitBtn" class="w-full py-4 rounded-xl bg-accent-dark text-white font-semibold text-sm hover:bg-brand-800 hover:scale-[1.01] active:scale-[0.99] transition-all shadow-md flex items-center justify-center gap-2">
           <span>送出預約諮詢</span>
           <i data-lucide="send" class="w-4 h-4"></i>
         </button>
