@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fur｜FOR YOU 客製所 - 一人公司的外包數位與自動化團隊</title>
-  <meta name="description" content="把你想要說的，變成一份禮物。讓一人公司，也能擁有專屬數位團隊。預約系統 × LINE@ 自動化 × 品牌形象網站 × 客製系統開發。">
+  <title>fur｜FOR YOU 客製所 - 一人公司的外包數位與自動化團隊</title>
+  <meta name="description" content="把你想說的，變成一份禮物。讓一人公司，也能擁有專屬數位團隊。預約系統 × LINE@ 自動化 × 品牌形象網站 × 客製系統開發。">
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Google Fonts: Noto Serif TC, Noto Sans TC & Plus Jakarta Sans -->
+  <!-- Google Fonts: Comfortaa (圖片專屬字體), Noto Serif TC, Noto Sans TC -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600&family=Noto+Serif+TC:wght@300;400;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;600;700&family=Noto+Serif+TC:wght@300;400;600&display=swap" rel="stylesheet">
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
   <script>
@@ -19,21 +19,22 @@
         extend: {
           colors: {
             fur: {
-              bg: '#171513',
-              card: '#221F1C',
-              cardHover: '#2A2622',
-              border: '#332E28',
-              borderLight: '#443D36',
-              textMain: '#F4EFEA',
-              textMuted: '#A89F91',
-              textSub: '#70685D',
-              accent: '#C7A27C',
-              accentHover: '#D8B591',
+              bg: '#25201C',          // 溫暖深焙焦糖大地底色
+              surface: '#2F2924',     // 暖卡片底色
+              surfaceLight: '#3B332E',// 懸浮淺暖底
+              border: '#4A413A',      // 柔和暖棕邊框
+              borderLight: '#5C5148',
+              textMain: '#FAF6F0',    // 溫潤米白字
+              textMuted: '#D4C8BC',   // 淺燕麥文字
+              textSub: '#A39587',     // 輔助說明文字
+              accent: '#E0B589',      // 溫暖蜜金點綴色
+              accentHover: '#ECC79F',
             }
           },
           fontFamily: {
+            logo: ['"Comfortaa"', 'cursive', 'sans-serif'],
             serif: ['"Noto Serif TC"', 'serif'],
-            sans: ['"Noto Sans TC"', '"Plus Jakarta Sans"', 'sans-serif'],
+            sans: ['"Noto Sans TC"', 'sans-serif'],
           }
         }
       }
@@ -41,150 +42,159 @@
   </script>
   <style>
     body {
-      background-color: #171513;
-      color: #F4EFEA;
+      background-color: #25201C;
+      color: #FAF6F0;
       font-family: 'Noto Sans TC', sans-serif;
     }
-    .shadow-aesthetic {
-      background: radial-gradient(circle at 80% 20%, rgba(37, 34, 30, 0.9) 0%, rgba(23, 21, 19, 1) 75%);
+    .warm-glow {
+      background: radial-gradient(circle at 50% 30%, rgba(224, 181, 137, 0.12) 0%, rgba(37, 32, 28, 0) 70%);
     }
-    .card-glass {
-      background: rgba(34, 31, 28, 0.75);
-      backdrop-filter: blur(16px);
-      border: 1px solid rgba(255, 255, 255, 0.07);
+    .card-warm {
+      background: rgba(47, 41, 36, 0.85);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(224, 181, 137, 0.15);
+      transition: all 0.3s ease;
     }
-    .card-glass:hover {
-      background: rgba(42, 38, 34, 0.9);
-      border-color: rgba(199, 162, 124, 0.3);
-      transform: translateY(-3px);
+    .card-warm:hover {
+      background: rgba(59, 51, 46, 0.95);
+      border-color: rgba(224, 181, 137, 0.4);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.3);
     }
-    .input-dark {
-      background-color: #221F1C;
-      border: 1px solid #3A342D;
-      color: #F4EFEA;
+    .input-warm {
+      background-color: #FAF6F0;
+      border: 1px solid #D4C8BC;
+      color: #25201C;
+      font-size: 0.95rem;
     }
-    .input-dark:focus {
-      border-color: #C7A27C;
+    .input-warm:focus {
+      border-color: #E0B589;
       outline: none;
-      box-shadow: 0 0 0 1px #C7A27C;
+      box-shadow: 0 0 0 2px rgba(224, 181, 137, 0.4);
     }
-    .input-dark::placeholder {
-      color: #70685D;
+    .input-warm::placeholder {
+      color: #8C7E72;
     }
   </style>
 </head>
-<body class="selection:bg-fur-accent selection:text-fur-bg min-h-screen flex flex-col justify-between antialiased">
+<body class="selection:bg-fur-accent selection:text-fur-bg min-h-screen flex flex-col justify-between antialiased text-base">
 
   <!-- Navigation -->
-  <header class="sticky top-0 z-50 backdrop-blur-md bg-fur-bg/85 border-b border-fur-border/80 transition-all duration-200">
+  <header class="sticky top-0 z-50 backdrop-blur-md bg-fur-bg/90 border-b border-fur-border/80 transition-all duration-200">
     <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
       <a href="#" class="flex items-center gap-3 group">
-        <span class="text-2xl font-light tracking-wider text-fur-textMain group-hover:text-fur-accent transition-colors font-sans">Fur</span>
-        <span class="text-[11px] text-fur-textMuted font-light border-l border-fur-border pl-3 tracking-[0.25em] uppercase">FOR YOU ｜ 客製所</span>
+        <span class="text-3xl font-logo tracking-wider text-fur-textMain group-hover:text-fur-accent transition-colors lowercase">fur</span>
+        <span class="text-xs text-fur-textMuted font-light border-l border-fur-border pl-3 tracking-[0.25em] uppercase">FOR YOU ｜ 客製所</span>
       </a>
       
-      <nav class="hidden md:flex items-center gap-8 text-xs font-light text-fur-textMuted tracking-widest">
-        <a href="#services" class="hover:text-fur-textMain transition-colors">服務核心</a>
-        <a href="#portfolio" class="hover:text-fur-textMain transition-colors">實戰案例</a>
-        <a href="#comparison" class="hover:text-fur-textMain transition-colors">省時效益</a>
-        <a href="#solutions" class="hover:text-fur-textMain transition-colors">適用產業</a>
-        <a href="#pricing" class="hover:text-fur-textMain transition-colors">方案規劃</a>
+      <nav class="hidden md:flex items-center gap-8 text-sm font-light text-fur-textMuted tracking-wider">
+        <a href="#services" class="hover:text-fur-accent transition-colors">服務核心</a>
+        <a href="#portfolio" class="hover:text-fur-accent transition-colors">實戰案例</a>
+        <a href="#comparison" class="hover:text-fur-accent transition-colors">省時效益</a>
+        <a href="#solutions" class="hover:text-fur-accent transition-colors">適用產業</a>
+        <a href="#pricing" class="hover:text-fur-accent transition-colors">方案規劃</a>
       </nav>
 
-      <a href="#contact" class="inline-flex items-center justify-center px-5 py-2 rounded-full text-xs font-medium tracking-widest text-fur-bg bg-fur-textMain hover:bg-fur-accent transition-all duration-300 shadow-sm">
+      <a href="#contact" class="inline-flex items-center justify-center px-6 py-2.5 rounded-full text-xs font-medium tracking-widest text-fur-bg bg-fur-textMain hover:bg-fur-accent hover:scale-105 active:scale-95 transition-all duration-300 shadow-md">
         預約諮詢
       </a>
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="relative pt-20 pb-28 md:pt-32 md:pb-40 overflow-hidden shadow-aesthetic">
+  <!-- Hero Section (圖片標準視覺) -->
+  <section class="relative pt-20 pb-28 md:pt-32 md:pb-40 overflow-hidden warm-glow">
     <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
       
-      <!-- 主 Logo 視覺重現 -->
-      <div class="mb-10 inline-block">
-        <h2 class="text-6xl sm:text-7xl md:text-8xl font-normal tracking-wide text-fur-textMain mb-3 font-sans">Fur</h2>
-        <p class="text-xs sm:text-sm font-light tracking-[0.35em] text-fur-textMuted uppercase mb-3">FOR YOU ｜ 客製所</p>
-        <p class="text-xs sm:text-sm font-light tracking-[0.25em] text-fur-accent">把你想說的，變成一份禮物。</p>
+      <!-- 原圖核心字體重現 -->
+      <div class="mb-12 inline-block">
+        <h2 class="text-7xl sm:text-8xl md:text-9xl font-logo tracking-wide text-fur-textMain mb-4 lowercase">fur</h2>
+        <p class="text-sm sm:text-base font-light tracking-[0.4em] text-fur-textMuted uppercase mb-3">FOR YOU ｜ 客製所</p>
+        <p class="text-sm sm:text-base font-light tracking-[0.25em] text-fur-accent">把你想說的，變成一份禮物。</p>
       </div>
       
-      <h1 class="text-2xl sm:text-4xl md:text-5xl font-light tracking-wide text-fur-textMain leading-[1.3] mb-6">
+      <h1 class="text-3xl sm:text-5xl font-normal tracking-wide text-fur-textMain leading-[1.3] mb-6">
         把繁瑣的溝通交給系統<br>
-        <span class="text-fur-accent font-normal">把最珍貴的時間留給專業</span>
+        <span class="text-fur-accent font-medium">把最珍貴的時間留給專業</span>
       </h1>
       
-      <p class="text-xs sm:text-sm text-fur-textMuted max-w-2xl mx-auto mb-10 leading-relaxed font-light tracking-wider">
+      <p class="text-sm sm:text-base text-fur-textMuted max-w-2xl mx-auto mb-10 leading-relaxed font-light tracking-wider">
         還在一個個回覆「有空嗎？」、手動確認檔期與提醒客戶？<br class="hidden sm:inline">
-        Fur 為美業、教練、講師與個人品牌打造 24H 不停歇的智能自動化與預約流程。
+        fur 為美業、教練、講師與個人品牌打造 24H 不停歇的智能自動化與預約流程。
       </p>
 
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-        <a href="#contact" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full text-xs tracking-widest font-medium text-fur-bg bg-fur-textMain hover:bg-fur-accent transition-all shadow-md">
+        <a href="#contact" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full text-sm tracking-widest font-semibold text-fur-bg bg-fur-textMain hover:bg-fur-accent hover:scale-105 active:scale-95 transition-all shadow-lg">
           <span>告訴我們你的想法</span>
-          <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
         </a>
-        <a href="#calculator" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full text-xs tracking-widest font-light text-fur-textMain bg-fur-card hover:bg-fur-cardHover border border-fur-border transition-all">
-          <i data-lucide="calculator" class="w-3.5 h-3.5 text-fur-accent"></i>
+        <a href="#calculator" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full text-sm tracking-widest font-light text-fur-textMain bg-fur-surface hover:bg-fur-surfaceLight border border-fur-border hover:scale-105 active:scale-95 transition-all">
+          <i data-lucide="calculator" class="w-4 h-4 text-fur-accent"></i>
           <span>試算每月可省下時數</span>
         </a>
       </div>
 
-      <div class="mt-14 flex items-center justify-center gap-6 text-[11px] text-fur-textSub tracking-wider flex-wrap">
-        <span class="flex items-center gap-1.5"><i data-lucide="check" class="w-3 h-3 text-fur-accent"></i> 免套版照需求做</span>
-        <span class="flex items-center gap-1.5"><i data-lucide="check" class="w-3 h-3 text-fur-accent"></i> 24H 零漏訊自動接單</span>
-        <span class="flex items-center gap-1.5"><i data-lucide="check" class="w-3 h-3 text-fur-accent"></i> 降低臨時爽約率</span>
+      <div class="mt-14 flex items-center justify-center gap-8 text-xs sm:text-sm text-fur-textSub tracking-wider flex-wrap">
+        <span class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-fur-accent"></i> 免套版照需求做</span>
+        <span class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-fur-accent"></i> 24H 零漏訊自動接單</span>
+        <span class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-fur-accent"></i> 降低臨時爽約率</span>
       </div>
     </div>
   </section>
 
   <!-- Core Services -->
-  <section id="services" class="py-24 bg-fur-card/40 border-y border-fur-border/80">
+  <section id="services" class="py-24 bg-fur-surface/50 border-y border-fur-border/80">
     <div class="max-w-6xl mx-auto px-6">
       <div class="text-center max-w-2xl mx-auto mb-16">
-        <p class="text-[11px] font-light uppercase tracking-[0.3em] text-fur-accent mb-2">Service Core</p>
-        <h2 class="text-2xl sm:text-3xl font-normal tracking-wider text-fur-textMain">三大核心模組，串起完整數位營運</h2>
+        <p class="text-xs font-medium uppercase tracking-[0.3em] text-fur-accent mb-2">Service Core</p>
+        <h2 class="text-3xl sm:text-4xl font-normal tracking-wider text-fur-textMain">三大核心模組，串起完整數位營運</h2>
       </div>
 
-      <div class="grid md:grid-cols-3 gap-6 sm:gap-8">
+      <div class="grid md:grid-cols-3 gap-8">
         <!-- Card 1 -->
-        <div class="card-glass rounded-2xl p-8 transition-all duration-300">
-          <div class="w-12 h-12 rounded-xl bg-fur-bg border border-fur-border flex items-center justify-center text-fur-accent mb-6">
-            <i data-lucide="calendar-check" class="w-5 h-5"></i>
+        <div class="card-warm rounded-3xl p-8 flex flex-col justify-between">
+          <div>
+            <div class="w-14 h-14 rounded-2xl bg-fur-bg border border-fur-border flex items-center justify-center text-fur-accent mb-6 shadow-inner">
+              <i data-lucide="calendar-check" class="w-6 h-6"></i>
+            </div>
+            <h3 class="text-xl font-medium tracking-wide text-fur-textMain mb-3">線上預約系統</h3>
+            <p class="text-sm text-fur-textMuted mb-6 leading-relaxed font-light">24 小時自動接單。客人自選可用時段，系統自動核銷檔期並於行前發送通知，大幅降低爽約率。</p>
           </div>
-          <h3 class="text-lg font-medium tracking-wide text-fur-textMain mb-3">線上預約系統</h3>
-          <p class="text-xs text-fur-textMuted mb-6 leading-relaxed font-light">24 小時自動接單。客人自選可用時段，系統自動核銷檔期並於行前發送通知，大幅降低爽約率。</p>
-          <ul class="space-y-2.5 text-xs text-fur-textMuted font-light">
-            <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-fur-accent"></i> 客人自主預約選時段</li>
-            <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-fur-accent"></i> 行事曆與後台實時同步</li>
-            <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-fur-accent"></i> 預約日前自動發信/LINE 提醒</li>
+          <ul class="space-y-3 text-sm text-fur-textMuted font-light pt-4 border-t border-fur-border/60">
+            <li class="flex items-center gap-2.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-fur-accent"></i> 客人自主預約選時段</li>
+            <li class="flex items-center gap-2.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-fur-accent"></i> 行事曆與後台實時同步</li>
+            <li class="flex items-center gap-2.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-fur-accent"></i> 預約日前自動發信/LINE 提醒</li>
           </ul>
         </div>
 
         <!-- Card 2 -->
-        <div class="card-glass rounded-2xl p-8 transition-all duration-300">
-          <div class="w-12 h-12 rounded-xl bg-fur-bg border border-fur-border flex items-center justify-center text-fur-accent mb-6">
-            <i data-lucide="message-square-code" class="w-5 h-5"></i>
+        <div class="card-warm rounded-3xl p-8 flex flex-col justify-between">
+          <div>
+            <div class="w-14 h-14 rounded-2xl bg-fur-bg border border-fur-border flex items-center justify-center text-fur-accent mb-6 shadow-inner">
+              <i data-lucide="message-square-code" class="w-6 h-6"></i>
+            </div>
+            <h3 class="text-xl font-medium tracking-wide text-fur-textMain mb-3">LINE@ 智能自動化</h3>
+            <p class="text-sm text-fur-textMuted mb-6 leading-relaxed font-light">讓官方帳號成為你最得力的全職助理。常見問答立即秒回、自動貼標分群，經營舊客更精準省力。</p>
           </div>
-          <h3 class="text-lg font-medium tracking-wide text-fur-textMain mb-3">LINE@ 智能自動化</h3>
-          <p class="text-xs text-fur-textMuted mb-6 leading-relaxed font-light">讓官方帳號成為你最得力的全職助理。常見問答立即秒回、自動貼標分群，經營舊客更精準省力。</p>
-          <ul class="space-y-2.5 text-xs text-fur-textMuted font-light">
-            <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-fur-accent"></i> 常見問題 0 秒即時回覆</li>
-            <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-fur-accent"></i> 客戶行為自動標籤分類</li>
-            <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-fur-accent"></i> 圖文選單與互動選單規劃</li>
+          <ul class="space-y-3 text-sm text-fur-textMuted font-light pt-4 border-t border-fur-border/60">
+            <li class="flex items-center gap-2.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-fur-accent"></i> 常見問題 0 秒即時回覆</li>
+            <li class="flex items-center gap-2.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-fur-accent"></i> 客戶行為自動標籤分類</li>
+            <li class="flex items-center gap-2.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-fur-accent"></i> 圖文選單與互動選單規劃</li>
           </ul>
         </div>
 
         <!-- Card 3 -->
-        <div class="card-glass rounded-2xl p-8 transition-all duration-300">
-          <div class="w-12 h-12 rounded-xl bg-fur-bg border border-fur-border flex items-center justify-center text-fur-accent mb-6">
-            <i data-lucide="layout-template" class="w-5 h-5"></i>
+        <div class="card-warm rounded-3xl p-8 flex flex-col justify-between">
+          <div>
+            <div class="w-14 h-14 rounded-2xl bg-fur-bg border border-fur-border flex items-center justify-center text-fur-accent mb-6 shadow-inner">
+              <i data-lucide="layout-template" class="w-6 h-6"></i>
+            </div>
+            <h3 class="text-xl font-medium tracking-wide text-fur-textMain mb-3">高質感品牌官網</h3>
+            <p class="text-sm text-fur-textMuted mb-6 leading-relaxed font-light">好看，也要好用。融合日系雜誌風的高級視覺與高轉換架構，完美呈現作品集、價目表與品牌故事。</p>
           </div>
-          <h3 class="text-lg font-medium tracking-wide text-fur-textMain mb-3">高質感品牌官網</h3>
-          <p class="text-xs text-fur-textMuted mb-6 leading-relaxed font-light">好看，也要好用。融合日系雜誌風的高級視覺與高轉換架構，完美呈現作品集、價目表與品牌故事。</p>
-          <ul class="space-y-2.5 text-xs text-fur-textMuted font-light">
-            <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-fur-accent"></i> 手機與電腦極速自適應</li>
-            <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-fur-accent"></i> 整合預約與服務報價流程</li>
-            <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-fur-accent"></i> SEO 搜尋引擎友善架構</li>
+          <ul class="space-y-3 text-sm text-fur-textMuted font-light pt-4 border-t border-fur-border/60">
+            <li class="flex items-center gap-2.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-fur-accent"></i> 手機與電腦極速自適應</li>
+            <li class="flex items-center gap-2.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-fur-accent"></i> 整合預約與服務報價流程</li>
+            <li class="flex items-center gap-2.5"><i data-lucide="check-circle-2" class="w-4 h-4 text-fur-accent"></i> SEO 搜尋引擎友善架構</li>
           </ul>
         </div>
       </div>
@@ -194,32 +204,32 @@
   <!-- Featured Case Study (實戰代表案例) -->
   <section id="portfolio" class="py-24 max-w-6xl mx-auto px-6">
     <div class="text-center max-w-2xl mx-auto mb-14">
-      <p class="text-[11px] font-light uppercase tracking-[0.3em] text-fur-accent mb-2">Featured Case</p>
-      <h2 class="text-2xl sm:text-3xl font-normal tracking-wider text-fur-textMain">實戰代表案例 ｜ 為美業品牌賦能</h2>
+      <p class="text-xs font-medium uppercase tracking-[0.3em] text-fur-accent mb-2">Featured Case</p>
+      <h2 class="text-3xl sm:text-4xl font-normal tracking-wider text-fur-textMain">實戰代表案例 ｜ 為美業品牌賦能</h2>
     </div>
 
-    <div class="card-glass rounded-3xl p-8 md:p-12 transition-all duration-300">
+    <div class="card-warm rounded-3xl p-8 md:p-12">
       <div class="grid lg:grid-cols-12 gap-8 items-center">
         
-        <!-- 案例左側：沉靜質感小卡片 -->
-        <div class="lg:col-span-5 bg-fur-bg/90 rounded-2xl p-6 border border-fur-border shadow-inner">
+        <!-- 案例左側：溫潤小卡片 -->
+        <div class="lg:col-span-5 bg-fur-bg/95 rounded-2xl p-6 border border-fur-border shadow-inner">
           <div class="flex items-center justify-between border-b border-fur-border pb-4 mb-4">
-            <div class="flex items-center gap-2.5">
-              <div class="w-8 h-8 rounded-full bg-fur-card border border-fur-border text-fur-accent flex items-center justify-center font-serif font-bold text-xs">✦</div>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-fur-surface border border-fur-border text-fur-accent flex items-center justify-center font-bold text-sm shadow-sm">✦</div>
               <div>
-                <h4 class="font-medium text-sm text-fur-textMain">Blanc Studio</h4>
-                <p class="text-[10px] text-fur-textSub tracking-wider">線上預約系統</p>
+                <h4 class="font-medium text-base text-fur-textMain">Blanc Studio</h4>
+                <p class="text-xs text-fur-textSub tracking-wider">線上預約系統</p>
               </div>
             </div>
-            <span class="text-[10px] px-2.5 py-1 rounded-full bg-fur-card text-fur-textMuted border border-fur-border tracking-wider">預約制美甲沙龍</span>
+            <span class="text-xs px-3 py-1 rounded-full bg-fur-surface text-fur-textMuted border border-fur-border tracking-wider">預約制美甲沙龍</span>
           </div>
 
-          <div class="space-y-3 text-xs text-fur-textMuted font-light">
-            <div class="flex justify-between items-center py-1 border-b border-fur-border/50">
+          <div class="space-y-3.5 text-sm text-fur-textMuted font-light">
+            <div class="flex justify-between items-center py-1 border-b border-fur-border/60">
               <span class="text-fur-textSub">排程核心</span>
               <span class="text-fur-textMain font-normal">動態時長連續防撞鎖定</span>
             </div>
-            <div class="flex justify-between items-center py-1 border-b border-fur-border/50">
+            <div class="flex justify-between items-center py-1 border-b border-fur-border/60">
               <span class="text-fur-textSub">設計師班表</span>
               <span class="text-fur-textMain font-normal">多設計師獨立檔期與公休</span>
             </div>
@@ -229,52 +239,52 @@
             </div>
           </div>
 
-          <div class="mt-6 pt-4 border-t border-fur-border flex items-center justify-between text-xs">
+          <div class="mt-6 pt-4 border-t border-fur-border flex items-center justify-between text-sm">
             <span class="text-fur-textSub font-light">主機維護成本</span>
-            <span class="text-fur-accent font-medium bg-fur-card px-2.5 py-1 rounded-lg border border-fur-border">NT$ 0 / 月 (Serverless)</span>
+            <span class="text-fur-accent font-semibold bg-fur-surface px-3 py-1 rounded-lg border border-fur-border">NT$ 0 / 月 (Serverless)</span>
           </div>
         </div>
 
         <!-- 案例右側：文字介紹與按鈕 -->
-        <div class="lg:col-span-7 space-y-5">
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-fur-bg text-fur-accent text-xs font-light border border-fur-border">
-            <i data-lucide="check" class="w-3 h-3 text-fur-accent"></i>
+        <div class="lg:col-span-7 space-y-6">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-fur-bg text-fur-accent text-xs font-medium border border-fur-border">
+            <i data-lucide="check" class="w-4 h-4 text-fur-accent"></i>
             <span class="tracking-widest">美業預約 × LINE@ 自動化代表作</span>
           </div>
           
-          <h3 class="text-2xl font-normal tracking-wide text-fur-textMain">
+          <h3 class="text-2xl sm:text-3xl font-normal tracking-wide text-fur-textMain">
             Blanc Studio ｜ 溫柔日系美學・線上預約系統
           </h3>
           
-          <p class="text-xs sm:text-sm text-fur-textMuted leading-relaxed font-light tracking-wide">
+          <p class="text-sm sm:text-base text-fur-textMuted leading-relaxed font-light tracking-wide">
             針對高客製化、多美甲師與施作時長差異（30~120 分鐘）的營運痛點，打造「智慧排程連續防撞核心」，自動鎖定衝突時段並即時同步試算表與 LINE 官方帳號，實現 24 小時全自動接單。
           </p>
 
-          <div class="grid grid-cols-2 gap-3 pt-2 text-xs text-fur-textMuted font-light">
-            <div class="flex items-center gap-2">
-              <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-fur-accent"></i>
+          <div class="grid grid-cols-2 gap-3.5 pt-2 text-sm text-fur-textMuted font-light">
+            <div class="flex items-center gap-2.5">
+              <i data-lucide="check-circle-2" class="w-4 h-4 text-fur-accent"></i>
               <span>多設計師獨立排程與公休</span>
             </div>
-            <div class="flex items-center gap-2">
-              <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-fur-accent"></i>
+            <div class="flex items-center gap-2.5">
+              <i data-lucide="check-circle-2" class="w-4 h-4 text-fur-accent"></i>
               <span>連續時長自動佔用計算</span>
             </div>
-            <div class="flex items-center gap-2">
-              <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-fur-accent"></i>
+            <div class="flex items-center gap-2.5">
+              <i data-lucide="check-circle-2" class="w-4 h-4 text-fur-accent"></i>
               <span>LINE 雙向預約確認通知</span>
             </div>
-            <div class="flex items-center gap-2">
-              <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-fur-accent"></i>
+            <div class="flex items-center gap-2.5">
+              <i data-lucide="check-circle-2" class="w-4 h-4 text-fur-accent"></i>
               <span>一鍵同步 Google 行事曆</span>
             </div>
           </div>
 
           <div class="pt-4 flex flex-wrap items-center gap-4">
-            <a href="https://fru-foryou.github.io/blanc-studio/" target="_blank" class="inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs font-medium tracking-widest text-fur-bg bg-fur-textMain hover:bg-fur-accent transition-all shadow-sm">
+            <a href="https://fru-foryou.github.io/blanc-studio/" target="_blank" class="inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-xs font-semibold tracking-widest text-fur-bg bg-fur-textMain hover:bg-fur-accent hover:scale-105 active:scale-95 transition-all shadow-md">
               <span>線上體驗系統 Demo</span>
-              <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+              <i data-lucide="external-link" class="w-4 h-4"></i>
             </a>
-            <a href="#contact" class="inline-flex items-center gap-1.5 px-5 py-3 rounded-full text-xs font-light tracking-wider text-fur-textMain bg-fur-card hover:bg-fur-cardHover border border-fur-border transition-all">
+            <a href="#contact" class="inline-flex items-center gap-1.5 px-6 py-3.5 rounded-full text-xs font-medium tracking-wider text-fur-textMain bg-fur-surface hover:bg-fur-surfaceLight border border-fur-border transition-all">
               <span>洽詢此方案規格</span>
             </a>
           </div>
@@ -286,18 +296,18 @@
   <!-- Pain Point Comparison -->
   <section id="comparison" class="py-20 max-w-5xl mx-auto px-6">
     <div class="text-center max-w-2xl mx-auto mb-14">
-      <p class="text-[11px] font-light uppercase tracking-[0.3em] text-fur-accent mb-2">Before & After</p>
-      <h2 class="text-2xl sm:text-3xl font-normal tracking-wider text-fur-textMain">還在一個一個回「有空嗎？」</h2>
+      <p class="text-xs font-medium uppercase tracking-[0.3em] text-fur-accent mb-2">Before & After</p>
+      <h2 class="text-3xl sm:text-4xl font-normal tracking-wider text-fur-textMain">還在一個一個回「有空嗎？」</h2>
     </div>
 
     <div class="grid md:grid-cols-2 gap-8">
       <!-- Old Way -->
-      <div class="bg-fur-card/40 rounded-2xl p-8 border border-fur-border">
+      <div class="bg-fur-surface/40 rounded-3xl p-8 border border-fur-border">
         <div class="flex items-center gap-3 mb-6">
-          <span class="w-7 h-7 rounded-full bg-red-950/60 text-red-400 border border-red-800/60 flex items-center justify-center text-xs font-bold">✕</span>
-          <h3 class="text-base font-medium tracking-wide text-fur-textMain">傳統人工預約流程</h3>
+          <span class="w-8 h-8 rounded-full bg-red-950/60 text-red-400 border border-red-800/60 flex items-center justify-center text-xs font-bold">✕</span>
+          <h3 class="text-lg font-medium tracking-wide text-fur-textMain">傳統人工預約流程</h3>
         </div>
-        <ul class="space-y-4 text-xs text-fur-textMuted font-light leading-relaxed">
+        <ul class="space-y-4 text-sm text-fur-textMuted font-light leading-relaxed">
           <li class="flex items-start gap-3">
             <span class="text-red-400 font-bold mt-0.5">•</span>
             <span>客人私訊等半天，忙碌中漏回直接流失訂單</span>
@@ -318,12 +328,12 @@
       </div>
 
       <!-- New Way -->
-      <div class="card-glass rounded-2xl p-8 border border-fur-accent/40 shadow-md">
+      <div class="card-warm rounded-3xl p-8 border border-fur-accent/50 shadow-md">
         <div class="flex items-center gap-3 mb-6">
-          <span class="w-7 h-7 rounded-full bg-fur-accent/20 text-fur-accent border border-fur-accent/50 flex items-center justify-center text-xs font-bold">✓</span>
-          <h3 class="text-base font-medium tracking-wide text-fur-textMain">Fur 自動化系統串接</h3>
+          <span class="w-8 h-8 rounded-full bg-fur-accent/20 text-fur-accent border border-fur-accent/50 flex items-center justify-center text-xs font-bold">✓</span>
+          <h3 class="text-lg font-medium tracking-wide text-fur-textMain">fur 自動化系統串接</h3>
         </div>
-        <ul class="space-y-4 text-xs text-fur-textMain font-light leading-relaxed">
+        <ul class="space-y-4 text-sm text-fur-textMain font-light leading-relaxed">
           <li class="flex items-start gap-3">
             <span class="text-fur-accent font-bold mt-0.5">•</span>
             <span>24H 自動化接單，客人隨時自己挑選合適檔期</span>
@@ -346,58 +356,58 @@
   </section>
 
   <!-- Interactive Calculator -->
-  <section id="calculator" class="py-24 bg-fur-card/40 border-t border-fur-border/80">
+  <section id="calculator" class="py-24 bg-fur-surface/50 border-t border-fur-border/80">
     <div class="max-w-4xl mx-auto px-6">
       <div class="text-center max-w-xl mx-auto mb-12">
-        <p class="text-[11px] font-light uppercase tracking-[0.3em] text-fur-accent mb-2">Efficiency Calculator</p>
-        <h2 class="text-2xl sm:text-3xl font-normal tracking-wider text-fur-textMain">試算系統能為你省下多少時間？</h2>
+        <p class="text-xs font-medium uppercase tracking-[0.3em] text-fur-accent mb-2">Efficiency Calculator</p>
+        <h2 class="text-3xl sm:text-4xl font-normal tracking-wider text-fur-textMain">試算系統能為你省下多少時間？</h2>
       </div>
 
-      <div class="card-glass rounded-2xl p-8 md:p-10 border border-fur-border">
+      <div class="card-warm rounded-3xl p-8 md:p-12 border border-fur-border">
         <div class="grid md:grid-cols-2 gap-8 items-center">
           <div class="space-y-6">
             <div>
-              <div class="flex justify-between text-xs font-light text-fur-textMuted mb-2">
+              <div class="flex justify-between text-sm font-light text-fur-textMuted mb-2">
                 <span>每週諮詢與預約私訊量</span>
                 <span id="msgCountText" class="font-normal text-fur-accent">30 則 / 週</span>
               </div>
-              <input type="range" id="msgRange" min="10" max="150" value="30" step="5" class="w-full h-1.5 bg-fur-bg rounded-lg appearance-none cursor-pointer accent-fur-accent">
+              <input type="range" id="msgRange" min="10" max="150" value="30" step="5" class="w-full h-2 bg-fur-bg rounded-lg appearance-none cursor-pointer accent-fur-accent">
             </div>
 
             <div>
-              <div class="flex justify-between text-xs font-light text-fur-textMuted mb-2">
+              <div class="flex justify-between text-sm font-light text-fur-textMuted mb-2">
                 <span>平均每則溝通與安排時間</span>
                 <span id="timePerMsgText" class="font-normal text-fur-accent">8 分鐘</span>
               </div>
-              <input type="range" id="timeRange" min="3" max="20" value="8" step="1" class="w-full h-1.5 bg-fur-bg rounded-lg appearance-none cursor-pointer accent-fur-accent">
+              <input type="range" id="timeRange" min="3" max="20" value="8" step="1" class="w-full h-2 bg-fur-bg rounded-lg appearance-none cursor-pointer accent-fur-accent">
             </div>
 
             <div>
-              <div class="flex justify-between text-xs font-light text-fur-textMuted mb-2">
+              <div class="flex justify-between text-sm font-light text-fur-textMuted mb-2">
                 <span>你的專業每小時價值 (時薪/收費)</span>
                 <span id="hourlyRateText" class="font-normal text-fur-accent">NT$ 1,000</span>
               </div>
-              <input type="range" id="rateRange" min="500" max="5000" value="1000" step="100" class="w-full h-1.5 bg-fur-bg rounded-lg appearance-none cursor-pointer accent-fur-accent">
+              <input type="range" id="rateRange" min="500" max="5000" value="1000" step="100" class="w-full h-2 bg-fur-bg rounded-lg appearance-none cursor-pointer accent-fur-accent">
             </div>
           </div>
 
-          <div class="bg-fur-bg/80 rounded-xl p-6 border border-fur-border text-center space-y-6">
+          <div class="bg-fur-bg/95 rounded-2xl p-6 border border-fur-border text-center space-y-6 shadow-inner">
             <div>
-              <span class="text-[10px] text-fur-textSub uppercase tracking-[0.2em] font-light">每月為你省下</span>
-              <div class="text-4xl font-light text-fur-textMain mt-1">
-                <span id="savedHours">16</span> <span class="text-xs text-fur-textMuted">小時</span>
+              <span class="text-xs text-fur-textSub uppercase tracking-[0.2em] font-light">每月為你省下</span>
+              <div class="text-5xl font-light text-fur-textMain mt-1 font-logo">
+                <span id="savedHours">16</span> <span class="text-sm text-fur-textMuted font-sans">小時</span>
               </div>
-              <p class="text-[11px] text-fur-textSub mt-1 font-light">相當於每年多出整整 24 天全職工作時間！</p>
+              <p class="text-xs text-fur-textSub mt-1.5 font-light">相當於每年多出整整 24 天全職工作時間！</p>
             </div>
 
             <div class="pt-4 border-t border-fur-border">
-              <span class="text-[10px] text-fur-textSub uppercase tracking-[0.2em] font-light">每年釋放的時間經濟價值</span>
-              <div class="text-3xl font-light text-fur-accent mt-1">
+              <span class="text-xs text-fur-textSub uppercase tracking-[0.2em] font-light">每年釋放的時間經濟價值</span>
+              <div class="text-3xl sm:text-4xl font-normal text-fur-accent mt-1">
                 <span id="savedValue">NT$ 192,000</span>
               </div>
             </div>
 
-            <a href="#contact" class="inline-block w-full py-3 rounded-xl bg-fur-textMain text-fur-bg text-xs font-medium tracking-widest hover:bg-fur-accent transition-all">
+            <a href="#contact" class="inline-block w-full py-3.5 rounded-xl bg-fur-textMain text-fur-bg text-xs font-semibold tracking-widest hover:bg-fur-accent hover:scale-105 active:scale-95 transition-all shadow-md">
               立即打造專屬自動化系統
             </a>
           </div>
@@ -409,114 +419,114 @@
   <!-- Target Audience / Industries -->
   <section id="solutions" class="py-24 max-w-6xl mx-auto px-6">
     <div class="text-center max-w-2xl mx-auto mb-14">
-      <p class="text-[11px] font-light uppercase tracking-[0.3em] text-fur-accent mb-2">Tailored For You</p>
-      <h2 class="text-2xl sm:text-3xl font-normal tracking-wider text-fur-textMain">你是哪一種創業者？</h2>
+      <p class="text-xs font-medium uppercase tracking-[0.3em] text-fur-accent mb-2">Tailored For You</p>
+      <h2 class="text-3xl sm:text-4xl font-normal tracking-wider text-fur-textMain">你是哪一種創業者？</h2>
     </div>
 
     <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-      <div class="card-glass p-6 rounded-2xl text-center">
-        <div class="w-12 h-12 mx-auto rounded-full bg-fur-bg border border-fur-border flex items-center justify-center text-fur-accent mb-4">
-          <i data-lucide="scissors" class="w-5 h-5"></i>
+      <div class="card-warm p-6 rounded-3xl text-center">
+        <div class="w-14 h-14 mx-auto rounded-2xl bg-fur-bg border border-fur-border flex items-center justify-center text-fur-accent mb-4 shadow-sm">
+          <i data-lucide="scissors" class="w-6 h-6"></i>
         </div>
-        <h3 class="font-medium text-sm text-fur-textMain mb-1 tracking-wider">美業美甲 / SPA</h3>
-        <p class="text-[11px] text-fur-textMuted font-light">預約選檔期・自動發送施作注意事項</p>
+        <h3 class="font-medium text-base text-fur-textMain mb-1.5 tracking-wide">美業美甲 / SPA</h3>
+        <p class="text-xs text-fur-textMuted font-light">預約選檔期・自動發送施作注意事項</p>
       </div>
 
-      <div class="card-glass p-6 rounded-2xl text-center">
-        <div class="w-12 h-12 mx-auto rounded-full bg-fur-bg border border-fur-border flex items-center justify-center text-fur-accent mb-4">
-          <i data-lucide="dumbbell" class="w-5 h-5"></i>
+      <div class="card-warm p-6 rounded-3xl text-center">
+        <div class="w-14 h-14 mx-auto rounded-2xl bg-fur-bg border border-fur-border flex items-center justify-center text-fur-accent mb-4 shadow-sm">
+          <i data-lucide="dumbbell" class="w-6 h-6"></i>
         </div>
-        <h3 class="font-medium text-sm text-fur-textMain mb-1 tracking-wider">健身教練 / 瑜珈</h3>
-        <p class="text-[11px] text-fur-textMuted font-light">學員課表預約・購課堂數扣點管理</p>
+        <h3 class="font-medium text-base text-fur-textMain mb-1.5 tracking-wide">健身教練 / 瑜珈</h3>
+        <p class="text-xs text-fur-textMuted font-light">學員課表預約・購課堂數扣點管理</p>
       </div>
 
-      <div class="card-glass p-6 rounded-2xl text-center">
-        <div class="w-12 h-12 mx-auto rounded-full bg-fur-bg border border-fur-border flex items-center justify-center text-fur-accent mb-4">
-          <i data-lucide="graduation-cap" class="w-5 h-5"></i>
+      <div class="card-warm p-6 rounded-3xl text-center">
+        <div class="w-14 h-14 mx-auto rounded-2xl bg-fur-bg border border-fur-border flex items-center justify-center text-fur-accent mb-4 shadow-sm">
+          <i data-lucide="graduation-cap" class="w-6 h-6"></i>
         </div>
-        <h3 class="font-medium text-sm text-fur-textMain mb-1 tracking-wider">講師 / 顧問 / 線上教學</h3>
-        <p class="text-[11px] text-fur-textMuted font-light">一對一諮詢預約・金流自動開課</p>
+        <h3 class="font-medium text-base text-fur-textMain mb-1.5 tracking-wide">講師 / 顧問 / 線上教學</h3>
+        <p class="text-xs text-fur-textMuted font-light">一對一諮詢預約・金流自動開課</p>
       </div>
 
-      <div class="card-glass p-6 rounded-2xl text-center">
-        <div class="w-12 h-12 mx-auto rounded-full bg-fur-bg border border-fur-border flex items-center justify-center text-fur-accent mb-4">
-          <i data-lucide="camera" class="w-5 h-5"></i>
+      <div class="card-warm p-6 rounded-3xl text-center">
+        <div class="w-14 h-14 mx-auto rounded-2xl bg-fur-bg border border-fur-border flex items-center justify-center text-fur-accent mb-4 shadow-sm">
+          <i data-lucide="camera" class="w-6 h-6"></i>
         </div>
-        <h3 class="font-medium text-sm text-fur-textMain mb-1 tracking-wider">攝影工作室 / 診所</h3>
-        <p class="text-[11px] text-fur-textMuted font-light">拍攝合約簽署・檔期預收訂金流程</p>
+        <h3 class="font-medium text-base text-fur-textMain mb-1.5 tracking-wide">攝影工作室 / 診所</h3>
+        <p class="text-xs text-fur-textMuted font-light">拍攝合約簽署・檔期預收訂金流程</p>
       </div>
     </div>
   </section>
 
   <!-- Pricing & Roadmap -->
-  <section id="pricing" class="py-24 bg-fur-card/40 border-y border-fur-border/80">
+  <section id="pricing" class="py-24 bg-fur-surface/50 border-y border-fur-border/80">
     <div class="max-w-6xl mx-auto px-6">
       <div class="text-center max-w-2xl mx-auto mb-14">
-        <p class="text-[11px] font-light uppercase tracking-[0.3em] text-fur-accent mb-2">Flexible Plans</p>
-        <h2 class="text-2xl sm:text-3xl font-normal tracking-wider text-fur-textMain">彈性方案，符合不同經營階段的你</h2>
+        <p class="text-xs font-medium uppercase tracking-[0.3em] text-fur-accent mb-2">Flexible Plans</p>
+        <h2 class="text-3xl sm:text-4xl font-normal tracking-wider text-fur-textMain">彈性方案，符合不同經營階段的你</h2>
       </div>
 
       <div class="grid md:grid-cols-3 gap-8">
         <!-- Tier 1 -->
-        <div class="card-glass rounded-2xl p-8 flex flex-col justify-between">
+        <div class="card-warm rounded-3xl p-8 flex flex-col justify-between">
           <div>
-            <span class="text-[10px] font-light text-fur-textSub tracking-[0.2em] uppercase">入門方案</span>
-            <h3 class="text-lg font-medium text-fur-textMain mt-1 mb-3">線上預約系統</h3>
-            <p class="text-xs text-fur-textMuted mb-6 font-light">適合剛起步、想先把預約流程自動化的個人創業者。</p>
-            <ul class="space-y-3 text-xs text-fur-textMuted font-light mb-8">
-              <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-fur-accent"></i> 專屬線上預約介面</li>
-              <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-fur-accent"></i> 自動提醒通知（防爽約）</li>
-              <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-fur-accent"></i> 簡易後台檔期管理</li>
+            <span class="text-xs font-medium text-fur-textSub tracking-[0.2em] uppercase">入門方案</span>
+            <h3 class="text-xl font-medium text-fur-textMain mt-1.5 mb-3">線上預約系統</h3>
+            <p class="text-sm text-fur-textMuted mb-6 font-light">適合剛起步、想先把預約流程自動化的個人創業者。</p>
+            <ul class="space-y-3.5 text-sm text-fur-textMuted font-light mb-8 pt-4 border-t border-fur-border/60">
+              <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-4 h-4 text-fur-accent"></i> 專屬線上預約介面</li>
+              <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-4 h-4 text-fur-accent"></i> 自動提醒通知（防爽約）</li>
+              <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-4 h-4 text-fur-accent"></i> 簡易後台檔期管理</li>
             </ul>
           </div>
-          <a href="#contact" class="w-full text-center py-3 rounded-xl bg-fur-bg border border-fur-border text-fur-textMain text-xs tracking-widest font-light hover:bg-fur-cardHover transition-colors">洽詢入門方案</a>
+          <a href="#contact" class="w-full text-center py-3.5 rounded-xl bg-fur-bg border border-fur-border text-fur-textMain text-xs tracking-widest font-medium hover:bg-fur-surfaceLight transition-colors">洽詢入門方案</a>
         </div>
 
         <!-- Tier 2 -->
-        <div class="card-glass rounded-2xl p-8 border border-fur-accent/60 flex flex-col justify-between shadow-lg relative">
-          <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-fur-accent text-fur-bg px-3.5 py-1 rounded-full text-[10px] font-medium tracking-widest uppercase shadow-sm">
+        <div class="card-warm rounded-3xl p-8 border-2 border-fur-accent flex flex-col justify-between shadow-xl relative">
+          <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-fur-accent text-fur-bg px-4 py-1 rounded-full text-xs font-bold tracking-widest uppercase shadow-md">
             人氣推薦
           </div>
           <div>
-            <span class="text-[10px] font-light text-fur-accent tracking-[0.2em] uppercase">進階方案</span>
-            <h3 class="text-lg font-medium text-fur-textMain mt-1 mb-3">預約 ＋ LINE@ 自動化</h3>
-            <p class="text-xs text-fur-textMuted mb-6 font-light">適合已有穩定客源，想大幅提升溝通體驗與回客率。</p>
-            <ul class="space-y-3 text-xs text-fur-textMain font-light mb-8">
-              <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-fur-accent"></i> 預約系統全套功能</li>
-              <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-fur-accent"></i> LINE@ 智能自動回覆</li>
-              <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-fur-accent"></i> 客戶標籤與分群管理</li>
-              <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-fur-accent"></i> 客製化圖文選單設計</li>
+            <span class="text-xs font-medium text-fur-accent tracking-[0.2em] uppercase">進階方案</span>
+            <h3 class="text-xl font-medium text-fur-textMain mt-1.5 mb-3">預約 ＋ LINE@ 自動化</h3>
+            <p class="text-sm text-fur-textMuted mb-6 font-light">適合已有穩定客源，想大幅提升溝通體驗與回客率。</p>
+            <ul class="space-y-3.5 text-sm text-fur-textMain font-light mb-8 pt-4 border-t border-fur-border/60">
+              <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-4 h-4 text-fur-accent"></i> 預約系統全套功能</li>
+              <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-4 h-4 text-fur-accent"></i> LINE@ 智能自動回覆</li>
+              <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-4 h-4 text-fur-accent"></i> 客戶標籤與分群管理</li>
+              <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-4 h-4 text-fur-accent"></i> 客製化圖文選單設計</li>
             </ul>
           </div>
-          <a href="#contact" class="w-full text-center py-3 rounded-xl bg-fur-textMain text-fur-bg text-xs font-medium tracking-widest hover:bg-fur-accent transition-colors">洽詢進階方案</a>
+          <a href="#contact" class="w-full text-center py-3.5 rounded-xl bg-fur-textMain text-fur-bg text-xs font-semibold tracking-widest hover:bg-fur-accent transition-colors">洽詢進階方案</a>
         </div>
 
         <!-- Tier 3 -->
-        <div class="card-glass rounded-2xl p-8 flex flex-col justify-between">
+        <div class="card-warm rounded-3xl p-8 flex flex-col justify-between">
           <div>
-            <span class="text-[10px] font-light text-fur-textSub tracking-[0.2em] uppercase">旗艦客製</span>
-            <h3 class="text-lg font-medium text-fur-textMain mt-1 mb-3">全方位品牌數位整合</h3>
-            <p class="text-xs text-fur-textMuted mb-6 font-light">從品牌形象官網、預約、LINE 到後端 AI 流程全客製開發。</p>
-            <ul class="space-y-3 text-xs text-fur-textMuted font-light mb-8">
-              <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-fur-accent"></i> 品牌專屬形象官網建置</li>
-              <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-fur-accent"></i> LINE 與官網數據雙向串接</li>
-              <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-fur-accent"></i> 獨家業務流程系統開發</li>
-              <li class="flex items-center gap-2"><i data-lucide="check" class="w-3.5 h-3.5 text-fur-accent"></i> 一對一系統維運與諮詢</li>
+            <span class="text-xs font-medium text-fur-textSub tracking-[0.2em] uppercase">旗艦客製</span>
+            <h3 class="text-xl font-medium text-fur-textMain mt-1.5 mb-3">全方位品牌數位整合</h3>
+            <p class="text-sm text-fur-textMuted mb-6 font-light">從品牌形象官網、預約、LINE 到後端 AI 流程全客製開發。</p>
+            <ul class="space-y-3.5 text-sm text-fur-textMuted font-light mb-8 pt-4 border-t border-fur-border/60">
+              <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-4 h-4 text-fur-accent"></i> 品牌專屬形象官網建置</li>
+              <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-4 h-4 text-fur-accent"></i> LINE 與官網數據雙向串接</li>
+              <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-4 h-4 text-fur-accent"></i> 獨家業務流程系統開發</li>
+              <li class="flex items-center gap-2.5"><i data-lucide="check" class="w-4 h-4 text-fur-accent"></i> 一對一系統維運與諮詢</li>
             </ul>
           </div>
-          <a href="#contact" class="w-full text-center py-3 rounded-xl bg-fur-bg border border-fur-border text-fur-textMain text-xs tracking-widest font-light hover:bg-fur-cardHover transition-colors">洽詢客製方案</a>
+          <a href="#contact" class="w-full text-center py-3.5 rounded-xl bg-fur-bg border border-fur-border text-fur-textMain text-xs tracking-widest font-medium hover:bg-fur-surfaceLight transition-colors">洽詢客製方案</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Contact Form Section -->
+  <!-- Contact Form Section (高易讀性白底輸入框) -->
   <section id="contact" class="py-24 max-w-4xl mx-auto px-6">
-    <div class="card-glass rounded-3xl p-8 md:p-14 border border-fur-border shadow-2xl">
+    <div class="card-warm rounded-3xl p-8 md:p-14 border border-fur-border shadow-2xl">
       <div class="text-center max-w-xl mx-auto mb-10">
-        <p class="text-[11px] font-light uppercase tracking-[0.3em] text-fur-accent mb-2">Let's Connect</p>
-        <h2 class="text-2xl sm:text-3xl font-normal tracking-wider text-fur-textMain mb-3">告訴我們你的想法</h2>
-        <p class="text-xs sm:text-sm text-fur-textMuted font-light tracking-wider">填寫下方表單，我們將由專人為你評估最適合你的自動化系統方案。</p>
+        <p class="text-xs font-medium uppercase tracking-[0.3em] text-fur-accent mb-2">Let's Connect</p>
+        <h2 class="text-3xl sm:text-4xl font-normal tracking-wider text-fur-textMain mb-3">告訴我們你的想法</h2>
+        <p class="text-sm text-fur-textMuted font-light tracking-wider">填寫下方表單，我們將由專人為你評估最適合你的自動化系統方案。</p>
       </div>
 
       <!-- 隱藏 iframe 用於背景接收回傳 -->
@@ -530,19 +540,19 @@
         
         <div class="grid sm:grid-cols-2 gap-6">
           <div>
-            <label class="block text-xs font-light text-fur-textMuted mb-2 tracking-wider" for="name">您的姓名 / 稱謂 *</label>
-            <input type="text" id="name" name="name" required placeholder="例如：王小姐 / Chen" class="input-dark w-full px-4 py-3.5 rounded-xl text-sm transition-all">
+            <label class="block text-sm font-medium text-fur-textMuted mb-2 tracking-wide" for="name">您的姓名 / 稱謂 *</label>
+            <input type="text" id="name" name="name" required placeholder="例如：王小姐 / Chen" class="input-warm w-full px-4 py-3.5 rounded-2xl transition-all">
           </div>
           <div>
-            <label class="block text-xs font-light text-fur-textMuted mb-2 tracking-wider" for="contact">聯絡方式 (LINE ID 或電話) *</label>
-            <input type="text" id="contact" name="contact" required placeholder="例如：LINE ID 或 0912-345678" class="input-dark w-full px-4 py-3.5 rounded-xl text-sm transition-all">
+            <label class="block text-sm font-medium text-fur-textMuted mb-2 tracking-wide" for="contact">聯絡方式 (LINE ID 或電話) *</label>
+            <input type="text" id="contact" name="contact" required placeholder="例如：LINE ID 或 0912-345678" class="input-warm w-full px-4 py-3.5 rounded-2xl transition-all">
           </div>
         </div>
 
         <div class="grid sm:grid-cols-2 gap-6">
           <div>
-            <label class="block text-xs font-light text-fur-textMuted mb-2 tracking-wider" for="industry">您的產業類型</label>
-            <select id="industry" name="industry" class="input-dark w-full px-4 py-3.5 rounded-xl text-sm transition-all cursor-pointer">
+            <label class="block text-sm font-medium text-fur-textMuted mb-2 tracking-wide" for="industry">您的產業類型</label>
+            <select id="industry" name="industry" class="input-warm w-full px-4 py-3.5 rounded-2xl transition-all cursor-pointer">
               <option value="美業 (美甲/美睫/美容/SPA)">美業 (美甲/美睫/美容/SPA)</option>
               <option value="健身教練 / 瑜珈 / 運動">健身教練 / 瑜珈 / 運動</option>
               <option value="講師 / 顧問 / 線上教學">講師 / 顧問 / 線上教學</option>
@@ -552,8 +562,8 @@
             </select>
           </div>
           <div>
-            <label class="block text-xs font-light text-fur-textMuted mb-2 tracking-wider" for="service">主要想諮詢的服務</label>
-            <select id="service" name="service" class="input-dark w-full px-4 py-3.5 rounded-xl text-sm transition-all cursor-pointer">
+            <label class="block text-sm font-medium text-fur-textMuted mb-2 tracking-wide" for="service">主要想諮詢的服務</label>
+            <select id="service" name="service" class="input-warm w-full px-4 py-3.5 rounded-2xl transition-all cursor-pointer">
               <option value="預約系統建置">預約系統建置</option>
               <option value="LINE@ 自動化與標籤">LINE@ 自動化與標籤</option>
               <option value="品牌形象官網">品牌形象官網</option>
@@ -564,16 +574,16 @@
         </div>
 
         <div>
-          <label class="block text-xs font-light text-fur-textMuted mb-2 tracking-wider" for="message">簡述目前的營運痛點或想要實現的功能</label>
-          <textarea id="message" name="message" rows="4" placeholder="例如：目前每天要花很多時間在 LINE 上對時間、想減少客人爽約..." class="input-dark w-full px-4 py-3.5 rounded-xl text-sm transition-all"></textarea>
+          <label class="block text-sm font-medium text-fur-textMuted mb-2 tracking-wide" for="message">簡述目前的營運痛點或想要實現的功能</label>
+          <textarea id="message" name="message" rows="4" placeholder="例如：目前每天要花很多時間在 LINE 上對時間、想減少客人爽約..." class="input-warm w-full px-4 py-3.5 rounded-2xl transition-all"></textarea>
         </div>
 
-        <button type="submit" id="submitBtn" class="w-full py-4 rounded-xl bg-fur-textMain text-fur-bg font-medium text-xs tracking-widest hover:bg-fur-accent transition-all shadow-md flex items-center justify-center gap-2">
+        <button type="submit" id="submitBtn" class="w-full py-4 rounded-2xl bg-fur-textMain text-fur-bg font-semibold text-sm tracking-widest hover:bg-fur-accent hover:scale-[1.01] active:scale-[0.99] transition-all shadow-lg flex items-center justify-center gap-2">
           <span>送出預約諮詢</span>
           <i data-lucide="send" class="w-4 h-4"></i>
         </button>
 
-        <p class="text-center text-[11px] text-fur-textSub font-light tracking-wider">
+        <p class="text-center text-xs text-fur-textSub font-light tracking-wider">
           提交後我們將於 24 小時內透過 LINE 或電話與您聯繫，資料僅供本次諮詢評估使用。
         </p>
       </form>
@@ -581,11 +591,11 @@
   </section>
 
   <!-- Footer -->
-  <footer class="py-12 bg-fur-bg border-t border-fur-border/80 text-center text-xs text-fur-textSub font-light">
+  <footer class="py-14 bg-fur-bg border-t border-fur-border/80 text-center text-sm text-fur-textSub font-light">
     <div class="max-w-6xl mx-auto px-6 space-y-3">
-      <p class="font-normal text-fur-textMain tracking-[0.25em]">Fur ｜ FOR YOU 客製所</p>
-      <p class="text-fur-textMuted tracking-wider">把你想說的，變成一份禮物。</p>
-      <p class="text-[10px] text-fur-textSub pt-4">© 2026 Fur FOR YOU. All rights reserved.</p>
+      <p class="font-logo text-lg text-fur-textMain tracking-widest lowercase">fur ｜ FOR YOU 客製所</p>
+      <p class="text-fur-textMuted text-xs tracking-wider">把你想說的，變成一份禮物。</p>
+      <p class="text-xs text-fur-textSub pt-4">© 2026 fur FOR YOU. All rights reserved.</p>
     </div>
   </footer>
 
