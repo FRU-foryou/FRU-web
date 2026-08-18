@@ -24,7 +24,7 @@
               200: '#E6DFD5',
               300: '#D5C8B8',
               400: '#B8A48F',
-              50: '#9E8870',
+              500: '#9E8870',
               600: '#7F6B55',
               700: '#635342',
               800: '#473B2F',
@@ -512,7 +512,7 @@
     </div>
   </section>
 
-  <!-- Contact Form Section (Connected to Updated GAS via Hidden Iframe) -->
+  <!-- Contact Form Section (高對比白底輸入框) -->
   <section id="contact" class="py-24 max-w-4xl mx-auto px-6">
     <div class="bg-white rounded-3xl p-8 md:p-14 border border-brand-200 shadow-sm hover-lift">
       <div class="text-center max-w-xl mx-auto mb-10">
@@ -521,7 +521,7 @@
         <p class="text-xs sm:text-sm text-brand-600">填寫下方表單，我們將由專人為你評估最適合你的自動化系統方案。</p>
       </div>
 
-      <!-- 隱藏 iframe 用於背景接收回傳，完全不跳頁、不卡死、不被 CORS 擋 -->
+      <!-- 隱藏 iframe 用於背景接收回傳 -->
       <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
 
       <form id="contactForm" 
@@ -532,19 +532,19 @@
         
         <div class="grid sm:grid-cols-2 gap-6">
           <div>
-            <label class="block text-xs font-semibold text-brand-700 mb-2" for="name">您的姓名 / 稱謂 *</label>
-            <input type="text" id="name" name="name" required placeholder="例如：王小姐 / Chen" class="w-full px-4 py-3 rounded-xl bg-brand-50 border border-brand-200 text-sm focus:outline-none focus:ring-2 focus:ring-brand-400 transition-all">
+            <label class="block text-xs font-semibold text-brand-800 mb-2" for="name">您的姓名 / 稱謂 *</label>
+            <input type="text" id="name" name="name" required placeholder="例如：王小姐 / Chen" class="w-full px-4 py-3.5 rounded-xl bg-white border border-brand-300 text-sm text-brand-900 placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-accent-warm focus:border-accent-warm transition-all shadow-sm">
           </div>
           <div>
-            <label class="block text-xs font-semibold text-brand-700 mb-2" for="contact">聯絡方式 (LINE ID 或電話) *</label>
-            <input type="text" id="contact" name="contact" required placeholder="例如：LINE ID 或 0912-345678" class="w-full px-4 py-3 rounded-xl bg-brand-50 border border-brand-200 text-sm focus:outline-none focus:ring-2 focus:ring-brand-400 transition-all">
+            <label class="block text-xs font-semibold text-brand-800 mb-2" for="contact">聯絡方式 (LINE ID 或電話) *</label>
+            <input type="text" id="contact" name="contact" required placeholder="例如：LINE ID 或 0912-345678" class="w-full px-4 py-3.5 rounded-xl bg-white border border-brand-300 text-sm text-brand-900 placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-accent-warm focus:border-accent-warm transition-all shadow-sm">
           </div>
         </div>
 
         <div class="grid sm:grid-cols-2 gap-6">
           <div>
-            <label class="block text-xs font-semibold text-brand-700 mb-2" for="industry">您的產業類型</label>
-            <select id="industry" name="industry" class="w-full px-4 py-3 rounded-xl bg-brand-50 border border-brand-200 text-sm focus:outline-none focus:ring-2 focus:ring-brand-400 text-brand-800 transition-all">
+            <label class="block text-xs font-semibold text-brand-800 mb-2" for="industry">您的產業類型</label>
+            <select id="industry" name="industry" class="w-full px-4 py-3.5 rounded-xl bg-white border border-brand-300 text-sm text-brand-900 focus:outline-none focus:ring-2 focus:ring-accent-warm focus:border-accent-warm transition-all shadow-sm cursor-pointer">
               <option value="美業 (美甲/美睫/美容/SPA)">美業 (美甲/美睫/美容/SPA)</option>
               <option value="健身教練 / 瑜珈 / 運動">健身教練 / 瑜珈 / 運動</option>
               <option value="講師 / 顧問 / 線上教學">講師 / 顧問 / 線上教學</option>
@@ -554,8 +554,8 @@
             </select>
           </div>
           <div>
-            <label class="block text-xs font-semibold text-brand-700 mb-2" for="service">主要想諮詢的服務</label>
-            <select id="service" name="service" class="w-full px-4 py-3 rounded-xl bg-brand-50 border border-brand-200 text-sm focus:outline-none focus:ring-2 focus:ring-brand-400 text-brand-800 transition-all">
+            <label class="block text-xs font-semibold text-brand-800 mb-2" for="service">主要想諮詢的服務</label>
+            <select id="service" name="service" class="w-full px-4 py-3.5 rounded-xl bg-white border border-brand-300 text-sm text-brand-900 focus:outline-none focus:ring-2 focus:ring-accent-warm focus:border-accent-warm transition-all shadow-sm cursor-pointer">
               <option value="預約系統建置">預約系統建置</option>
               <option value="LINE@ 自動化與標籤">LINE@ 自動化與標籤</option>
               <option value="品牌形象官網">品牌形象官網</option>
@@ -566,8 +566,8 @@
         </div>
 
         <div>
-          <label class="block text-xs font-semibold text-brand-700 mb-2" for="message">簡述目前的營運痛點或想要實現的功能</label>
-          <textarea id="message" name="message" rows="4" placeholder="例如：目前每天要花很多時間在 LINE 上對時間、想減少客人爽約..." class="w-full px-4 py-3 rounded-xl bg-brand-50 border border-brand-200 text-sm focus:outline-none focus:ring-2 focus:ring-brand-400 transition-all"></textarea>
+          <label class="block text-xs font-semibold text-brand-800 mb-2" for="message">簡述目前的營運痛點或想要實現的功能</label>
+          <textarea id="message" name="message" rows="4" placeholder="例如：目前每天要花很多時間在 LINE 上對時間、想減少客人爽約..." class="w-full px-4 py-3.5 rounded-xl bg-white border border-brand-300 text-sm text-brand-900 placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-accent-warm focus:border-accent-warm transition-all shadow-sm"></textarea>
         </div>
 
         <button type="submit" id="submitBtn" class="w-full py-4 rounded-xl bg-accent-dark text-white font-semibold text-sm hover:bg-brand-800 hover:scale-[1.01] active:scale-[0.99] transition-all shadow-md flex items-center justify-center gap-2">
