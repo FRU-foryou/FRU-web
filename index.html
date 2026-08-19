@@ -92,7 +92,7 @@
       display: none;
     }
 
-    /* 🌟 滾動漸進浮現動畫樣式 (Scroll Reveal) */
+    /* 滾動漸進浮現動畫 */
     .reveal {
       opacity: 0;
       transform: translateY(32px);
@@ -106,7 +106,43 @@
     .delay-100 { transition-delay: 0.1s; }
     .delay-200 { transition-delay: 0.2s; }
     .delay-300 { transition-delay: 0.3s; }
-    .delay-400 { transition-delay: 0.4s; }
+
+    /* 動態選項按鈕樣式 */
+    .chip-btn {
+      cursor: pointer;
+      user-select: none;
+      transition: all 0.2s ease;
+      background: #FAF6F0;
+      color: #25201C;
+      border: 1px solid #D4C8BC;
+      font-weight: 400;
+    }
+    .chip-btn:hover {
+      border-color: #E0B589;
+    }
+    .chip-btn.selected {
+      background: #E0B589;
+      color: #25201C;
+      border-color: #ECC79F;
+      font-weight: 600;
+      box-shadow: 0 2px 8px rgba(224, 181, 137, 0.3);
+    }
+    .type-card {
+      cursor: pointer;
+      user-select: none;
+      transition: all 0.25s ease;
+      border: 1px solid #4A413A;
+      background: #25201C;
+    }
+    .type-card:hover {
+      border-color: #E0B589;
+      transform: translateY(-2px);
+    }
+    .type-card.selected {
+      border-color: #E0B589;
+      background: rgba(224, 181, 137, 0.12);
+      box-shadow: 0 0 0 1px #E0B589;
+    }
   </style>
 </head>
 <body class="selection:bg-fur-accent selection:text-fur-bg min-h-screen flex flex-col justify-between antialiased text-base relative">
@@ -134,7 +170,7 @@
     </div>
   </header>
 
-  <!-- Hero Section (首頁直接淡入) -->
+  <!-- Hero Section -->
   <section class="relative pt-16 pb-24 md:pt-32 md:pb-40 overflow-hidden warm-glow reveal">
     <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
       
@@ -173,7 +209,7 @@
     </div>
   </section>
 
-  <!-- 三大安心承諾標章 (Reveal 動態) -->
+  <!-- 三大安心承諾標章 -->
   <section class="py-14 sm:py-16 bg-fur-bg border-t border-fur-border/60">
     <div class="max-w-6xl mx-auto px-6">
       <div class="grid md:grid-cols-3 gap-6">
@@ -210,7 +246,7 @@
     </div>
   </section>
 
-  <!-- Core Services (Reveal 依序出場) -->
+  <!-- Core Services -->
   <section id="services" class="py-20 sm:py-24 bg-fur-surface/50 border-y border-fur-border/80">
     <div class="max-w-6xl mx-auto px-6">
       <div class="text-center max-w-2xl mx-auto mb-14 sm:mb-16 reveal">
@@ -267,7 +303,7 @@
     </div>
   </section>
 
-  <!-- Featured Case Study (Reveal 動態) -->
+  <!-- Featured Case Study -->
   <section id="portfolio" class="py-20 sm:py-24 max-w-6xl mx-auto px-6">
     <div class="text-center max-w-2xl mx-auto mb-14 reveal">
       <p class="text-xs font-medium font-en en-tracking-widest uppercase text-fur-accent mb-2">Featured Case</p>
@@ -356,7 +392,7 @@
     </div>
   </section>
 
-  <!-- 真實客戶推薦 (Reveal 左右錯落) -->
+  <!-- 真實客戶推薦 -->
   <section class="py-16 sm:py-20 bg-fur-bg border-t border-fur-border/60">
     <div class="max-w-6xl mx-auto px-6">
       <div class="text-center max-w-2xl mx-auto mb-12 sm:mb-14 reveal">
@@ -402,7 +438,7 @@
     </div>
   </section>
 
-  <!-- Pain Point Comparison (Reveal 動態) -->
+  <!-- Pain Point Comparison -->
   <section id="comparison" class="py-16 sm:py-20 max-w-5xl mx-auto px-6">
     <div class="text-center max-w-2xl mx-auto mb-12 sm:mb-14 reveal">
       <p class="text-xs font-medium font-en en-tracking-widest uppercase text-fur-accent mb-2">Before & After</p>
@@ -462,7 +498,7 @@
     </div>
   </section>
 
-  <!-- Interactive Calculator (Reveal 動態) -->
+  <!-- Interactive Calculator -->
   <section id="calculator" class="py-20 sm:py-24 bg-fur-surface/50 border-t border-fur-border/80">
     <div class="max-w-4xl mx-auto px-6">
       <div class="text-center max-w-xl mx-auto mb-12 reveal">
@@ -523,7 +559,7 @@
     </div>
   </section>
 
-  <!-- 品牌初衷故事 (Reveal 動態) -->
+  <!-- 品牌初衷故事 -->
   <section class="py-16 sm:py-20 max-w-4xl mx-auto px-6 text-center reveal">
     <div class="p-6 sm:p-12 rounded-3xl bg-fur-surface/30 border border-fur-border/80 space-y-4">
       <span class="text-xs font-medium font-en en-tracking-widest uppercase text-fur-accent">Our Philosophy</span>
@@ -536,7 +572,7 @@
     </div>
   </section>
 
-  <!-- Target Audience / Industries (Reveal 依序浮現) -->
+  <!-- Target Audience / Industries -->
   <section id="solutions" class="py-20 sm:py-24 max-w-6xl mx-auto px-6">
     <div class="text-center max-w-2xl mx-auto mb-12 sm:mb-14 reveal">
       <p class="text-xs font-medium font-en en-tracking-widest uppercase text-fur-accent mb-2">Tailored For You</p>
@@ -578,7 +614,7 @@
     </div>
   </section>
 
-  <!-- Pricing & Roadmap (Reveal 依序浮現) -->
+  <!-- Pricing & Roadmap -->
   <section id="pricing" class="py-20 sm:py-24 bg-fur-surface/50 border-y border-fur-border/80">
     <div class="max-w-6xl mx-auto px-6">
       <div class="text-center max-w-2xl mx-auto mb-12 sm:mb-14 reveal">
@@ -637,7 +673,7 @@
     </div>
   </section>
 
-  <!-- 常見問題 FAQ (Reveal 動態) -->
+  <!-- 常見問題 FAQ -->
   <section id="faq" class="py-20 sm:py-24 max-w-4xl mx-auto px-6">
     <div class="text-center max-w-2xl mx-auto mb-12 sm:mb-14 reveal">
       <p class="text-xs font-medium font-en en-tracking-widest uppercase text-fur-accent mb-2">FAQ</p>
@@ -687,14 +723,14 @@
     </div>
   </section>
 
-  <!-- Contact Form Section (Reveal 動態) -->
+  <!-- 🌟 Contact Form Section (動態條件分流表單) -->
   <section id="contact" class="py-20 sm:py-24 max-w-4xl mx-auto px-6">
     <div class="card-warm rounded-3xl p-6 sm:p-14 border border-fur-border shadow-2xl reveal">
       <div class="text-center max-w-xl mx-auto mb-8 sm:mb-10">
         <p class="text-xs font-medium font-en en-tracking-widest uppercase text-fur-accent mb-2">Let's Connect</p>
-        <h2 class="text-2xl sm:text-4xl font-semibold tracking-wider text-fur-textMain mb-2 sm:mb-3">告訴我們你的想法</h2>
+        <h2 class="text-2xl sm:text-4xl font-semibold tracking-wider text-fur-textMain mb-2 sm:mb-3">預約需求諮詢</h2>
         <p class="text-xs sm:text-sm text-fur-textMuted font-light tracking-wider leading-relaxed">
-          填寫下方表單，我們將由專人為你評估最適合你的自動化系統方案。
+          請選擇您主要想評估的項目，讓我們在諮詢前為您做好專屬準備。
         </p>
       </div>
 
@@ -704,50 +740,241 @@
             action="https://script.google.com/macros/s/AKfycbweOW2S1I6rohihpa18J-yHhnkrGyVNl1z1lB4R2CjHUSU4700IPoxgdglCU20F6Ea5Yg/exec" 
             method="POST" 
             target="hidden_iframe" 
-            class="space-y-5 sm:space-y-6">
+            class="space-y-6">
         
+        <!-- 基本必填 3 題 -->
         <div class="grid sm:grid-cols-2 gap-5 sm:gap-6">
           <div>
-            <label class="block text-xs sm:text-sm font-semibold text-fur-textMuted mb-2 tracking-wide" for="name">您的姓名 / 品牌稱謂 *</label>
-            <input type="text" id="name" name="name" required placeholder="例如：王小姐 / Blanc Studio" class="input-warm w-full px-4 py-3 sm:py-3.5 rounded-2xl transition-all">
+            <label class="block text-xs sm:text-sm font-semibold text-fur-textMuted mb-2 tracking-wide" for="name">品牌／店家名稱 *</label>
+            <input type="text" id="name" name="name" required placeholder="例如：Emily / Blanc Studio" class="input-warm w-full px-4 py-3 sm:py-3.5 rounded-2xl transition-all">
           </div>
           <div>
             <label class="block text-xs sm:text-sm font-semibold text-fur-textMuted mb-2 tracking-wide" for="contact">聯絡方式 (LINE ID 或電話) *</label>
-            <input type="text" id="contact" name="contact" required placeholder="例如：LINE ID 或 0912-345678" class="input-warm w-full px-4 py-3 sm:py-3.5 rounded-2xl transition-all">
-          </div>
-        </div>
-
-        <div class="grid sm:grid-cols-2 gap-5 sm:gap-6">
-          <div>
-            <label class="block text-xs sm:text-sm font-semibold text-fur-textMuted mb-2 tracking-wide" for="industry">您的產業類型</label>
-            <select id="industry" name="industry" class="input-warm w-full px-4 py-3 sm:py-3.5 rounded-2xl transition-all cursor-pointer">
-              <option value="美業 (美甲/美睫/美容/SPA)">美業 (美甲/美睫/美容/SPA)</option>
-              <option value="健身教練 / 瑜珈 / 運動教學">健身教練 / 瑜珈 / 運動教學</option>
-              <option value="顧問 / 講師 / 專業諮詢">顧問 / 講師 / 專業諮詢</option>
-              <option value="攝影工作室 / 實體預約制門市">攝影工作室 / 實體預約制門市</option>
-              <option value="個人品牌 / 獨立創作者">個人品牌 / 獨立創作者</option>
-              <option value="其他客製化系統需求">其他客製化系統需求</option>
-            </select>
-          </div>
-          <div>
-            <label class="block text-xs sm:text-sm font-semibold text-fur-textMuted mb-2 tracking-wide" for="service">主要想諮詢的服務</label>
-            <select id="service" name="service" class="input-warm w-full px-4 py-3 sm:py-3.5 rounded-2xl transition-all cursor-pointer">
-              <option value="預約系統建置">預約系統建置</option>
-              <option value="LINE@ 自動化與標籤">LINE@ 自動化與標籤</option>
-              <option value="品牌形象官網">品牌形象官網</option>
-              <option value="全方位客製系統開發">全方位客製系統開發</option>
-              <option value="尚未確定，想先聊聊評估">尚未確定，想先聊聊評估</option>
-            </select>
+            <input type="text" id="contact" name="contact" required placeholder="例如：emily_studio / 0912-345678" class="input-warm w-full px-4 py-3 sm:py-3.5 rounded-2xl transition-all">
           </div>
         </div>
 
         <div>
-          <div class="flex justify-between items-center mb-2">
-            <label class="block text-xs sm:text-sm font-semibold text-fur-textMuted tracking-wide" for="message">簡述目前的營運痛點或想要實現的功能</label>
-            <span class="text-xs text-fur-accent">建議填寫</span>
-          </div>
-          <textarea id="message" name="message" rows="4" placeholder="您可以參考以下方向填寫：&#10;1. 目前使用的預約或管理方式？&#10;2. 每週大約花多少時間在對時間？最困擾的痛點是？&#10;3. 是否有特定功能需求？（例如：多位員工獨立排班、防撞時長鎖定）&#10;4. 預計希望系統上線的時程？" class="input-warm w-full px-4 py-3 sm:py-3.5 rounded-2xl transition-all leading-relaxed"></textarea>
+          <label class="block text-xs sm:text-sm font-semibold text-fur-textMuted mb-2 tracking-wide" for="industry">您的產業類型</label>
+          <select id="industry" name="industry" class="input-warm w-full px-4 py-3 sm:py-3.5 rounded-2xl transition-all cursor-pointer">
+            <option value="美業 (美甲/美睫/美容/SPA)">美業 (美甲/美睫/美容/SPA)</option>
+            <option value="健身教練 / 瑜珈 / 運動教學">健身教練 / 瑜珈 / 運動教學</option>
+            <option value="身心靈 / 療癒工作室">身心靈 / 療癒工作室</option>
+            <option value="顧問 / 講師 / 專業諮詢">顧問 / 講師 / 專業諮詢</option>
+            <option value="餐飲 / 甜點工作室">餐飲 / 甜點工作室</option>
+            <option value="攝影工作室 / 實體門市">攝影工作室 / 實體門市</option>
+            <option value="個人品牌 / 獨立創作者">個人品牌 / 獨立創作者</option>
+            <option value="其他產業類型">其他產業類型</option>
+          </select>
         </div>
+
+        <!-- 諮詢類別卡片 (點選切換專屬題組) -->
+        <div>
+          <label class="block text-xs sm:text-sm font-semibold text-fur-textMuted mb-3 tracking-wide">主要想諮詢的服務項目 *</label>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            <div class="type-card selected rounded-2xl p-3.5 text-center flex flex-col items-center justify-center gap-1.5" onclick="selectServiceType('booking', this)">
+              <i data-lucide="calendar" class="w-5 h-5 text-fur-accent"></i>
+              <span class="text-xs font-semibold text-fur-textMain">預約系統</span>
+            </div>
+            <div class="type-card rounded-2xl p-3.5 text-center flex flex-col items-center justify-center gap-1.5" onclick="selectServiceType('line', this)">
+              <i data-lucide="message-square" class="w-5 h-5 text-fur-accent"></i>
+              <span class="text-xs font-semibold text-fur-textMain">LINE@ 自動化</span>
+            </div>
+            <div class="type-card rounded-2xl p-3.5 text-center flex flex-col items-center justify-center gap-1.5" onclick="selectServiceType('website', this)">
+              <i data-lucide="layout" class="w-5 h-5 text-fur-accent"></i>
+              <span class="text-xs font-semibold text-fur-textMain">一頁式網站</span>
+            </div>
+            <div class="type-card rounded-2xl p-3.5 text-center flex flex-col items-center justify-center gap-1.5" onclick="selectServiceType('bundle', this)">
+              <i data-lucide="package" class="w-5 h-5 text-fur-accent"></i>
+              <span class="text-xs font-semibold text-fur-textMain">包套組合</span>
+            </div>
+          </div>
+          <!-- 隱藏 input 儲存目前選擇的服務類型 -->
+          <input type="hidden" id="service" name="service" value="預約系統建置">
+        </div>
+
+        <!-- ================= 動態題組 A：預約系統 ================= -->
+        <div id="section_booking" class="space-y-5 p-5 rounded-2xl bg-fur-surface/70 border border-fur-border">
+          <p class="text-xs font-semibold text-fur-accent tracking-wider">🌿 預約系統 ｜ 現況快速勾選</p>
+          
+          <div>
+            <label class="block text-xs font-medium text-fur-textMuted mb-2">1. 目前有幾位人員需要使用預約系統？</label>
+            <div class="flex flex-wrap gap-2">
+              <span class="chip-btn px-3 py-1.5 rounded-xl text-xs selected" onclick="selectRadio(this, 'staff_count')">1人</span>
+              <span class="chip-btn px-3 py-1.5 rounded-xl text-xs" onclick="selectRadio(this, 'staff_count')">2–3人</span>
+              <span class="chip-btn px-3 py-1.5 rounded-xl text-xs" onclick="selectRadio(this, 'staff_count')">4–5人</span>
+              <span class="chip-btn px-3 py-1.5 rounded-xl text-xs" onclick="selectRadio(this, 'staff_count')">5人以上</span>
+            </div>
+            <input type="hidden" id="staff_count" value="1人">
+          </div>
+
+          <div>
+            <label class="block text-xs font-medium text-fur-textMuted mb-2">2. 目前如何接受客人預約？（可複選）</label>
+            <div class="flex flex-wrap gap-2" id="booking_channels">
+              <span class="chip-btn px-3 py-1.5 rounded-xl text-xs selected" onclick="toggleMulti(this)">LINE 私訊</span>
+              <span class="chip-btn px-3 py-1.5 rounded-xl text-xs selected" onclick="toggleMulti(this)">IG 私訊</span>
+              <span class="chip-btn px-3 py-1.5 rounded-xl text-xs" onclick="toggleMulti(this)">電話</span>
+              <span class="chip-btn px-3 py-1.5 rounded-xl text-xs" onclick="toggleMulti(this)">Google 表單</span>
+              <span class="chip-btn px-3 py-1.5 rounded-xl text-xs" onclick="toggleMulti(this)">其他預約系統</span>
+              <span class="chip-btn px-3 py-1.5 rounded-xl text-xs" onclick="toggleMulti(this)">尚未開始</span>
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-medium text-fur-textMuted mb-2">3. 目前預約最困擾您的地方？（可複選）</label>
+            <div class="flex flex-wrap gap-2" id="booking_pains">
+              <span class="chip-btn px-3 py-1.5 rounded-xl text-xs selected" onclick="toggleMulti(this)">來回確認時間太耗時</span>
+              <span class="chip-btn px-3 py-1.5 rounded-xl text-xs selected" onclick="toggleMulti(this)">人工登記很麻煩</span>
+              <span class="chip-btn px-3 py-1.5 rounded-xl text-xs" onclick="toggleMulti(this)">容易漏單撞期</span>
+              <span class="chip-btn px-3 py-1.5 rounded-xl text-xs" onclick="toggleMulti(this)">多人排班難管理</span>
+              <span class="chip-btn px-3 py-1.5 rounded-xl text-xs" onclick="toggleMulti(this)">臨時取消或爽約</span>
+              <span class="chip-btn px-3 py-1.5 rounded-xl text-xs" onclick="toggleMulti(this)">希望客人自己完成預約</span>
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-medium text-fur-textMuted mb-2">4. 預計何時開始使用？</label>
+            <div class="flex flex-wrap gap-2">
+              <span class="chip-btn px-3 py-1.5 rounded-xl text-xs selected" onclick="selectRadio(this, 'booking_timeline')">立即</span>
+              <span class="chip-btn px-3 py-1.5 rounded-xl text-xs" onclick="selectRadio(this, 'booking_timeline')">1個月內</span>
+              <span class="chip-btn px-3 py-1.5 rounded-xl text-xs" onclick="selectRadio(this, 'booking_timeline')">1–3個月</span>
+              <span class="chip-btn px-3 py-1.5 rounded-xl text-xs" onclick="selectRadio(this, 'booking_timeline')">目前先了解</span>
+            </div>
+            <input type="hidden" id="booking_timeline" value="立即">
+          </div>
+        </div>
+
+        <!-- ================= 動態題組 B：LINE@ 自動化 ================= -->
+        <div id="section_line" class="space-y-5 p-5 rounded-2xl bg-fur-surface/70 border border-fur-border hidden">
+          <p class="text-xs font-semibold text-fur-accent tracking-wider">💬 LINE@ 智能自動化 ｜ 現況快速勾選</p>
+          
+          <div>
+            <label class="block text-xs font-medium text-fur-textMuted mb-2">1. 目前是否有 LINE 官方帳號？</label>
+            <div class="flex flex-wrap gap-2">
+              <span class="chip-btn px-3 py-1.5 rounded-xl text-xs selected" onclick="selectRadio(this, 'line_status')">有，正在使用</span>
+              <span class="chip-btn px-3 py-1.5 rounded-xl text-xs" onclick="selectRadio(this, 'line_status')">有，但很少使用</span>
+              <span class="chip-btn px-3 py-1.5 rounded-xl text-xs" onclick="selectRadio(this, 'line_status')">尚未建立</span>
+            </div>
+            <input type="hidden" id="line_status" value="有，正在使用">
+          </div>
+
+          <div>
+            <label class="block text-xs font-medium text-fur-textMuted mb-2">2. 目前 LINE 好友人數約多少？</label>
+            <div class="flex flex-wrap gap-2">
+              <span class="chip-btn px-3 py-1.5 rounded-xl text-xs selected" onclick="selectRadio(this, 'line_friends')">100以下</span>
+              <span class="chip-btn px-3 py-1.5 rounded-xl text-xs" onclick="selectRadio(this, 'line_friends')">100–500</span>
+              <span class="chip-btn px-3 py-1.5 rounded-xl text-xs" onclick="selectRadio(this, 'line_friends')">500–1,000</span>
+              <span class="chip-btn px-3 py-1.5 rounded-xl text-xs" onclick="selectRadio(this, 'line_friends')">1,000–5,000</span>
+              <span class="chip-btn px-3 py-1.5 rounded-xl text-xs" onclick="selectRadio(this, 'line_friends')">5,000以上</span>
+            </div>
+            <input type="hidden" id="line_friends" value="100以下">
+          </div>
+
+          <div>
+            <label class="block text-xs font-medium text-fur-textMuted mb-2">3. 最希望 LINE@ 幫您做到什麼？（可複選）</label>
+            <div class="flex flex-wrap gap-2" id="line_goals">
+              <span class="chip-btn px-3 py-1.5 rounded-xl text-xs selected" onclick="toggleMulti(this)">自動客服回覆</span>
+              <span class="chip-btn px-3 py-1.5 rounded-xl text-xs selected" onclick="toggleMulti(this)">服務介紹選單</span>
+              <span class="chip-btn px-3 py-1.5 rounded-xl text-xs selected" onclick="toggleMulti(this)">自動導向預約</span>
+              <span class="chip-btn px-3 py-1.5 rounded-xl text-xs" onclick="toggleMulti(this)">質感圖文選單</span>
+              <span class="chip-btn px-3 py-1.5 rounded-xl text-xs" onclick="toggleMulti(this)">顧客標籤分流</span>
+              <span class="chip-btn px-3 py-1.5 rounded-xl text-xs" onclick="toggleMulti(this)">AI 智能對話</span>
+              <span class="chip-btn px-3 py-1.5 rounded-xl text-xs" onclick="toggleMulti(this)">由 Fru 協助規劃</span>
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-medium text-fur-textMuted mb-2" for="line_id_input">4. 目前的 LINE@ ID 或連結（選填）</label>
+            <input type="text" id="line_id_input" placeholder="例如：@123abcde" class="input-warm w-full px-4 py-2.5 rounded-xl transition-all text-xs">
+          </div>
+        </div>
+
+        <!-- ================= 動態題組 C：一頁式網站 ================= -->
+        <div id="section_website" class="space-y-5 p-5 rounded-2xl bg-fur-surface/70 border border-fur-border hidden">
+          <p class="text-xs font-semibold text-fur-accent tracking-wider">🌐 一頁式品牌網站 ｜ 現況快速勾選</p>
+          
+          <div>
+            <label class="block text-xs font-medium text-fur-textMuted mb-2">1. 目前是否已有網站？</label>
+            <div class="flex flex-wrap gap-2">
+              <span class="chip-btn px-3 py-1.5 rounded-xl text-xs selected" onclick="selectRadio(this, 'web_status')">沒有</span>
+              <span class="chip-btn px-3 py-1.5 rounded-xl text-xs" onclick="selectRadio(this, 'web_status')">有，但想重新製作</span>
+              <span class="chip-btn px-3 py-1.5 rounded-xl text-xs" onclick="selectRadio(this, 'web_status')">已有網站，想加做活動頁</span>
+            </div>
+            <input type="hidden" id="web_status" value="沒有">
+          </div>
+
+          <div>
+            <label class="block text-xs font-medium text-fur-textMuted mb-2">2. 這次製作網站的主要目的？（可複選）</label>
+            <div class="flex flex-wrap gap-2" id="web_goals">
+              <span class="chip-btn px-3 py-1.5 rounded-xl text-xs selected" onclick="toggleMulti(this)">建立專業品牌形象</span>
+              <span class="chip-btn px-3 py-1.5 rounded-xl text-xs selected" onclick="toggleMulti(this)">服務與價格介紹</span>
+              <span class="chip-btn px-3 py-1.5 rounded-xl text-xs" onclick="toggleMulti(this)">作品集展示</span>
+              <span class="chip-btn px-3 py-1.5 rounded-xl text-xs" onclick="toggleMulti(this)">導向 LINE 預約諮詢</span>
+              <span class="chip-btn px-3 py-1.5 rounded-xl text-xs" onclick="toggleMulti(this)">課程活動推廣</span>
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-medium text-fur-textMuted mb-2">3. 目前已經準備哪些資料？（可複選）</label>
+            <div class="flex flex-wrap gap-2" id="web_materials">
+              <span class="chip-btn px-3 py-1.5 rounded-xl text-xs" onclick="toggleMulti(this)">LOGO／品牌色</span>
+              <span class="chip-btn px-3 py-1.5 rounded-xl text-xs selected" onclick="toggleMulti(this)">照片素材</span>
+              <span class="chip-btn px-3 py-1.5 rounded-xl text-xs selected" onclick="toggleMulti(this)">服務項目與定價</span>
+              <span class="chip-btn px-3 py-1.5 rounded-xl text-xs" onclick="toggleMulti(this)">文案內容</span>
+              <span class="chip-btn px-3 py-1.5 rounded-xl text-xs" onclick="toggleMulti(this)">目前都還沒有</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ================= 動態題組 D：包套組合 ================= -->
+        <div id="section_bundle" class="space-y-5 p-5 rounded-2xl bg-fur-surface/70 border border-fur-border hidden">
+          <p class="text-xs font-semibold text-fur-accent tracking-wider">📦 全方位包套組合 ｜ 營運現況盤點</p>
+          
+          <div>
+            <label class="block text-xs font-medium text-fur-textMuted mb-2">1. 目前經營上最大的困擾？（可複選）</label>
+            <div class="flex flex-wrap gap-2" id="bundle_pains">
+              <span class="chip-btn px-3 py-1.5 rounded-xl text-xs selected" onclick="toggleMulti(this)">私訊回覆太花時間</span>
+              <span class="chip-btn px-3 py-1.5 rounded-xl text-xs selected" onclick="toggleMulti(this)">預約流程很亂</span>
+              <span class="chip-btn px-3 py-1.5 rounded-xl text-xs" onclick="toggleMulti(this)">沒有完整品牌門面</span>
+              <span class="chip-btn px-3 py-1.5 rounded-xl text-xs" onclick="toggleMulti(this)">各系統沒有串接</span>
+              <span class="chip-btn px-3 py-1.5 rounded-xl text-xs" onclick="toggleMulti(this)">想自動化但不知道怎麼做</span>
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-medium text-fur-textMuted mb-2">2. 這次預計投入的預算？</label>
+            <div class="flex flex-wrap gap-2">
+              <span class="chip-btn px-3 py-1.5 rounded-xl text-xs" onclick="selectRadio(this, 'bundle_budget')">3萬以下</span>
+              <span class="chip-btn px-3 py-1.5 rounded-xl text-xs selected" onclick="selectRadio(this, 'bundle_budget')">3–5萬</span>
+              <span class="chip-btn px-3 py-1.5 rounded-xl text-xs" onclick="selectRadio(this, 'bundle_budget')">5–10萬</span>
+              <span class="chip-btn px-3 py-1.5 rounded-xl text-xs" onclick="selectRadio(this, 'bundle_budget')">10–20萬</span>
+              <span class="chip-btn px-3 py-1.5 rounded-xl text-xs" onclick="selectRadio(this, 'bundle_budget')">希望諮詢後評估</span>
+            </div>
+            <input type="hidden" id="bundle_budget" value="3–5萬">
+          </div>
+
+          <div>
+            <label class="block text-xs font-medium text-fur-textMuted mb-2">3. 希望多久內完成上線？</label>
+            <div class="flex flex-wrap gap-2">
+              <span class="chip-btn px-3 py-1.5 rounded-xl text-xs selected" onclick="selectRadio(this, 'bundle_timeline')">立即</span>
+              <span class="chip-btn px-3 py-1.5 rounded-xl text-xs" onclick="selectRadio(this, 'bundle_timeline')">1個月內</span>
+              <span class="chip-btn px-3 py-1.5 rounded-xl text-xs" onclick="selectRadio(this, 'bundle_timeline')">1–3個月</span>
+              <span class="chip-btn px-3 py-1.5 rounded-xl text-xs" onclick="selectRadio(this, 'bundle_timeline')">目前先規劃</span>
+            </div>
+            <input type="hidden" id="bundle_timeline" value="立即">
+          </div>
+        </div>
+
+        <!-- 共同需求備註（選填） -->
+        <div>
+          <div class="flex justify-between items-center mb-2">
+            <label class="block text-xs sm:text-sm font-semibold text-fur-textMuted tracking-wide" for="custom_notes">其他希望我們先了解的想法或細節（選填）</label>
+          </div>
+          <textarea id="custom_notes" rows="3" placeholder="例如：有喜歡的網站風格參考、特定排班限制..." class="input-warm w-full px-4 py-3 sm:py-3.5 rounded-2xl transition-all text-xs leading-relaxed"></textarea>
+        </div>
+
+        <!-- 最終打包傳送給 GAS 的 message hidden input -->
+        <input type="hidden" id="message" name="message" value="">
 
         <div class="p-3.5 sm:p-4 rounded-2xl bg-fur-surface/60 border border-fur-border/80 flex items-center gap-3 text-xs text-fur-textMuted">
           <i data-lucide="lock" class="w-4 h-4 text-fur-accent flex-shrink-0"></i>
@@ -755,7 +982,7 @@
         </div>
 
         <button type="submit" id="submitBtn" class="w-full py-3.5 sm:py-4 rounded-2xl bg-fur-textMain text-fur-bg font-semibold text-xs sm:text-sm tracking-widest hover:bg-fur-accent hover:scale-[1.01] active:scale-[0.99] transition-all shadow-lg flex items-center justify-center gap-2">
-          <span>送出預約諮詢</span>
+          <span id="submitBtnText">送出預約系統諮詢</span>
           <i data-lucide="send" class="w-4 h-4"></i>
         </button>
 
@@ -785,21 +1012,20 @@
   <script>
     lucide.createIcons();
 
-    // 🌟 原生 Scroll Reveal 監聽邏輯 (IntersectionObserver)
+    // 滾動漸進浮現動畫 (IntersectionObserver)
     const revealElements = document.querySelectorAll('.reveal');
     const revealObserver = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('active');
-          observer.unobserve(entry.target); // 出現後即取消監聽，保證極致流暢效能
+          observer.unobserve(entry.target);
         }
       });
     }, {
       root: null,
-      threshold: 0.12, // 當元素進入視窗 12% 時觸發
+      threshold: 0.12,
       rootMargin: '0px 0px -40px 0px'
     });
-
     revealElements.forEach(el => revealObserver.observe(el));
 
     // 效益試算器邏輯
@@ -827,18 +1053,109 @@
       savedHours.innerText = totalHoursPerMonth;
       savedValue.innerText = `NT$ ${totalYearlyValue.toLocaleString()}`;
     }
-
     msgRange.addEventListener('input', calculateROI);
     timeRange.addEventListener('input', calculateROI);
     rateRange.addEventListener('input', calculateROI);
     calculateROI();
 
-    // 原生表單提交處理
+    // ================= 🌟 動態分流表單邏輯 =================
+    let currentServiceType = "booking";
+
+    function selectServiceType(type, cardEl) {
+      currentServiceType = type;
+      document.querySelectorAll('.type-card').forEach(el => el.classList.remove('selected'));
+      cardEl.classList.add('selected');
+
+      // 隱藏所有分組，僅顯示選中分組
+      document.getElementById('section_booking').classList.add('hidden');
+      document.getElementById('section_line').classList.add('hidden');
+      document.getElementById('section_website').classList.add('hidden');
+      document.getElementById('section_bundle').classList.add('hidden');
+
+      const submitBtnText = document.getElementById('submitBtnText');
+      const serviceHidden = document.getElementById('service');
+
+      if (type === 'booking') {
+        document.getElementById('section_booking').classList.remove('hidden');
+        serviceHidden.value = "預約系統建置";
+        submitBtnText.innerText = "送出預約系統諮詢";
+      } else if (type === 'line') {
+        document.getElementById('section_line').classList.remove('hidden');
+        serviceHidden.value = "LINE@ 自動化諮詢";
+        submitBtnText.innerText = "送出 LINE@ 自動化諮詢";
+      } else if (type === 'website') {
+        document.getElementById('section_website').classList.remove('hidden');
+        serviceHidden.value = "一頁式網站諮詢";
+        submitBtnText.innerText = "送出一頁式網站諮詢";
+      } else if (type === 'bundle') {
+        document.getElementById('section_bundle').classList.remove('hidden');
+        serviceHidden.value = "包套組合整體規劃";
+        submitBtnText.innerText = "送出包套組合諮詢";
+      }
+    }
+
+    // 單選 Chip
+    function selectRadio(btn, targetInputId) {
+      const parent = btn.parentElement;
+      parent.querySelectorAll('.chip-btn').forEach(el => el.classList.remove('selected'));
+      btn.classList.add('selected');
+      document.getElementById(targetInputId).value = btn.innerText;
+    }
+
+    // 複選 Chip
+    function toggleMulti(btn) {
+      btn.classList.toggle('selected');
+    }
+
+    function getSelectedValues(containerId) {
+      const selected = [];
+      document.querySelectorAll(`#${containerId} .chip-btn.selected`).forEach(el => {
+        selected.push(el.innerText);
+      });
+      return selected.join('、') || '無特定';
+    }
+
+    // 表單提交前將所有動態欄位打包成結構化字串
     const contactForm = document.getElementById("contactForm");
     const submitBtn = document.getElementById("submitBtn");
     let submitted = false;
 
     contactForm.addEventListener("submit", function () {
+      let packageDetails = [];
+      const notes = document.getElementById('custom_notes').value.trim();
+
+      if (currentServiceType === 'booking') {
+        packageDetails.push(`【需求項目】線上預約系統`);
+        packageDetails.push(`【人員數量】${document.getElementById('staff_count').value}`);
+        packageDetails.push(`【目前預約方式】${getSelectedValues('booking_channels')}`);
+        packageDetails.push(`【最困擾痛點】${getSelectedValues('booking_pains')}`);
+        packageDetails.push(`【預計時程】${document.getElementById('booking_timeline').value}`);
+      } else if (currentServiceType === 'line') {
+        packageDetails.push(`【需求項目】LINE@ 自動化`);
+        packageDetails.push(`【帳號現況】${document.getElementById('line_status').value}`);
+        packageDetails.push(`【好友人數】${document.getElementById('line_friends').value}`);
+        packageDetails.push(`【期望目標】${getSelectedValues('line_goals')}`);
+        const lineId = document.getElementById('line_id_input').value.trim();
+        if (lineId) packageDetails.push(`【現有 LINE ID】${lineId}`);
+      } else if (currentServiceType === 'website') {
+        packageDetails.push(`【需求項目】一頁式品牌網站`);
+        packageDetails.push(`【網站現況】${document.getElementById('web_status').value}`);
+        packageDetails.push(`【製作目的】${getSelectedValues('web_goals')}`);
+        packageDetails.push(`【已備齊資料】${getSelectedValues('web_materials')}`);
+      } else if (currentServiceType === 'bundle') {
+        packageDetails.push(`【需求項目】包套組合整體規劃`);
+        packageDetails.push(`【最大困擾】${getSelectedValues('bundle_pains')}`);
+        packageDetails.push(`【預計預算】${document.getElementById('bundle_budget').value}`);
+        packageDetails.push(`【希望完成時程】${document.getElementById('bundle_timeline').value}`);
+      }
+
+      if (notes) {
+        packageDetails.push(`【其他想法/備註】${notes}`);
+      }
+
+      // 塞入隱藏的 message 欄位
+      document.getElementById('message').value = packageDetails.join('\n');
+
       submitted = true;
       submitBtn.innerHTML = `<span>⏳ 資料送出中...</span>`;
       submitBtn.disabled = true;
@@ -848,7 +1165,7 @@
       if (submitted) {
         alert("🎉 預約諮詢已成功送出！我們將於 24 小時內與您聯繫。");
         contactForm.reset();
-        submitBtn.innerHTML = `<span>送出預約諮詢</span><i data-lucide="send" class="w-4 h-4"></i>`;
+        submitBtn.innerHTML = `<span id="submitBtnText">送出預約系統諮詢</span><i data-lucide="send" class="w-4 h-4"></i>`;
         submitBtn.disabled = false;
         lucide.createIcons();
         submitted = false;
